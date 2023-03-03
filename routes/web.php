@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 
 // Route for forntend*********************************
-Route::get('loadmore', [App\Http\Controllers\FrontendController::class, 'loadMore']);
+Route::get('/test', [App\Http\Controllers\LoadMoreController::class, 'loadMore']);
 Route::get('/', [App\Http\Controllers\FrontendController::class, 'index']);
 
 

@@ -15,7 +15,7 @@
         >
 
 
-@foreach($product->files as $file)
+        @foreach($product->files as $file)
           <div class="item">
             <a
               href="#"
@@ -29,7 +29,7 @@
               />
             </a>
           </div>
-  @endforeach
+        @endforeach
           
         
         </div>
@@ -70,6 +70,7 @@
                 <i class="linearicons-bag-dollar"></i> Cash on Delivery
                 available
               </li>
+              <b class="text-black"><h4>এখান থেকে জুতার রঙ এবং আকার নির্বাচন করুন</h4></b>
             </ul>
           </div>
             <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
@@ -93,13 +94,10 @@
               @endphp
              
               @foreach ($product_size as $key=>$size)
-
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="size" id="size" value="{{$size}}" {{$key == 0? "checked" :"" }} >
                 <label class="form-check-label" for="inlineRadio1">{{$size}}</label>
               </div>
-
-            
               @endforeach
             
             </div>

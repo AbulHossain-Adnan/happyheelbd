@@ -21,7 +21,7 @@ class FrontendController extends Controller
             // 'products' => Product::with('files')->paginate(4)->get(),
             // 'brands' => Brand::all(),
             // 'main_sliders' => Product::where('status', 1)->where('main_slider', 1)->orderBy('id', 'desc')->get(),
-            'tends' => Product::where('status', 1)->where('trend', 1)->with(['brand','files'])->orderBy('id', 'desc')->paginate(40),
+            'tends' => Product::where('status', 1)->where('trend', 1)->with(['brand','files'])->orderBy('id', 'desc')->paginate(12),
             'best_rateds' => Product::where('status', 1)->where('best_rated', 1)->with(['brand','files'])->orderBy('id', 'desc')->get(),
             // 'banner' => Product::where('status', 1)->where('mid_slider', 1)->first(),
             // 'site_setting' => Site::first(),
@@ -30,19 +30,8 @@ class FrontendController extends Controller
         ]);
     }
 
-    public function loadMore() {
-        public function loadMore(Request $request)
-    {
-        $users = User::paginate(10);        
-        $data = '';
-        if ($request->ajax()) {
-            foreach ($users as $user) {
-                $data.='<li>'.'Name:'.' <strong>'.$user->name.'</strong><br> Email: '.$user- >email.'</li>';
-            }
-            return $data;
-        }
 
-        return view('user',compact('users'));
-    }
-    }
+        
+   
+        
 }

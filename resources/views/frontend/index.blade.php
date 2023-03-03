@@ -474,7 +474,7 @@
                         </div>
 
                         @endforeach
-                         <!-- {!! $tends->links() !!} -->
+                   {!! $tends->links() !!}
                     </div>
 
                 </div>
