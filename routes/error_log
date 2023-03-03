@@ -1,0 +1,112 @@
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/abulhoss/public_html/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/console.php on line 17
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/abulhoss/public_html/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/console.php on line 17
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/abulhoss/public_html/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/console.php on line 17
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/abulhoss/public_html/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/console.php on line 17
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/abulhoss/public_html/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/console.php on line 17
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/abulhoss/public_html/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/console.php on line 17
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/abulhoss/public_html/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/console.php on line 17
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:25:58 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Artisan" not found in /home/abulhoss/public_html/routes/console.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/console.php on line 17
+[02-Oct-2021 09:25:59 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:25:59 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:25:59 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:26:00 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/api.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/api.php on line 17
+[02-Oct-2021 09:26:00 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/api.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/api.php on line 17
+[02-Oct-2021 09:26:00 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:26:00 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/api.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/api.php on line 17
+[02-Oct-2021 09:26:00 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/api.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/api.php on line 17
+[02-Oct-2021 09:26:00 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:26:01 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:26:01 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Route" not found in /home/abulhoss/public_html/routes/web.php:24
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/web.php on line 24
+[02-Oct-2021 09:26:06 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/abulhoss/public_html/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/channels.php on line 16
+[02-Oct-2021 09:26:06 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/abulhoss/public_html/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/channels.php on line 16
+[02-Oct-2021 09:26:06 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/abulhoss/public_html/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/channels.php on line 16
+[02-Oct-2021 09:26:07 UTC] PHP Fatal error:  Uncaught Error: Class "Illuminate\Support\Facades\Broadcast" not found in /home/abulhoss/public_html/routes/channels.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/routes/channels.php on line 16

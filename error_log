@@ -1,0 +1,172 @@
+[01-Oct-2021 17:47:27 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:47:27 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:47:33 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:47:33 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:47:49 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:47:49 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:47:55 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:47:55 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:49:36 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:49:36 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:51:24 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:51:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:51:29 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:51:29 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:51:36 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:51:36 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:57:11 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:57:11 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:57:15 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:57:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:57:19 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 17:57:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:01:01 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:01:01 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:01:03 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:01:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:03:24 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:03:24 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:03:27 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:03:27 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:03:33 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:03:33 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:23:15 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:23:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:23:18 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/public/../bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:23:18 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/public/../bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/public/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 47
+[01-Oct-2021 18:24:00 UTC] PHP Fatal error:  Uncaught Error: Call to a member function make() on int in /home/abulhoss/public_html/public/index.php:49
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 49
+[01-Oct-2021 18:24:07 UTC] PHP Fatal error:  Uncaught Error: Call to a member function make() on int in /home/abulhoss/public_html/public/index.php:49
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 49
+[01-Oct-2021 18:24:12 UTC] PHP Fatal error:  Uncaught Error: Call to a member function make() on int in /home/abulhoss/public_html/public/index.php:49
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/public/index.php on line 49
+[03-Oct-2021 03:05:17 UTC] PHP Warning:  require(/home/abulhoss/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 34
+[03-Oct-2021 03:05:17 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 34
+[03-Oct-2021 03:05:22 UTC] PHP Warning:  require(/home/abulhoss/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 34
+[03-Oct-2021 03:05:22 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 34
+[03-Oct-2021 03:08:02 UTC] PHP Warning:  require(/home/abulhoss/public_html/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 34
+[03-Oct-2021 03:08:02 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/../vendor/autoload.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 34
+[03-Oct-2021 03:12:52 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 03:12:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 03:12:56 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 03:12:56 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 03:12:58 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 03:12:58 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 03:13:00 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 03:13:00 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 03:13:05 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 03:13:05 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:31:17 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:31:17 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:31:19 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:31:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:31:29 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:31:29 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:31:32 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:31:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:32:54 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:32:54 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:32:57 UTC] PHP Warning:  require_once(/home/abulhoss/public_html/bootstrap/app.php): Failed to open stream: No such file or directory in /home/abulhoss/public_html/index.php on line 47
+[03-Oct-2021 04:32:57 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/abulhoss/public_html/bootstrap/app.php' (include_path='.:/opt/alt/php80/usr/share/pear:/opt/alt/php80/usr/share/php:/usr/share/pear:/usr/share/php') in /home/abulhoss/public_html/index.php:47
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/index.php on line 47

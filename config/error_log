@@ -1,0 +1,248 @@
+[02-Oct-2021 09:22:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/database.php on line 18
+[02-Oct-2021 09:22:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/database.php on line 18
+[02-Oct-2021 09:22:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/database.php on line 18
+[02-Oct-2021 09:22:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/database.php on line 18
+[02-Oct-2021 09:22:47 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/database.php on line 18
+[02-Oct-2021 09:22:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/database.php on line 18
+[02-Oct-2021 09:22:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/queue.php on line 16
+[02-Oct-2021 09:22:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/services.php on line 18
+[02-Oct-2021 09:22:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/queue.php on line 16
+[02-Oct-2021 09:22:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/services.php on line 18
+[02-Oct-2021 09:22:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/services.php on line 18
+[02-Oct-2021 09:22:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/services.php on line 18
+[02-Oct-2021 09:22:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/filesystems.php on line 16
+[02-Oct-2021 09:22:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/services.php on line 18
+[02-Oct-2021 09:22:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/filesystems.php on line 16
+[02-Oct-2021 09:22:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/queue.php on line 16
+[02-Oct-2021 09:22:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/services.php on line 18
+[02-Oct-2021 09:22:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/queue.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/queue.php on line 16
+[02-Oct-2021 09:22:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/services.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/services.php on line 18
+[02-Oct-2021 09:22:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/filesystems.php on line 16
+[02-Oct-2021 09:22:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/filesystems.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/filesystems.php on line 16
+[02-Oct-2021 09:23:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/session.php on line 21
+[02-Oct-2021 09:23:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/session.php on line 21
+[02-Oct-2021 09:23:00 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/session.php on line 21
+[02-Oct-2021 09:23:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/session.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/session.php on line 21
+[02-Oct-2021 09:23:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/app.php on line 16
+[02-Oct-2021 09:23:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/app.php on line 16
+[02-Oct-2021 09:23:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/app.php on line 16
+[02-Oct-2021 09:23:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/logging.php on line 20
+[02-Oct-2021 09:23:08 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/logging.php on line 20
+[02-Oct-2021 09:23:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/mail.php on line 16
+[02-Oct-2021 09:23:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/mail.php on line 16
+[02-Oct-2021 09:23:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/app.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/app.php on line 16
+[02-Oct-2021 09:23:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/logging.php on line 20
+[02-Oct-2021 09:23:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/logging.php:20
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/logging.php on line 20
+[02-Oct-2021 09:23:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/mail.php on line 16
+[02-Oct-2021 09:23:09 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/mail.php on line 16
+[02-Oct-2021 09:23:11 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/mail.php on line 16
+[02-Oct-2021 09:23:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/mail.php on line 16
+[02-Oct-2021 09:23:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/mail.php:16
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/mail.php on line 16
+[02-Oct-2021 09:23:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/hashing.php on line 32
+[02-Oct-2021 09:23:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/hashing.php on line 32
+[02-Oct-2021 09:23:23 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/hashing.php on line 32
+[02-Oct-2021 09:23:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/hashing.php on line 32
+[02-Oct-2021 09:23:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/hashing.php on line 32
+[02-Oct-2021 09:23:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/broadcasting.php on line 18
+[02-Oct-2021 09:23:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/broadcasting.php on line 18
+[02-Oct-2021 09:23:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/broadcasting.php on line 18
+[02-Oct-2021 09:23:25 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/broadcasting.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/broadcasting.php on line 18
+[02-Oct-2021 09:23:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/hashing.php on line 32
+[02-Oct-2021 09:23:26 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/hashing.php:32
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/hashing.php on line 32
+[02-Oct-2021 09:23:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/chache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/chache.php on line 18
+[02-Oct-2021 09:23:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/chache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/chache.php on line 18
+[02-Oct-2021 09:23:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/abulhoss/public_html/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/view.php on line 17
+[02-Oct-2021 09:23:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/abulhoss/public_html/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/view.php on line 17
+[02-Oct-2021 09:23:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/chache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/chache.php on line 18
+[02-Oct-2021 09:23:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/abulhoss/public_html/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/view.php on line 17
+[02-Oct-2021 09:23:42 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function resource_path() in /home/abulhoss/public_html/config/view.php:17
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/view.php on line 17
+[02-Oct-2021 09:23:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/chache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/chache.php on line 18
+[02-Oct-2021 09:23:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/chache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/chache.php on line 18
+[02-Oct-2021 09:23:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/chache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/chache.php on line 18
+[02-Oct-2021 09:23:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/abulhoss/public_html/config/chache.php:18
+Stack trace:
+#0 {main}
+  thrown in /home/abulhoss/public_html/config/chache.php on line 18
