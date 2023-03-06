@@ -36,6 +36,10 @@
                         	<tr>
                             	<th class="product-thumbnail">&nbsp;</th>
                                 <th class="product-name">Product</th>
+                                <th class="product-name">Color</th>
+                                <th class="product-name">Size</th>
+
+
                                 <th class="product-price">Price</th>
                                 <th class="product-quantity">Quantity</th>
                                 <th class="product-subtotal">Total</th>
@@ -160,12 +164,20 @@
 			success:function(response){
 
 
+
+
 				var rows=""
 				$.each(response, function(key,value){
+
+					console.log(value.options.color);
+				console.log('sfsdflsdfs')
+
 					rows+=`
                     <tr>
                         <td class="product-thumbnail"><a href="#"><img src="product_images/${value.options.image}" width="100" alt="product1"></a></td>
                         <td class="product-name" data-title="Product"><a href="#">${value.name}</a></td>
+                         <td class="product-color" data-title="Product"><a href="#">${value.options.color}</a></td>
+                          <td class="product-size" data-title="Product"><a href="#">${value.options.size}</a></td>
                         <td class="product-price" data-title="Price">${value.price}</td>
                         <td class="product-quantity" data-title="Quantity"><div class="quantity">
                             ${value.qty>1
