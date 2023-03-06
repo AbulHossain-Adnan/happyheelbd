@@ -22,10 +22,10 @@ use Carbon\Carbon;
 class CheckoutController extends Controller
 {
 
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     public function checkoutpage(Request $Request)
     {
@@ -58,7 +58,9 @@ class CheckoutController extends Controller
 
         if ($Request->payment == "cash_on") {
             $order_id = Order::insertGetId([
-                'user_id' => Auth::id(),
+                // 'user_id' => Auth::id(),
+                'user_id' => 1,
+
                 'payment_type' => $Request->payment,
                 // 'blnc_transection'=>$request->null,
                 'subtotal' => Cart::subtotal(),

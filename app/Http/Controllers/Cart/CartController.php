@@ -64,6 +64,7 @@ dd($id);
     }
     public function addtocart(Request $request)
     {
+        dd($request->all());
         if (session::has('coupon')) {
             session::forget('coupon');
         }

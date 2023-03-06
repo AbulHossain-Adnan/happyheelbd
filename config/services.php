@@ -47,7 +47,7 @@ return [
 
         'client_secret' =>env('FACEBOOK_CLIENT_SECRET'),
 
-        'redirect' => 'https://happyheelbd.com/login/facebook/callback',
+        'redirect' => 'http://localhost:8000/login/facebook/callback',
 
     ],
 

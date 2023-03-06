@@ -17,7 +17,6 @@ class CreateShippingsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('order_id');
-
             $table->string('division');
             $table->string('district');
             $table->string('area');

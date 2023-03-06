@@ -38,11 +38,11 @@
                         </a>
                     </div>
                     <div id="pr_item_gallery" class="product_gallery_item slick_slider" data-slides-to-show="4" data-slides-to-scroll="1" data-infinite="false">
-                        @foreach($product->files as $file)
+                        @foreach($product->files as $key=>$file)
 
                         <div class="item">
-                            <a href="#" class="product_gallery_item active" data-image="{{ asset('product_images/'.@$file->product_image) }}" data-zoom-image="{{ asset('product_images/'.@$file->product_image) }}">
-                                <img src="{{ asset('product_images/'.@$file->product_image) }}" alt="product_small_img1" />
+                            <a href="{{$key}}" class="product_gallery_item active" data-image="{{ asset('product_images/'.@$file->product_image) }}" data-zoom-image="{{ asset('product_images/'.@$file->product_image) }}">
+                                <img src="{{ asset('product_images/'.@$file->product_image) }}" alt="product_small_img1"/>
                             </a>
                         </div>
                         @endforeach

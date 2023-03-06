@@ -844,8 +844,8 @@ $.ajaxSetup({
             success:function(data){
                 console.log(data.product_image);
 
-                 $("#pcname").text(data.product.product_code);
-                 $("#ptname").text(data.product.product_name);
+                $("#pcname").text(data.product.product_code);
+                $("#ptname").text(data.product.product_name);
                 $("#pname").text(data.product.product_name);
                 $("#pimage").attr('src','/product_images/'+data.product_image);
                 $("#cname").text(data.product.category.category_name);
@@ -860,18 +860,10 @@ $.ajaxSetup({
                else{
                 $("#test").text(data.product.product_quantity);
                }
-
-
               
                 $("#quantity").focus(function(){
                 $(this).blur(); 
                     });
-
-
-
-
-
-
 
                 var d=$('select[name="color"]').empty();
                 $.each(data.color,function(key,value){
@@ -897,7 +889,7 @@ $.ajaxSetup({
 
 
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     function addtocart_two(){
 
        $.ajaxSetup({
@@ -955,13 +947,14 @@ $.ajaxSetup({
     }
 
 </script>
-
+ -->
 
 
 
 
 <script type="text/javascript">
     function addtocart(){
+
 
        $.ajaxSetup({
     headers: {
@@ -970,13 +963,12 @@ $.ajaxSetup({
 
 });
 
-       var id=$('#product_id').val();
-       var color=$('#color').val();
-       var size=$('#size').val();
-       var quantity=$('#quantity').val();
-
- var color=$('input[name="color"]:checked').val();
-       var size=$('input[name="size"]:checked').val();
+        var id=$('#product_id').val();
+        var color=$('#color').val();
+        var size=$('#size').val();
+        var quantity=$('#quantity').val();
+        // var color=$('input[name="color"]:checked').val();
+        // var size=$('input[name="size"]:checked').val();
 
 // alert(color)
 
