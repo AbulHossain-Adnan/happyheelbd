@@ -71,7 +71,7 @@ class ProductController extends Controller
                     $image_name = $data->files[0]['product_image'];
                     $url = "product_images/$image_name";
                     return '<img src="' . $url . '" border="0" 
-                    width="100" class="img-rounded" align="center" />';
+                    width="60" class="img-rounded" align="center" />';
                 })
                 ->rawColumns(['action', 'image_one'])
                 ->make(true);

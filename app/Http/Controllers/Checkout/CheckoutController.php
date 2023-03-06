@@ -13,6 +13,8 @@ use App\Models\Admin\Area;
 use App\Models\Order;
 use App\Models\Order_detail;
 use App\Models\Shipping;
+use App\Models\User;
+
 use App\Models\Admin\Seo;
 use Auth;
 use Carbon\Carbon;
@@ -35,48 +37,37 @@ class CheckoutController extends Controller
             [
                 'seos' => Seo::first(),
                 'cart' => Cart::content(),
-                'categories' => Category::all(),
+                'categories' => Category::get(),
                 'carts' => $Request->all(),
-                'divisions' => Division::all(),
-                'site_setting' => Site::first(),
+                'divisions' => Division::get(),
+                // 'site_setting' => Site::first(),
             ]
         );
     }
 
     public function payment(Request $Request)
     {
-        // $data['subtotal'] = Cart::subtotal();
-        // $data['discount'] = $Request->discount;
-        // $data['paying_amount'] = $Request->subtotal + $Request->sheeping;
-        // $data['shipping'] = $Request->sheeping;
-
-
-        // dd($data);
-        // dd($Request->all());
-        
-
 
         if ($Request->payment == "cash_on") {
             $order_id = Order::insertGetId([
-                // 'user_id' => Auth::id(),
-                'user_id' => 1,
-
+                'user_id' => Auth::id()?Auth::id():"",
+                'name'=>$Request->name,
                 'payment_type' => $Request->payment,
-                // 'blnc_transection'=>$request->null,
+                'blnc_transection'=>$Request->pnumber,
                 'subtotal' => Cart::subtotal(),
                 'discount' => $Request->discount,
                 'paying_amount' => $Request->subtotal + $Request->sheeping,
                 'status_code' => mt_rand(100000, 999999),
                 'shipping' => $Request->sheeping,
                 'vat' => 0,
-                'date' => Carbon::now()->format('m-d-y'),
+                'date' => Carbon::now()->format('Y-m-d'),
                 'month' => Carbon::now()->format('F'),
                 'year' => Carbon::now()->year,
             ]);
             foreach (Cart::content() as $value) {
 
                 Order_detail::insert([
-                    'user_id' => Auth::id(),
+                    'user_id' => Auth::id()?Auth::id():"",
                     'order_id' => $order_id,
                     'product_id' => $value->id,
                     'color' => $value->options->color,
@@ -101,7 +92,8 @@ class CheckoutController extends Controller
 
 
             Shipping::insert([
-                'user_id' => Auth::id(),
+                'user_id' => Auth::id()?Auth::id():"",
+                'user_id' => $Request->name,
                 'order_id' => $order_id,
                 'division' => $division_name->division,
                 'district' => $district_name->district,

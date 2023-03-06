@@ -15,6 +15,8 @@ class ReportController extends Controller
     
     public function todayreport(){
     	$date=Carbon::now()->format('Y-m-d');
+
+      // dd($date);
     	
     	return view('admin/report/today_order',[
     		'orders'=>Order::where('status',0)->where('date',$date)->get(),

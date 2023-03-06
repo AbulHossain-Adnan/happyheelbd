@@ -500,7 +500,7 @@
                                 <tr >
                                   
                                     <th>Shipping</th>
-                                     <p>inside dhaka sheeping charge 80 taka and outside dhaka delivary charge 150 taka</p>
+                                     <p>ঢাকার ভিতরে শিপিং চার্জ 80 টাকা সময় 2-3 দিন এবং ঢাকার বাইরে ডেলিভারি চার্জ 150 টাকা সময় 3-4 দিন</p>
 
                                     <td id="sheeping_charge"></td>
                                 </tr>
@@ -530,13 +530,7 @@
             </label>
             </div><!-- col-4 -->
             
-            <div class="col-lg-4">
-              <label class="ckbox">
-                <input type="radio" name="payment" value="bkash">
-                <img src="{{ asset('frontend') }}/payments/bkash.jpg" width="100"
-                alt="">
-              </label>
-            </div>
+            
             <div class="col-lg-4">
               <label class="ckbox">
                 <input type="radio" name="payment" value="stripe">
@@ -601,7 +595,7 @@
     success:function(data){
      
     
-    $('select[name="district_id"]').empty();
+    $('select[name="district_id"]').val("choose one");
     $('#district_id').html('<option value="">Select District</option>');
     $.each(data, function(key, value){
       

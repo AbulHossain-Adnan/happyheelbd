@@ -60,11 +60,13 @@ class OrderController extends Controller
     {
 
 
-        $orders = Order::find($id)->where('id', $id)->OrderBY('id', 'DESC')->with('Shipping')->first();
+        $orders = Order::find($id)->where('id', $id)->OrderBY('id', 'desc')->with('Shipping')->first();
 
         $order_details = Order_detail::where('order_id', $id)->with('product')->get();
-        $user = User::findOrFail($orders->user_id)->first();
-        return view('admin/order/show',compact('orders','order_details','user'));
+        // $user = User::findOrFail($orders->user_id)->first();
+        // return view('admin/order/show',compact('orders','order_details','user'));
+        return view('admin/order/show',compact('orders','order_details'));
+
     }
 
     /**

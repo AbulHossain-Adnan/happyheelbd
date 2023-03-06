@@ -213,7 +213,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="heading_s1 text-center">
-                        <h2>Exclusive Products </h2>
+                        <h2>Best Rated Products </h2>
                     </div>
                 </div>
             </div>
@@ -223,7 +223,7 @@
                     <div class="product_slider carousel_slider owl-carousel owl-theme dot_style1" data-loop="false"
                         data-margin="20"
                         data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "991":{"items": "4"}}'>
-                        @foreach ($tends as $item)
+                        @foreach ($best_rateds as $item)
 
 
                         <div class="item">
@@ -302,7 +302,7 @@
                     <div class="product_slider carousel_slider owl-carousel owl-theme dot_style1" data-loop="false"
                         data-margin="20"
                         data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "991":{"items": "4"}}'>
-                        @foreach ($tends as $item)
+                        @foreach ($hot_deals as $item)
                         <div class="item">
                             <div class="product_wrap">
                                 <div class="product_img">
@@ -401,7 +401,7 @@
                     <div class="row shop_container loadmore" data-item="8" data-item-show="4"
                         data-finish-message="No More Item to Show" data-btn="Load More">
 
-                        @foreach ($tends as $item)
+                        @foreach ($all_products as $item)
                         <div class="col-lg-3 col-md-4 col-6 grid_item">
                             <div class="product">
                                  <span class="pr_flash">New</span>
@@ -474,7 +474,7 @@
                         </div>
 
                         @endforeach
-                   {!! $tends->links() !!}
+                   {!! $all_products->links() !!}
                     </div>
 
                 </div>
@@ -794,6 +794,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
+                                    <h3 class="text-center">জুতোর রঙ এবং আকার নির্বাচন করুন</h3>
                                     <a type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></a>
                                 </div>
@@ -803,11 +804,8 @@
                                             <div class="form-group">
                                                 <div class="card">
                                                     <img src="" id="pimage" name="image"
-                                                        style="width:235px;height: 200px;">
-                                                    <div class="card-body">
-                                                        <li class="list-group-item">Product_Title::<span
-                                                                id="ptname"></span></li>
-                                                    </div>
+                                                        style="width:323px;height: 253px;">
+                                                  
                                                 </div>
                                             </div>
                                         </div>
@@ -817,8 +815,7 @@
                                                 <li class="list-group-item">Product Name::<span id="pname"></span></li>
                                                 <li class="list-group-item">Category Name::<span id="cname"></span></li>
                                                 <li class="list-group-item">Brand name::<span id="bname"></span></li>
-                                                <li class="list-group-item">Stock::<span class="badge badge-success"
-                                                        id="stock"></span></li>
+                                                <li class="list-group-item">Stock::<span class="badge bg-success">Available</span></li>
                                             </ul>
                                         </div>
 
@@ -929,7 +926,7 @@ $.ajaxSetup({
                 $("#cname").text(data.product.category.category_name);
                 $("#bname").text(data.product.brand.brand_name);
                 $("#product_id").val(data.product.id);
-               $("#stock").text(data.product.product_quantity);
+                $("#stock").text(data.product.product_quantity);
 
 
                if( data.product.product_quantity < $('#quantity').val() ){
@@ -943,9 +940,7 @@ $.ajaxSetup({
                 $(this).blur(); 
                     });
 
-                // var d=$('select[name="color"]').empty();
                 var dd = $('#test_color_display').empty();
-
                 $.each(data.color,function(key,value){
                     $("#test_color_display").append(`
                                    
@@ -958,14 +953,9 @@ $.ajaxSetup({
             `
                         );
                 });
-                var e=$('select[name="size"]').empty();
 
                 var dd = $('#test_size_display').empty();
                 $.each(data.size ,function(key,value) {
-
-
-                // $('select[name="size"]').append('dfsdfsdfsdfsdf');
-
                      $("#test_size_display").append(`
                                   <div class="form-check form-check-inline">
                                     <input style="border: 1px solid red;" class="form-check-input" type="radio" name="size" id="size" value="${value}" ${key == 0? "checked" :"" }>
@@ -974,20 +964,6 @@ $.ajaxSetup({
                                 
             `
                         );
-
-            //           $('#test_size_display').html(`
-
-
-            //                       <div class="form-check form-check-inline">
-            //                         <input style="border: 1px solid red;" class="form-check-input" type="radio" name="size" id="size" value="${value}" ${key == 0? "checked" :"" }>
-            //                         <label class="form-check-label" for="inlineRadio1">${value}</label>
-            //                       </div>
-                                
-
-            // `)
-
-
-
 
             });
  

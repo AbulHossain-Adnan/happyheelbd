@@ -250,7 +250,6 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <!-- <h5 class="modal-title" id="exampleModallevel">Modal</h5> -->
                                     <a type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></a>
                                 </div>
@@ -283,24 +282,38 @@
 
                                             <input type="hidden" id="product_id" name="product_id">
                                             <div class="form-group">
-                                                <label for="exampleInputColor">Color </label>
-                                                <select class="form-control input-lg" id="color" name="color">
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputColor">Size </label>
-                                                <select class="form-control input-lg" id="size" name="size">
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputQuantity">Quantity </label>
-                                                <input type="number" name="qty" id="quantity" class="form-control"
-                                                    value="1" pattern="[0-9]">
-                                            </div>
+                                        <div class="">
+
+                                     <span class="" id="color_display">Color: </span>
+                                    <div class="product_color_switch">
+
+                                        <div class="" id="test_color_display">
+                                 
+                                        </div>
+                                      
+                                    </div>
+                                  </div> 
+                                </div>
+                            <div class="form-group">
+                                               
+
+                            <div class="pr_switch_wrap">
+                            <span class="" id="size_display">Size:</span>
+                            <div class="" id="test_size_display">
+                            </div>
+                               
+                              </div>
+                                </div><br>
+                                     <span class="mt-5" id="size_display">Quantity:</span><br>
+                                   <select class="form-select" aria-label="Default select example" id="quantity2">
+                                      <!-- <option selected>Choose one</option> -->
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                    </select>
                                             <br>
                                             <a class="bth btn-primary btn-sm" id="addtocarttest" type="submit"
                                                 onclick="addtocart()">Add to card</a>
-
                                         </div>
 
                                     </div>
@@ -308,6 +321,7 @@
 
                             </div>
                         </div>
+                    </div>
                     </div>
 
 
@@ -341,7 +355,7 @@ $.ajaxSetup({
     }
 });
     
-    function productview(id){
+  function productview(id){
       
 
         $.ajax({
@@ -350,9 +364,10 @@ $.ajaxSetup({
             datatype:"json",
             url:"/productview/"+id,
             success:function(data){
+                console.log(data.product_image);
 
-                 $("#pcname").text(data.product.product_code);
-                 $("#ptname").text(data.product.product_name);
+                $("#pcname").text(data.product.product_code);
+                $("#ptname").text(data.product.product_name);
                 $("#pname").text(data.product.product_name);
                 $("#pimage").attr('src','/product_images/'+data.product_image);
                 $("#cname").text(data.product.category.category_name);
@@ -367,26 +382,56 @@ $.ajaxSetup({
                else{
                 $("#test").text(data.product.product_quantity);
                }
-
-
               
                 $("#quantity").focus(function(){
                 $(this).blur(); 
                     });
 
+                // var d=$('select[name="color"]').empty();
+                var dd = $('#test_color_display').empty();
 
-
-
-
-
-
-                var d=$('select[name="color"]').empty();
                 $.each(data.color,function(key,value){
-                    $('select[name="color"]').append('<option value="'+value+'">'+value+'</option>');
+                    $("#test_color_display").append(`
+                                   
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="color" id="color" value="${value}" ${key == 0? "checked" :"" }>
+                <label class="form-check-label" for="inlineRadio1">${value}</label>
+              </div>
+              
+                                
+            `
+                        );
                 });
                 var e=$('select[name="size"]').empty();
-                $.each(data.size ,function(key,value){
-                $('select[name="size"]').append('<option value ="'+value+'">'+value+'</option>');
+
+                var dd = $('#test_size_display').empty();
+                $.each(data.size ,function(key,value) {
+
+
+                // $('select[name="size"]').append('dfsdfsdfsdfsdf');
+
+                     $("#test_size_display").append(`
+                                  <div class="form-check form-check-inline">
+                                    <input style="border: 1px solid red;" class="form-check-input" type="radio" name="size" id="size" value="${value}" ${key == 0? "checked" :"" }>
+                                    <label class="form-check-label" for="inlineRadio1">${value}</label>
+                                  </div>
+                                
+            `
+                        );
+
+            //           $('#test_size_display').html(`
+
+
+            //                       <div class="form-check form-check-inline">
+            //                         <input style="border: 1px solid red;" class="form-check-input" type="radio" name="size" id="size" value="${value}" ${key == 0? "checked" :"" }>
+            //                         <label class="form-check-label" for="inlineRadio1">${value}</label>
+            //                       </div>
+                                
+
+            // `)
+
+
+
 
             });
  
@@ -424,6 +469,8 @@ $.ajaxSetup({
 <script type="text/javascript">
     function addtocart_two(){
 
+        alert('hi');
+
        $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -435,7 +482,7 @@ $.ajaxSetup({
        // var size=$('#size').val();
        var color=$('input[name="color"]:checked').val();
        var size=$('input[name="size"]:checked').val();
-       var quantity=$('#quantity').val();
+       var quantity=$('#quantity2').val();
 
 
        $.ajax({
@@ -493,7 +540,7 @@ $.ajaxSetup({
        var id=$('#product_id').val();
        var color=$('#color').val();
        var size=$('#size').val();
-       var quantity=$('#quantity').val();
+       var quantity=$('#quantity2').val();
 
 
        $.ajax({

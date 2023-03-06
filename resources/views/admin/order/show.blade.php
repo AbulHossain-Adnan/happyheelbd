@@ -31,56 +31,56 @@
             <div class="row mg-b-25">
               <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">User Name: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">User Name: <span class="tx-danger">*</span></label><br>
                    
-                   <b> {{$user->name}}</b><br>
+                 {{$orders->name}}
               
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">paymtype: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">paymtype: <span class="tx-danger">*</span></label><br>
                  
                  <b>{{$orders->payment_type}}</b>
                 </div>
               </div><!-- col-4 -->
                <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">blnc_transection: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">Phone Number: <span class="tx-danger">*</span></label><br>
                  
                  <b>{{$orders->blnc_transection}}</b>
                 </div>
               </div><!-- col-4 --> <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">subtotal: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">subtotal: <span class="tx-danger">*</span></label><br>
                  
                  <b>{{$orders->subtotal}}</b>
                 </div>
               </div><!-- col-4 -->
                <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">discount: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">discount: <span class="tx-danger">*</span></label><br>
                  
                  <b>{{$orders->discount}}</b>
                 </div>
               </div><!-- col-4 --> 
               <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">payamount: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">payamount: <span class="tx-danger">*</span></label><br>
                  
                  <b>{{$orders->paying_amount}}</b>
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">shipping: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">shipping: <span class="tx-danger">*</span></label><br>
                  
                  <b>{{$orders->shipping}}</b>
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">vat: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">vat: <span class="tx-danger">*</span></label><br>
                  
                  <b>{{$orders->vat}}</b>
                 </div>
@@ -128,21 +128,21 @@
                 </div>
               </div><!-- col-4 --> <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">District: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">District: <span class="tx-danger">*</span></label><br>
                  
                  <b>{{$orders->Shipping->district}}</b>
                 </div>
               </div><!-- col-4 -->
                <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">Thana: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">Thana: <span class="tx-danger">*</span></label><br>
                  
                  <b>{{$orders->Shipping->area}}</b>
                 </div>
               </div><!-- col-4 --> 
               <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">zip: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">zip: <span class="tx-danger">*</span></label><br>
                  
                  <b>{{$orders->Shipping->zip}}</b>
                 </div>

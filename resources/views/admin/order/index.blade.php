@@ -18,9 +18,12 @@
           <table id="datatable1" class="table display responsive nowrap">
             <thead>
               <tr>
-                <th class="wd-15p">userid</th>
+                <th class="wd-15p">Name</th>
+                  <th class="wd-20p">Phone number</th>
+                  <th class="wd-20p">Area</th>
+
                 <th class="wd-15p">paytype</th>
-                <th class="wd-20p">blnc_transection</th>
+              
                 <th class="wd-15p">total</th>
                 <th class="wd-10p">discount</th>
                 <th class="wd-25p">payamount</th>
@@ -38,9 +41,13 @@
               @foreach ($orders as $item)    
               
               <tr>
-               <td>{{$item->user_id}}</td>
+               <td>{{$item->name}}</td>
+                <td>{{$item->blnc_transection}}</td>
+                <td>{{$item->Shipping->address}}</td>
+
                <td>{{$item->payment_type}}</td>
-               <td>{{$item->blnc_transection}}</td>
+
+              
                <td>{{$item->subtotal}}</td>
                <td>{{$item->discount}}</td>
                <td>{{$item->paying_amount}}</td>

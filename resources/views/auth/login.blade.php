@@ -72,7 +72,7 @@
                         </div>
                      <ul class="btn-login list_none text-center">
                            Login with you google account<br>
-                            <li><a href="{{ url('/auth/facebook') }}" class="btn btn-facebook"><i class="ion-social-facebook"></i>Facebook</a></li>
+                            <!-- <li><a href="{{ url('/auth/facebook') }}" class="btn btn-facebook"><i class="ion-social-facebook"></i>Facebook</a></li> -->
                             <li><a href="{{ url('login/google') }}" class="btn btn-google"><i class="ion-social-googleplus"></i>Google</a></li>
                         </ul>
                         <div class="form-note text-center">আপনার যদি কোনো অ্যাকাউন্ট না থাকে তাহলে একটি অ্যাকাউন্ট তৈরি করতে এখানে ক্লিক করুন

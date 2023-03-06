@@ -378,13 +378,13 @@
         @endif --}}
 
         {{-- @if(Auth::check() && Auth::user()->contact_message == 1) --}}
-        <a href="{{url('comtact/messages')}}" class="sl-menu-link {{'comtact/messages' == request()->path()?'active':''}} ">
+      <!--   <a href="{{url('comtact/messages')}}" class="sl-menu-link {{'comtact/messages' == request()->path()?'active':''}} ">
           <div class="sl-menu-item">
           <i class="fas fa-search-location"></i>
             <span class="menu-item-label">Contact Message</span>
          
-          </div><!-- menu-item -->
-        </a><!-- sl-menu-link -->
+          </div>
+        </a> -->
      
         {{-- @else
         @endif --}}
