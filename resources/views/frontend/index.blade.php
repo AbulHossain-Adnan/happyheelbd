@@ -706,7 +706,7 @@
                 <div class="col-md-6">
                     <div class="newsletter_form2">
 
- <form>
+                    <form>
                         <input type="email" required="" class="form-control rounded-0" id="newsemail" placeholder="Enter Email Address">
                         <button type="button" onclick="addnewsletter()" class="btn btn-dark rounded-0" name="submit" value="Submit">Subscribe</button>
                     </form>
@@ -724,12 +724,11 @@
 </div>
 <!-- END MAIN CONTENT -->
 
-<div class="modal fade" id="cartmodal" tabindex="-1" role="dialog"
+<!-- <div class="modal fade" id="cartmodal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModallevel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <!-- <h5 class="modal-title" id="exampleModallevel"></h5> -->
                                     <a type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></a>
                                 </div>
@@ -787,12 +786,93 @@
 
                             </div>
                         </div>
+                    </div> -->
+
+
+                    <div class="modal fade" id="cartmodal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModallevel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <a type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></a>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <div class="card">
+                                                    <img src="" id="pimage" name="image"
+                                                        style="width:235px;height: 200px;">
+                                                    <div class="card-body">
+                                                        <li class="list-group-item">Product_Title::<span
+                                                                id="ptname"></span></li>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="list-group">
+                                                <li class="list-group-item">Product Code::<span id="pcname"></span></li>
+                                                <li class="list-group-item">Product Name::<span id="pname"></span></li>
+                                                <li class="list-group-item">Category Name::<span id="cname"></span></li>
+                                                <li class="list-group-item">Brand name::<span id="bname"></span></li>
+                                                <li class="list-group-item">Stock::<span class="badge badge-success"
+                                                        id="stock"></span></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-sm-4">
+
+                                            <input type="hidden" id="product_id" name="product_id">
+                                            <div class="form-group">
+                                        <div class="">
+
+                                     <span class="" id="color_display">Color: </span>
+                                    <div class="product_color_switch">
+
+                                        <div class="" id="test_color_display">
+                                 
+                                        </div>
+                                      
+                                    </div>
+                                  </div> 
+                                </div>
+                            <div class="form-group">
+                                               
+
+                            <div class="pr_switch_wrap">
+                            <span class="" id="size_display">Size:</span>
+                            <div class="" id="test_size_display">
+                            </div>
+                               
+                              </div>
+                                </div><br>
+                                     <span class="mt-5" id="size_display">Quantity:</span><br>
+                                   <select class="form-select" aria-label="Default select example" id="quantity2">
+                                      <!-- <option selected>Choose one</option> -->
+                                      <option value="1">1</option>
+                                      <option value="2">2</option>
+                                      <option value="3">3</option>
+                                    </select>
+                                            <br>
+                                            <a class="bth btn-primary btn-sm" id="addtocarttest" type="submit"
+                                                onclick="addtocart()">Add to card</a>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div> 
 
 
 <script type="text/javascript">
+
 @if (Session:: has('message'))
+
         var type = "{{Session::get('alert-type','success')}}"
         switch (type) {
             case 'info':
@@ -808,9 +888,7 @@
                 toastr.error("{{ Session::get('message') }}");
                 break;
         }
-        @endif
-
-
+    @endif
 </script>
 
 
@@ -826,6 +904,121 @@ $.ajaxSetup({
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script type="text/javascript">
+
+    $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+    
+    function productview(id){
+      
+
+        $.ajax({
+          
+            type:"GET",
+            datatype:"json",
+            url:"productview/"+id,
+            success:function(data){
+                console.log(data.product_image);
+
+                $("#pcname").text(data.product.product_code);
+                $("#ptname").text(data.product.product_name);
+                $("#pname").text(data.product.product_name);
+                $("#pimage").attr('src','/product_images/'+data.product_image);
+                $("#cname").text(data.product.category.category_name);
+                $("#bname").text(data.product.brand.brand_name);
+                $("#product_id").val(data.product.id);
+               $("#stock").text(data.product.product_quantity);
+
+
+               if( data.product.product_quantity < $('#quantity').val() ){
+                   $("#test").text(data.product.brand.brand_name);  
+               }
+               else{
+                $("#test").text(data.product.product_quantity);
+               }
+              
+                $("#quantity").focus(function(){
+                $(this).blur(); 
+                    });
+
+                // var d=$('select[name="color"]').empty();
+                var dd = $('#test_color_display').empty();
+
+                $.each(data.color,function(key,value){
+                    $("#test_color_display").append(`
+                                   
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="color" id="color" value="${value}" ${key == 0? "checked" :"" }>
+                <label class="form-check-label" for="inlineRadio1">${value}</label>
+              </div>
+              
+                                
+            `
+                        );
+                });
+                var e=$('select[name="size"]').empty();
+
+                var dd = $('#test_size_display').empty();
+                $.each(data.size ,function(key,value) {
+
+
+                // $('select[name="size"]').append('dfsdfsdfsdfsdf');
+
+                     $("#test_size_display").append(`
+                                  <div class="form-check form-check-inline">
+                                    <input style="border: 1px solid red;" class="form-check-input" type="radio" name="size" id="size" value="${value}" ${key == 0? "checked" :"" }>
+                                    <label class="form-check-label" for="inlineRadio1">${value}</label>
+                                  </div>
+                                
+            `
+                        );
+
+            //           $('#test_size_display').html(`
+
+
+            //                       <div class="form-check form-check-inline">
+            //                         <input style="border: 1px solid red;" class="form-check-input" type="radio" name="size" id="size" value="${value}" ${key == 0? "checked" :"" }>
+            //                         <label class="form-check-label" for="inlineRadio1">${value}</label>
+            //                       </div>
+                                
+
+            // `)
+
+
+
+
+            });
+ 
+  
+            }
+            
+        })
+
+    }
+</script>
+
+
+<!-- displayed selected size  -->
+<!-- <script>
+    var selectedColor = $('input[name="color"]:checked').val();     
+    $("#color_display").html("Color:"+" "+selectedColor);
+
+    // when size value will be changed
+    $(document).ready(function() {
+        // Add a change event listener to the radio button inputs
+        $('input[name="color"]').change(function() {
+            // Retrieve the value of the selected input
+            var selectedColor = $('input[name="color"]:checked').val();
+            $("#color_display").html("Color:"+" "+selectedColor);
+        });
+    });
+</script> -->
+
+
+
+<!-- <script type="text/javascript">
 
     $.ajaxSetup({
     headers: {
@@ -881,15 +1074,11 @@ $.ajaxSetup({
         })
 
     }
-</script>
+</script> -->
 
 
 
-
-
-
-
-<!-- <script type="text/javascript">
+<script type="text/javascript">
     function addtocart_two(){
 
        $.ajaxSetup({
@@ -947,7 +1136,7 @@ $.ajaxSetup({
     }
 
 </script>
- -->
+
 
 
 
@@ -961,16 +1150,13 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 
-});
+    });
 
         var id=$('#product_id').val();
-        var color=$('#color').val();
-        var size=$('#size').val();
-        var quantity=$('#quantity').val();
-        // var color=$('input[name="color"]:checked').val();
-        // var size=$('input[name="size"]:checked').val();
+        var quantity=$('#quantity2').val();
+        var color=$('input[name="color"]:checked').val();
+        var size=$('input[name="size"]:checked').val();
 
-// alert(color)
 
        $.ajax({
         type:'POST',

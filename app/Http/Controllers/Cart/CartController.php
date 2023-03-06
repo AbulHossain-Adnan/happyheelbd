@@ -17,7 +17,7 @@ class CartController extends Controller
     public function addcart($id)
     {
 
-dd($id);
+// dd($id);
 
 
         if (session::has('coupon')) {
@@ -64,7 +64,7 @@ dd($id);
     }
     public function addtocart(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         if (session::has('coupon')) {
             session::forget('coupon');
         }

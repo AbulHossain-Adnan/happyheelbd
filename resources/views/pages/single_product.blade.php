@@ -102,7 +102,7 @@
                             <b class="text-black"><h4>এখান থেকে জুতার রঙ এবং আকার নির্বাচন করুন</h4></b>
                         </div>
                       <div class="pr_switch_wrap">
-                         <span class="" id="size_display">Size:</span>
+            <span class="" id="size_display">Size:</span>
             <div class="">
               @php
                $i=0;
