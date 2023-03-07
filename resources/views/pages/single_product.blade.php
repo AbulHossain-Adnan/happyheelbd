@@ -858,16 +858,9 @@ $.ajaxSetup({
                 $("#test").text(data.product.product_quantity);
                }
 
-
-              
                 $("#quantity").focus(function(){
                 $(this).blur(); 
                     });
-
-
-
-
-
 
 
                 var d=$('select[name="color"]').empty();
@@ -910,19 +903,6 @@ $.ajaxSetup({
 
 
 
-<!-- <script>
-    $(document).ready(function() {
-        // Add a change event listener to the radio button inputs
-        $('input[name="size"]').change(function() {
-            // Retrieve the value of the selected input
-            var selectedSize = $('input[name="size"]:checked').val();
-            
-          alert(selectedSize);
-        });
-    });
-</script> -->
-
-In this example, the change event listener is added to all radio button inputs with the name attribute set to "size". When a radio button input is selected, the event listener function is called, which retrieves the value of the selected input using the val function. This value is then logged to the console, but you can use it in your application logic as needed.
 
 
 

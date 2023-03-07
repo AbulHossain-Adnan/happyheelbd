@@ -7,18 +7,15 @@ use App\Models\Product;
 
 class LoadMoreController extends Controller
 {
-    public function loadmore(Request $request) {
-        // $users = User::paginate(10);    
-        $products = Product::where('status',1)->paginate(2);    
-        $data = '';
+    public function loadmore(Request $request)  {
+        $results = Product::orderBy('id')->paginate(12);
+        $artilces = '';
         if ($request->ajax()) {
-            foreach ($products as $product) {
-                $data.='<li>'.'Name:'.' <strong>'.$product->product_name.'</strong><br> Product_name: '.$product->product_name.'</li>';
+            foreach ($results as $result) {
+                $artilces.='<div class="card mb-2"> <div class="card-body">'.$result->id.' <h5 class="card-title">'.$result->product_name.'</h5> '.$result->product_name.'</div></div>';
             }
-            return $data;
+            return $artilces;
         }
-
-       
-        return view('loadmore/index',compact('products'));
-    }
+        return view('loadmore/index');
+    }    
 }

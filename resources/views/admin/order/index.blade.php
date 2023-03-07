@@ -20,17 +20,17 @@
               <tr>
                 <th class="wd-15p">Name</th>
                   <th class="wd-20p">Phone number</th>
-                  <th class="wd-20p">Area</th>
+                  <th class="wd-20p">Order Area</th>
 
-                <th class="wd-15p">paytype</th>
+                <th class="wd-15p">Paytype</th>
               
-                <th class="wd-15p">total</th>
-                <th class="wd-10p">discount</th>
-                <th class="wd-25p">payamount</th>
+                <th class="wd-15p">Sub total</th>
+                <th class="wd-10p">Shipping</th>
+                <th class="wd-25p">Total</th>
                <!--  <th class="wd-25p">shipping</th>
                 <th class="wd-25p">vat</th> -->
                
-                <th class="wd-25p">date</th>
+                <th class="wd-25p">Date</th>
                 <th class="wd-25p">Status</th>
 
                 <th class="wd-25p">Action</th>
@@ -49,7 +49,7 @@
 
               
                <td>{{$item->subtotal}}</td>
-               <td>{{$item->discount}}</td>
+               <td>{{$item->shipping}}</td>
                <td>{{$item->paying_amount}}</td>
              <!--   <td>{{$item->shipping}}</td>
                <td>{{$item->vat}}</td> -->

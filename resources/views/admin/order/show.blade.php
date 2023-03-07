@@ -37,6 +37,13 @@
               
                 </div>
               </div><!-- col-4 -->
+                <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Phone Number: <span class="tx-danger">*</span></label><br>
+                 
+                 <b>{{$orders->blnc_transection}}</b>
+                </div>
+              </div><!-- col-4 --> 
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">paymtype: <span class="tx-danger">*</span></label><br>
@@ -44,13 +51,8 @@
                  <b>{{$orders->payment_type}}</b>
                 </div>
               </div><!-- col-4 -->
-               <div class="col-lg-4">
-                <div class="form-group">
-                  <label class="form-control-label">Phone Number: <span class="tx-danger">*</span></label><br>
-                 
-                 <b>{{$orders->blnc_transection}}</b>
-                </div>
-              </div><!-- col-4 --> <div class="col-lg-4">
+             
+              <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">subtotal: <span class="tx-danger">*</span></label><br>
                  
@@ -149,7 +151,7 @@
               </div><!-- col-4 -->
               <div class="col-lg-4">
                 <div class="form-group">
-                  <label class="form-control-label">address: <span class="tx-danger">*</span></label>
+                  <label class="form-control-label">address: <span class="tx-danger">*</span></label><br>
                  
                  <b>{{$orders->Shipping->address}}</b>
                 </div>

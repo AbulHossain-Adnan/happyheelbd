@@ -69,7 +69,7 @@
                         <div class="coupon field_form input-group">
                             <input type="text" value="" class="form-control" placeholder="Enter Coupon Code..">
                             <div class="input-group-append">
-                                <button class="btn btn-fill-out btn-sm" type="submit">Apply Coupon</button>
+                                <!-- <button class="btn btn-fill-out btn-sm" type="submit">Apply Coupon</button> -->
                             </div>
                         </div>
                     </div>
@@ -500,7 +500,7 @@
                                 <tr >
                                   
                                     <th>Shipping</th>
-                                     <p>ঢাকার ভিতরে শিপিং চার্জ 80 টাকা সময় 2-3 দিন এবং ঢাকার বাইরে ডেলিভারি চার্জ 150 টাকা সময় 3-4 দিন</p>
+                                     <p>ঢাকার ভিতরে শিপিং চার্জ ৮০  টাকা সময় 2-3 দিন এবং ঢাকার বাইরে ডেলিভারি চার্জ ১৫০ টাকা সময় 4-5 দিন</p>
 
                                     <td id="sheeping_charge"></td>
                                 </tr>

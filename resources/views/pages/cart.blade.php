@@ -58,7 +58,7 @@
                                     	<div class="col-lg-4 col-md-6 mb-3 mb-md-0">
                                             <div class="coupon field_form input-group">
                                                 <input type="text" value="" id="coupon_name" name="coupon_name" class="form-control form-control-sm" placeholder="Enter Coupon Code..">
-                                                	<button onclick="applycoupon()" class="btn btn-fill-out btn-sm" type="submit">Apply Coupon</button>
+                                                	<!-- <button onclick="applycoupon()" class="btn btn-fill-out btn-sm" type="submit">Apply Coupon</button> -->
                                                 </div>
                                             </div>
                                     	</div>

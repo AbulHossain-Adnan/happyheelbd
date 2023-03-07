@@ -47,6 +47,8 @@ class CheckoutController extends Controller
 
     public function payment(Request $Request)
     {
+        $payAmount = $Request->subtotal + $Request->sheeping;
+        $subtotal = $Request->subtotal;
 
         if ($Request->payment == "cash_on") {
             $order_id = Order::insertGetId([
@@ -54,9 +56,9 @@ class CheckoutController extends Controller
                 'name'=>$Request->name,
                 'payment_type' => $Request->payment,
                 'blnc_transection'=>$Request->pnumber,
-                'subtotal' => Cart::subtotal(),
+                'subtotal' => $subtotal,
                 'discount' => $Request->discount,
-                'paying_amount' => $Request->subtotal + $Request->sheeping,
+                'paying_amount' => $payAmount,
                 'status_code' => mt_rand(100000, 999999),
                 'shipping' => $Request->sheeping,
                 'vat' => 0,
@@ -103,7 +105,7 @@ class CheckoutController extends Controller
             ]);
 
             Cart::destroy();
-            return redirect('/')->with('message', "Your Payment Successfully Done");
+            return redirect('/')->with('message', "Your Order Successfully Done");
 
         } 
 
