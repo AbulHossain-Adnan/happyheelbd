@@ -406,7 +406,7 @@
 
                     </div>
                         <div class="auto-load text-center" style="display: none;">
-                            <img style="width:250px;height: 250px;" src="{{asset('images/loader7.gif')}}">
+                            <img style="width:200px;height: 200px;" src="{{asset('images/loader7.gif')}}">
                         </div>
                 </div>
             </div>
