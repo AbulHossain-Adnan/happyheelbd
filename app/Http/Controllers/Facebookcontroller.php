@@ -62,8 +62,6 @@ class FacebookController extends Controller
 
             $user = Socialite::driver('facebook')->user();
 
-          dd($user);
-
             $finduser = User::where('facebook_id', $user->id)->first();
 
         
@@ -73,8 +71,6 @@ class FacebookController extends Controller
          
 
                 Auth::login($finduser);
-
-        
 
                 return redirect()->intended('/');
 
@@ -86,7 +82,7 @@ class FacebookController extends Controller
 
                     'name' => $user->name,
 
-                    'email' => $user->email,
+                    'email' => @$user->email,
 
                     'facebook_id'=> $user->id,
 

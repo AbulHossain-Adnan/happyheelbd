@@ -399,13 +399,20 @@
                     <div class="row align-items-center mb-4 pb-1">
                     </div>
                     <!-- id="list_view_product" -->
-                    <div class="row shop_container loadmore" data-item="8" data-item-show="4"
-                        data-finish-message="No More Item to Show" data-btn="Load More" id="list_view_product">    
+                 
+
+
+                         <div id="list_view_product" class="row shop_container loadmore" data-item="8" data-item-show="4"
+                        data-finish-message="No More Item to Show" data-btn="Load More"> 
+
+
+
+
                         @include('partials.list_view')
 
 
                     </div>
-                        <div class="auto-load text-center" style="display: none;">
+                         <div class="auto-load text-center" style="display: none;">
                             <img style="width:200px;height: 200px;" src="{{asset('images/loader7.gif')}}">
                         </div>
                 </div>
@@ -725,7 +732,7 @@
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h3 class="text-center">জুতোর রঙ এবং আকার নির্বাচন করুন</h3>
+                                    <h3 class="text">জুতোর কালার এবং সাইজ নির্বাচন করুন</h3>
                                     <a type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></a>
                                 </div>
@@ -756,7 +763,7 @@
                                             <div class="form-group">
                                         <div class="">
 
-                                     <span class="" id="color_display">Color: </span>
+                                     <span class="text-info" id="color_display"><h5 class="text-success">Available Colors:</h5> </span>
                                     <div class="product_color_switch">
 
                                         <div class="" id="test_color_display">
@@ -770,7 +777,7 @@
                                                
 
                             <div class="pr_switch_wrap">
-                            <span class="" id="size_display">Size:</span>
+                            <span class="" id="size_display"><h5 class="text-success">Available Sizes:</h5></span>
                             <div class="" id="test_size_display">
                             </div>
                                
@@ -782,6 +789,10 @@
                                       <option value="1">1</option>
                                       <option value="2">2</option>
                                       <option value="3">3</option>
+                                      <option value="4">4</option>
+                                      <option value="5">5</option>
+                                      <option value="6">6</option>
+
                                     </select>
                                             <br>
                                             <a class="bth btn-primary btn-sm" id="addtocarttest" type="submit"
@@ -797,24 +808,22 @@
                 </div> 
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+
+     <!-- <script src="{{ asset('templateassets') }}/assets/js/jquery-3.6.0.min.js"></script> -->
     <script>
         
         function infinteLoadMore(page) {
             $.ajax({
-                     url:"?page="+page,
+                    url:"?page="+page,
                     type: "get",
                     beforeSend: function () {
                         $('.auto-load').show();
                     }
                 })
                 .done(function (data) {
-                    console.log(data.list_view)
-
                     if (data.list_view == "") {
                         $('.auto-load').html("We don't have more data to display :(");
-                     
-
                     return;
                     }
                        

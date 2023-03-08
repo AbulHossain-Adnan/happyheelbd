@@ -1,3 +1,4 @@
+
 <div class="ajax_quick_view">
   <div class="row">
     <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
@@ -40,8 +41,8 @@
         <div class="product_description">
           <h4 class="product_title"><a href="#">{{$product->product_name}}</a></h4>
           <div class="product_price">
-            <span class="price">{{$product->discount_price}} TK</span>
-            <del>{{$product->selling_price}} TK</del>
+            <span class="price"> TK {{$product->discount_price}}</span>
+            <del>TK {{$product->selling_price}} </del>
             <div class="on_sale">
               @php
               $amout=$product->selling_price-$product->discount_price;
@@ -70,7 +71,7 @@
                 <i class="linearicons-bag-dollar"></i> Cash on Delivery
                 available
               </li>
-              <b class="text-black"><h4>এখান থেকে জুতার রঙ এবং আকার নির্বাচন করুন</h4></b>
+              <b class="text-black"><h3 class="text-success">এখান থেকে জুতার রঙ এবং আকার নির্বাচন করুন</h3></b>
             </ul>
           </div>
             <input type="hidden" id="product_id" name="product_id" value="{{$product->id}}">
@@ -178,4 +179,6 @@
     </div>
   </div>
 </div>
+
 <script src="{{ asset('templateassets') }}/assets/js/scripts.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

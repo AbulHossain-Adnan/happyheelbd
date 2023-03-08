@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Shopwise is Powerful features and You Can Use The Perfect Build this Template For Any eCommerce Website. The template is built for sell Fashion Products, Shoes, Bags, Cosmetics, Clothes, Sunglasses, Furniture, Kids Products, Electronics, Stationery Products and Sporting Goods.">
 <meta name="keywords" content="ecommerce, electronics store, Fashion store, furniture store,  bootstrap 4, clean, minimal, modern, online store, responsive, retail, shopping, ecommerce store">
-
+ <script src="{{ asset('templateassets') }}/assets/js/jquery-3.6.0.min.js"></script>
 <!-- SITE TITLE -->
 <title>HAPPYHEEL'S</title>
 <!-- Favicon Icon -->
@@ -41,20 +41,9 @@
 <link rel="stylesheet" href="{{ asset('templateassets') }}/assets/css/responsive.css">
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-
-
-<!-- <link rel="stylesheet" type="text/css" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-<link rel="stylesheet" href="sweetalert2.min.css">
-<link rel="stylesheet" 
-href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-
- <script src="sweetalert2.min.js"></script>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
-
-
+<!-- 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0- 
-     alpha/css/bootstrap.css" rel="stylesheet">
+     alpha/css/bootstrap.css" rel="stylesheet"> -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -144,22 +133,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css
                             </li>
                             <li>
 
-
-
-
-
-
-
-
                               @if(Auth::check())
-
-
-                                 <li><a href="{{ url('/home') }}">PROFILE <i class="fa-solid fa-house"></i></a></li>
-
-                                 
-
-
-
+                                 <li><a href="{{ url('/home') }}">Auth::user()->name <i class="fa-solid fa-house"></i></a></li>
                                    @else
                                 <a href="{{route('login')}}" class="nav-link">
                                     Sign In/Sign Up
