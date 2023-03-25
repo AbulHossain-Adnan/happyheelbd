@@ -45,6 +45,9 @@
                                 <img src="{{ asset('product_images/'.@$file->product_image) }}" alt="product_small_img1"/>
                             </a>
                         </div>
+                        {{-- <a href="{{$key}}" class="product_gallery_item active" data-image="{{ asset('product_images/'.@$file->product_image) }}" data-zoom-image="{{ asset('product_images/'.@$file->product_image) }}">
+                         <img src="{{ asset('product_images/'.@$file->product_image) }}" alt="product_small_img1"/>
+                        </a> --}}
                         @endforeach
 
                        <!--  <div class="item">

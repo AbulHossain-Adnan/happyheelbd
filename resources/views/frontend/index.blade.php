@@ -1,8 +1,7 @@
 @extends('layouts.shopwisemaster')
-
 @section('content')
 
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 <!-- START SECTION BANNER -->
 <div class="banner_section slide_medium shop_banner_slider staggered-animation-wrap">
@@ -105,15 +104,11 @@
                         data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "991":{"items": "4"}}'>
                         @foreach ($tends as $item)
 
-
                         <div class="item">
-                
                             <div class="product_wrap">
-
                                 <div class="product_img">
-                               
+                               <a href="{{url('/singleproduct/'.$item->id)}}">
                                         <img src="{{ asset('product_images/'.@$item->files[0]['product_image']) }}" alt="el_img2ddddddddd" loading="lazy">
-                                        <a href="{{url('/singleproduct/'.$item->id)}}">
                                         <img class="product_hover_img"
                                             src="{{ asset('product_images/'.@$item->files[0]['product_image']) }}" alt="el_hover_img2vvvv" loading="lazy">
                                             </a>
@@ -810,7 +805,7 @@
 
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 
-     <!-- <script src="{{ asset('templateassets') }}/assets/js/jquery-3.6.0.min.js"></script> -->
+    
     <script>
         
         function infinteLoadMore(page) {

@@ -162,10 +162,6 @@
 			datatype:"json",
 			url:"cartdata",
 			success:function(response){
-
-
-
-
 				var rows=""
 				$.each(response, function(key,value){
 

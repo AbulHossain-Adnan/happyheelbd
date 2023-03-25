@@ -24,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 
 // Route for forntend*********************************
 Route::get('/test', [App\Http\Controllers\LoadMoreController::class, 'loadMore']);
+Route::post('/test_post', [App\Http\Controllers\LoadMoreController::class, 'loadMorePost'])->name('test_post');
+
 Route::get('/', [App\Http\Controllers\FrontendController::class, 'index']);
 
 

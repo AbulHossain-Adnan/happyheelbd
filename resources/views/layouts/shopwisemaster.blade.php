@@ -533,7 +533,7 @@
     <a href="#" class="scrollup" style="display: none;"><i class="ion-ios-arrow-up"></i></a>
 
     <!-- Latest jQuery -->
-    <script src="{{ asset('templateassets') }}/assets/js/jquery-3.6.0.min.js"></script>
+    <!-- <script src="{{ asset('templateassets') }}/assets/js/jquery-3.6.0.min.js"></script> -->
     <!-- popper min js -->
     <script src="{{ asset('templateassets') }}/assets/js/popper.min.js"></script>
     <!-- Latest compiled and minified Bootstrap -->
