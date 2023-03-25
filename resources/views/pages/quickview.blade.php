@@ -7,15 +7,12 @@
           <img id="product_img" src='{{ asset('product_images/'.@$product->files[0]['product_image']) }}' data-zoom-image="{{ asset('product_images/'.@$product->files[0]['product_image']) }}"
           alt="product_img1" />
         </div>
-        <div
-          id="pr_item_gallery"
-          class="product_gallery_item slick_slider"
-          data-slides-to-show="4"
-          data-slides-to-scroll="1"
-          data-infinite="false"
-        >
-
-
+        <div id="pr_item_gallery"  class="product_gallery_item slick_slider"
+         data-slides-to-show="4"  data-slides-to-scroll="1" data-infinite="false" >
+          
+         
+          
+         
         @foreach($product->files as $file)
           <div class="item">
             <a
@@ -181,4 +178,6 @@
 </div>
 
 <script src="{{ asset('templateassets') }}/assets/js/scripts.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+
