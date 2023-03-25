@@ -89,8 +89,33 @@ class ProductController extends Controller
         return view('admin.product.create', compact('categories', 'brands'));
 
     }
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
+
+        $product = Product::create($request->all());
+       
+        $product_colors = $request->product_color;
+
+        for($i=0; $i < count($product_colors); $i++) {
+            $datasave=[ 
+                'product_id'=>$product->id,
+                'product_color'=>$request->product_color[$i],
+                'product_size'=>$request->product_size[$i],
+                'heel_size'=>$request->heel_size[$i],
+            ];
+
+            if($request->file('product_image')) {
+                 $file = $request->product_image[$i];
+                $product_image = hexdec(uniqid()) . '.' . $file->extension();
+                 Image::make($file->getRealPath())->resize(540, 600)->save(public_path('product_images/' . $product_file));
+                $datasave['product_image'] = $product_image;
+            }
+            DB::table('product_attributes')->insert($datasave);
+
+        }
+
+
+
 
         $product = Product::create($request->all());
         $image_one = $request->image_one;
@@ -108,13 +133,12 @@ class ProductController extends Controller
         }
 
            if ($image_one) {
-            // image_one
             $image_name1 = hexdec(uniqid()) . '.' . $image_one->extension();
             Image::make($image_one)->resize(540, 600)->save('product_images/' . $image_name1);
             $product->image_one = $image_name1;
         }
         $product->save();
-        // return response()->json($product);
+
         return redirect()->route('products.index')->with('message', 'product created successfully');
 
     }

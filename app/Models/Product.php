@@ -33,6 +33,11 @@ class Product extends Model
     {
         return $this->hasMany(File::class);
     }
+
+     public function productAttributes()
+    {
+        return $this->hasMany(ProductAttribute::class,'product_id');
+    }
     
 
 
