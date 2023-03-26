@@ -222,33 +222,12 @@
               </div><!-- col-4 -->
            
              
-            <div class="col-lg-6">
-                <div class="form-group">
-                  <label class="form-control-label"> Main Banner Image<span class="tx-danger">*</span></label>
-                  @error('image_one')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                  <input class="form-control" type="file" id="file" name="image_one" onchange="readURL(this)" >
-                  <img src="#" alt="" id="one">
-                </div>
-              </div> 
-
-              <div class="col-lg-6">
-                <div class="form-group">
-                  <label class="form-control-label"> Mid Banner Image<span class="tx-danger">*</span></label>
-                  @error('image_one')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                  <input class="form-control" type="file" id="file" name="image_two" onchange="readURL2(this)" >
-                  <img src="#" alt="" id="two">
-                </div>
-              </div> 
-            
+     
       
             
-          <!--     <div class="col-lg-6">
+            <div class="col-lg-6">
                 <div class="form-group">
-                  <label class="form-control-label"> Old image one (main slider)<span class="tx-danger">*</span></label>
+                  <label class="form-control-label">  Main Banner Image<span class="tx-danger">*</span></label>
                   @error('image_one')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -256,11 +235,11 @@
                   <img src="#" alt="" id="one">
                   <img src="{{asset('product_images/'.$product->image_one)}}" width="100">
                 </div>
-              </div> -->
+              </div> 
 
-            <!--   <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
-                  <label class="form-control-label"> Old image two (main slider)<span class="tx-danger">*</span></label>
+                  <label class="form-control-label"> Mid Banner Image<span class="tx-danger">*</span></label>
                   @error('image_two')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -268,40 +247,10 @@
                   <img src="#" alt="" id="two">
                   <img src="{{asset('product_images/'.$product->image_two)}}" alt="" width="100">
                 </div>
-              </div> -->
-           <!--    <div class="col-lg-4">
-                <div class="form-group">
-                  <label class="form-control-label"> image three (main slider)<span class="tx-danger">*</span></label>
-                  @error('image_three')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                  <input class="form-control" type="file" name="image_three" onchange="readURL3(this)" >
-                  <img src="#" alt="" id="three">
-                 <img src="{{asset('product_images/'.$product->image_three)}}" alt="" width="100">
-                      
-                 
-                </div>
-              </div>
- -->
-             
+              </div> 
 
-               @foreach($product->files as $file)
-
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label class="form-control-label"> image<span class="tx-danger">*</span></label><br>
-                  <img src="{{asset('product_images/'.@$file->product_image)}}" width="100">
-                </div>
-              </div><!-- col-4 -->
-              @endforeach
-
-
-            
-              <br> <br>
-           
-            
-             
-              
+        
+        
             </div><!-- row -->
             <br> <br> <br>
             <hr>
