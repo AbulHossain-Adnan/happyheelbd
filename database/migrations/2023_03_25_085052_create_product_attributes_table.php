@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('product_id')->nullable()->constrained('products')->onDelete('cascade');
             $table->string('product_color')->nullable();
-            $table->string('product_size')->nullable();
-            $table->string('heel_size')->nullable();
+            // $table->string('product_size')->nullable();
+            // $table->string('heel_size')->nullable();
             $table->string('product_image')->nullable();
             $table->timestamps();
         });

@@ -70,6 +70,25 @@
                   </select>
                 </div>
               </div><!-- col-4 -->
+
+               <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">Product size<span class="tx-danger">*</span></label>
+                  @error('product_size')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                  <input class="form-control" type="text" name="product_size" id="size" data-role="tagsinput" placeholder="Enter product size" value="{{old('product_size')}}">
+                </div>
+              </div><!-- col-4 -->
+                 <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">Heel size<span class="tx-danger">*</span></label>
+                  @error('product_size')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                  <input class="form-control" type="text" name="heel_size" id="size" data-role="tagsinput" placeholder="Enter product size" value="{{old('product_size')}}">
+                </div>
+              </div><!-- col-4 -->
           
           <div  id="input_fields_wrap" >
             <div class="row input_field" id="addMore" >
@@ -80,40 +99,20 @@
                   @error('Product_color')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                  <input class="form-control" type="text" name="product_color[]" id="color" placeholder="Enter product color" value="{{old('product_color')}}">
-                </div>
-              </div><!-- col-4 -->
-
-                <div class="col-lg-5">
-                <div class="form-group">
-                  <label class="form-control-label">Product size<span class="tx-danger">*</span></label>
-                  @error('product_size')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                  <input class="form-control" type="text" name="product_size[]" id="size"  placeholder="Enter product size" value="{{old('product_size')}}">
-                </div>
-              </div><!-- col-4 -->
-
-              <div class="col-lg-5">
-                <div class="form-group">
-                  <label class="form-control-label">Image <span class="tx-danger">*</span></label>
-                
-                  <input class="form-control" type="file" name="product_image[]" >
+                  <input class="form-control" type="text" name="product_color[]" id="color" placeholder="Enter product color"  value="{{old('product_color')}}">
                 </div>
               </div><!-- col-4 -->
 
             
 
-                <div class="col-lg-5">
+              <div class="col-lg-5">
                 <div class="form-group">
-                  <label class="form-control-label">Heal size<span class="tx-danger">*</span></label>
-                  @error('product_size')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                  <input class="form-control" type="text" name="heel_size[]" id="size"  placeholder="Enter product size" value="{{old('product_size')}}">
+                  <label class="form-control-label">Product Image <span class="tx-danger">*</span></label>
+                
+                  <input class="form-control" type="file" name="product_image[]" >
                 </div>
-              </div><!-- col-4 -->
-              <div class="col-lg-2">
+              </div>
+              <div class="col-lg-2 mt-4">
                 <div class="form-group">
                 <button type="hidden" class="btn btn-danger hidden"  id="removeRow">delete</button>
                 </div>
@@ -127,7 +126,7 @@
                 <button type="button" class="btn btn-success" onclick="addMore()">addMore</button>
                 </div>
               </div><!-- col-4 -->
-              <div class="col-lg-12">
+              <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">Selling price<span class="tx-danger">*</span></label>
                   @error('selling_price')
@@ -137,7 +136,7 @@
                 </div>
               </div><!-- col-4 -->
   
-              <div class="col-lg-12">
+              <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">discount price<span class="tx-danger">*</span></label>
                   @error('discount_price')
@@ -159,19 +158,32 @@
                 </div>
               </div><!-- col-4 -->
            
-           <div class="col-lg-12">
+            <div class="col-lg-6">
                 <div class="form-group">
-                  <label class="form-control-label"> Images(multiple)<span class="tx-danger">*</span></label>
+                  <label class="form-control-label"> Main Banner Image<span class="tx-danger">*</span></label>
                   @error('image_one')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                  <input class="form-control" type="file" id="file" name="photos[]" multiple>
-              
+                  <input class="form-control" type="file" id="file" name="image_one" onchange="readURL(this)" >
+                  <img src="#" alt="" id="one">
                 </div>
-              </div>
+              </div> 
+
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label"> Mid Banner Image<span class="tx-danger">*</span></label>
+                  @error('image_one')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                  <input class="form-control" type="file" id="file" name="image_two" onchange="readURL2(this)" >
+                  <img src="#" alt="" id="two">
+                </div>
+              </div>  
+
             
-      
-            
+
+
+                 
           <!--   <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label"> image (single)<span class="tx-danger">*</span></label>
@@ -245,22 +257,12 @@
               <span>Hot Deal</span>
             </label>
             </div><!-- col-4 -->
-
-
-
-
             {{-- <div class="col-lg-4">
             <label class="ckbox">
               <input type="checkbox" name="hot_new" value="1">
               <span>hot new</span>
             </label>
             </div> --}}
-
-
-
-          
-
-
 
             <div class="col-lg-4">
             <label class="ckbox">
@@ -276,8 +278,6 @@
               <span>byeonegetone</span>
             </label>
             </div> --}}
-
-
 
             <div class="col-lg-4">
             <label class="ckbox">
@@ -297,93 +297,12 @@
           </div><!-- form-layout -->
         </div><!-- card -->
         </form>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
-
-
-
-  <script type="text/javascript">
-   var wrapper = $("#input_fields_wrap");
-      function addMore(){
-         
-    $('#addMore').append(`  
-
-     <div class="col-lg-5" id="inputRow">
-                <div class="form-group">
-                  <label class="form-control-label">Product color<span class="tx-danger">*</span></label>
-                  @error('Product_color')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                  <input class="form-control" type="text" name="product_color[]" id="color" data-role="tagsinput" placeholder="Enter product color" value="{{old('product_color')}}">
-                </div>
-              </div><!-- col-4 -->
-
-                <div class="col-lg-5">
-                <div class="form-group">
-                  <label class="form-control-label">Product size<span class="tx-danger">*</span></label>
-                  @error('product_size')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                  <input class="form-control" type="text" name="product_size[]" id="size" data-role="tagsinput" placeholder="Enter product size" value="{{old('product_size')}}">
-                </div>
-              </div><!-- col-4 -->
-
-              <div class="col-lg-5">
-                <div class="form-group">
-                  <label class="form-control-label">Image <span class="tx-danger">*</span></label>
-                
-                  <input class="form-control" type="file" name="product_image[]" >
-                </div>
-              </div><!-- col-4 -->
-
-            
-
-                <div class="col-lg-5">
-                <div class="form-group">
-                  <label class="form-control-label">Heal size<span class="tx-danger">*</span></label>
-                  @error('product_size')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                  <input class="form-control" type="text" name="product_size[]" id="size" data-role="tagsinput" placeholder="Enter product size" value="{{old('product_size')}}">
-                </div>
-              </div><!-- col-4 -->
-
-                <div class="col-lg-2">
-                <div class="form-group">
-                <button class="btn btn-danger" id="removeRow">delete</button>
-                </div>
-              </div><!-- col-4 -->
-
-    `)
-
-      }
-      $(wrapper).on('click', '#removeRow', function () {
-
-        
-      
-            // $(this).closest('#inputRow').remove();
-
-              $(this).parent("#div").remove(); // remove input field
-        });
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
-
-
         
 
 
-      <script type="text/javascript">
+        <script type="text/javascript">
         function readURL(input){
           if(input.files && input.files[0]){
             let reader = new FileReader();
@@ -399,6 +318,22 @@
         }
         
         </script>
+
+          <script type="text/javascript">
+        function readURL2(input){
+          if(input.files && input.files[0]){
+            let reader = new FileReader();
+               reader.onload = function(e){
+              $('#two')
+              .attr('src', e.target.result)
+              .width(100)
+              .height(100);
+
+            };
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+      </script>
 
     <script type="text/javascript">
       
@@ -425,4 +360,55 @@
         });
       });
     </script>
+
+
+
+
+  <script type="text/javascript">
+   var wrapper = $("#input_fields_wrap");
+      function addMore(){
+         
+    $('#addMore').append(`  
+
+     <div class="col-lg-5" id="inputRow">
+                <div class="form-group">
+                  <label class="form-control-label">Product color<span class="tx-danger">*</span></label>
+                  @error('Product_color')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                  <input class="form-control" type="text" name="product_color[]" id="color" placeholder="Enter product color"  value="{{old('product_color')}}">
+                </div>
+              </div><!-- col-4 -->
+              <div class="col-lg-5">
+                <div class="form-group">
+                  <label class="form-control-label">Product Image <span class="tx-danger">*</span></label>
+                
+                  <input class="form-control" type="file" name="product_image[]" >
+                </div>
+              </div>
+
+                {{-- <div class="col-lg-5">
+                <div class="form-group">
+                  <label class="form-control-label">Heal size<span class="tx-danger">*</span></label>
+                  @error('product_size')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                  <input class="form-control" type="text" name="heel_size[]" id="size"  placeholder="Enter product size" value="{{old('product_size')}}">
+                </div>
+              </div> --}}
+              <div class="col-lg-2 mt-4">
+                <div class="form-group">
+                <button type="hidden" class="btn btn-danger hidden"  id="removeRow">delete</button>
+                </div>
+              </div><!-- col-4 -->
+
+    `)
+
+      }
+      $(wrapper).on('click', '#removeRow', function () {
+            // $(this).closest('#inputRow').remove();
+              $(this).parent("#div").remove(); // remove input field
+        });
+
+</script>
 @endsection

@@ -22,10 +22,12 @@ class CreateProductsTable extends Migration
             $table->string('product_name');
             $table->string('product_code');
             $table->integer('product_quantity');
-            $table->text('product_details');
-            $table->string('product_color');
-            $table->string('product_size');
-            $table->integer('selling_price');
+            $table->text('product_details')->nullable();
+            // $table->string('product_color');
+            $table->string('product_size')->nullable();
+            $table->string('heel_size')->nullable();
+
+            $table->integer('selling_price')->nullable();
             $table->integer('discount_price')->nullable();
             // $table->string('video_link')->nullable();
             $table->integer('main_slider')->nullable();
