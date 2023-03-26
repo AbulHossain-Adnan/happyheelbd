@@ -147,7 +147,7 @@
                 <div class="form-group">
                   <label class="form-control-label">Product Image <span class="tx-danger">*</span></label>
                 
-                  <input class="form-control" type="file" name="product_image[]" >
+                  <input class="form-control" type="file" name="product_image[]" value="">
                 </div>
               </div>
 

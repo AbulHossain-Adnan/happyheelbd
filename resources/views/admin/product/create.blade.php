@@ -21,7 +21,7 @@
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Product Name: <span class="tx-danger">*</span></label>
-                  @error('Product_name')
+                  @error('product_name')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                     
@@ -31,7 +31,7 @@
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Product Code: <span class="tx-danger">*</span></label>
-                  @error('Product_code')
+                  @error('product_code')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                   <input class="form-control" type="text" name="product_code"  placeholder="Enter product code" value="{{old('product_code')}}">
@@ -40,7 +40,7 @@
               <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Quantity<span class="tx-danger">*</span></label>
-                  @error('Product_quantity')
+                  @error('product_quantity')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                   <input class="form-control" type="text" name="product_quantity" placeholder="Enter product quantity" value="{{old('product_quantity')}}">
@@ -99,7 +99,7 @@
                   @error('Product_color')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                  <input class="form-control" type="text" name="product_color[]" id="color" placeholder="Enter product color"  value="{{old('product_color')}}">
+                  <input class="form-control" type="text" name="product_color[]" id="color" placeholder="Enter product color" required>
                 </div>
               </div><!-- col-4 -->
 
@@ -109,7 +109,7 @@
                 <div class="form-group">
                   <label class="form-control-label">Product Image <span class="tx-danger">*</span></label>
                 
-                  <input class="form-control" type="file" name="product_image[]" >
+                  <input class="form-control" type="file" name="product_image[]" required>
                 </div>
               </div>
               <div class="col-lg-2 mt-4">
@@ -376,14 +376,14 @@
                   @error('Product_color')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                  <input class="form-control" type="text" name="product_color[]" id="color" placeholder="Enter product color"  value="{{old('product_color')}}">
+                  <input class="form-control" type="text" name="product_color[]" id="color" placeholder="Enter product color"  required>
                 </div>
               </div><!-- col-4 -->
               <div class="col-lg-5">
                 <div class="form-group">
                   <label class="form-control-label">Product Image <span class="tx-danger">*</span></label>
                 
-                  <input class="form-control" type="file" name="product_image[]" >
+                  <input class="form-control" type="file" name="product_image[]" required>
                 </div>
               </div>
 
