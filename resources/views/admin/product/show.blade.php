@@ -52,14 +52,14 @@
                 </div>
               </div><!-- col-4 -->
 
-                <div class="col-lg-4">
+                {{-- <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Brand Name<span class="tx-danger">*</span></label><br>
                  
 
                  <b>{{$product->brand->brand_name}}</b>
                 </div>
-              </div><!-- col-4 -->
+              </div><!-- col-4 --> --}}
 
 
 
@@ -120,7 +120,7 @@
                 </div>
               </div><!-- col-4 -->
         
-            @foreach($product->files as $file)
+            @foreach($product->productAttributes as $file)
               <div class="col-lg-2">
                 <div class="form-group">
                   <label class="form-control-label"> image<span class="tx-danger">*</span></label><br>
