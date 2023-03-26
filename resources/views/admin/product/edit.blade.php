@@ -49,7 +49,7 @@
                 </div>
               </div><!-- col-4 -->
              
-              <div class="col-lg-4">
+              <div class="col-lg-6">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
                   @error('category_id')
@@ -77,7 +77,7 @@
                   </select>
                 </div>
               </div><!-- col-4 -->
-              <div class="col-lg-4">
+              <div class="col-lg-6">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Subcategory: <span class="tx-danger">*</span></label>
                   <select class="form-control select2" data-placeholder="Choose country" name="subcategory_id">
@@ -85,7 +85,7 @@
                   </select>
                 </div>
               </div><!-- col-4 -->
-              <div class="col-lg-4">
+              {{-- <div class="col-lg-4">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Brand: <span class="tx-danger">*</span></label>
                   @error('brand_id')
@@ -107,8 +107,8 @@
                    
                   </select>
                 </div>
-              </div><!-- col-4 -->
-              <div class="col-lg-4">
+              </div> --}}
+              <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">Product size<span class="tx-danger">*</span></label>
                   @error('product_size')
@@ -117,7 +117,67 @@
                   <input class="form-control" type="text" name="product_size" id="size" data-role="tagsinput" value="{{$product->product_size}}">
                 </div>
               </div><!-- col-4 -->
+
+                <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label">Heel size<span class="tx-danger">*</span></label>
+                  @error('product_size')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                  <input class="form-control" type="text" name="heel_size" id="size" data-role="tagsinput" value="{{$product->heel_size}}">
+                </div>
+              </div><!-- col-4 -->
+
+               <div  id="input_fields_wrap" >
+            <div class="row input_field" id="addMore" >
+
+              @foreach($product->productAttributes as $item)
+
+              <div class="col-lg-4" id="inputRow">
+                <div class="form-group">
+                  <label class="form-control-label">Product color<span class="tx-danger">*</span></label>
+                  @error('Product_color')
+                  <div class="alert alert-danger">{{ $message }}</div>
+                    @enderror
+                  <input class="form-control" type="text" name="product_color[]" id="color" placeholder="Enter product color"  value="{{$item->product_color}}">
+                </div>
+              </div><!-- col-4 -->
+
               <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label">Product Image <span class="tx-danger">*</span></label>
+                
+                  <input class="form-control" type="file" name="product_image[]" >
+                </div>
+              </div>
+
+              <div class="col-lg-2 mt-4">
+                <div class="form-group">
+                  {{-- <label class="form-control-label">Old image <span class="tx-danger">*</span></label> --}}
+                
+                  <img src="{{asset('product_images/'.$item->product_image)}}" width="60">
+                </div>
+              </div>
+
+
+              
+              <div class="col-lg-2 mt-4">
+                <div class="form-group">
+                <button type="hidden" class="btn btn-danger hidden"  id="removeRow">delete</button>
+                </div>
+              </div><!-- col-4 -->
+             @endforeach
+            </div>
+            </div>
+
+                <div class="col-lg-12 ">
+                <div class="form-group float-right">
+                <button type="button" class="btn btn-success" onclick="addMore()">addMore</button>
+                </div>
+              </div><!-- col-4 -->
+
+
+              {{-- <div class="col-lg-4">
                 <div class="form-group">
                   <label class="form-control-label">Product color<span class="tx-danger">*</span></label>
                   @error('Product_color')
@@ -125,28 +185,31 @@
                     @enderror
                   <input class="form-control" type="text" name="product_color" id="color" data-role="tagsinput" value="{{$product->product_color}}">
                 </div>
-              </div><!-- col-4 -->
-              <div class="col-lg-4">
+              </div><!-- col-4 --> --}}
+           
+
+
+               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">Selling price<span class="tx-danger">*</span></label>
                   @error('selling_price')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                  <input class="form-control" type="integer" name="selling_price" value="{{$product->selling_price}}">
+                  <input class="form-control" type="text" name="selling_price" placeholder="Enter product selling price" value="{{old('selling_price')}}" value="{{$product->selling_price}}">
                 </div>
               </div><!-- col-4 -->
-          
-              <div class="col-lg-12">
+  
+              <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">discount price<span class="tx-danger">*</span></label>
                   @error('discount_price')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                  <input class="form-control" type="integer" name="discount_price" value="{{$product->discount_price}}">
+                  <input class="form-control" type="text" name="discount_price" placeholder="Enter product discount price" value="{{old('discount_price')}}">
                 </div>
               </div><!-- col-4 -->
-           
-
+          
+      
               <div class="col-lg-12">
                 <div class="form-group">
                   <label class="form-control-label">Product details<span class="tx-danger">*</span></label>
@@ -159,22 +222,12 @@
               </div><!-- col-4 -->
            
              
-             <div class="col-lg-12">
-                <div class="form-group">
-                  <label class="form-control-label"> Images(multiple)<span class="tx-danger">*</span></label>
-                  @error('image_one')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                  <input class="form-control" type="file" id="file" name="photos[]" multiple>
-              
-                </div>
-              </div>
-            
+     
       
             
-          <!--     <div class="col-lg-6">
+            <div class="col-lg-6">
                 <div class="form-group">
-                  <label class="form-control-label"> Old image one (main slider)<span class="tx-danger">*</span></label>
+                  <label class="form-control-label">  Main Banner Image<span class="tx-danger">*</span></label>
                   @error('image_one')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -182,11 +235,11 @@
                   <img src="#" alt="" id="one">
                   <img src="{{asset('product_images/'.$product->image_one)}}" width="100">
                 </div>
-              </div> -->
+              </div> 
 
-            <!--   <div class="col-lg-4">
+            <div class="col-lg-6">
                 <div class="form-group">
-                  <label class="form-control-label"> Old image two (main slider)<span class="tx-danger">*</span></label>
+                  <label class="form-control-label"> Mid Banner Image<span class="tx-danger">*</span></label>
                   @error('image_two')
                   <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
@@ -194,40 +247,10 @@
                   <img src="#" alt="" id="two">
                   <img src="{{asset('product_images/'.$product->image_two)}}" alt="" width="100">
                 </div>
-              </div> -->
-           <!--    <div class="col-lg-4">
-                <div class="form-group">
-                  <label class="form-control-label"> image three (main slider)<span class="tx-danger">*</span></label>
-                  @error('image_three')
-                  <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                  <input class="form-control" type="file" name="image_three" onchange="readURL3(this)" >
-                  <img src="#" alt="" id="three">
-                 <img src="{{asset('product_images/'.$product->image_three)}}" alt="" width="100">
-                      
-                 
-                </div>
-              </div>
- -->
-             
+              </div> 
 
-               @foreach($product->files as $file)
-
-              <div class="col-lg-2">
-                <div class="form-group">
-                  <label class="form-control-label"> image<span class="tx-danger">*</span></label><br>
-                  <img src="{{asset('product_images/'.@$file->product_image)}}" width="100">
-                </div>
-              </div><!-- col-4 -->
-              @endforeach
-
-
-            
-              <br> <br>
-           
-            
-             
-              
+        
+        
             </div><!-- row -->
             <br> <br> <br>
             <hr>
