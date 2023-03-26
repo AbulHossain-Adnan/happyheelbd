@@ -24,29 +24,13 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
-
-
-   
-   
         $brands = Brand::select(['id', 'brand_name', 'brand_photo'])->get();
-
-
         if ($request->ajax()) {
-
-         
-
-
-            $products = Product::with(['category','subCategory','files'])->get();
-
+            $products = Product::with(['category','subCategory','files','productAttributes'])->get();
             return Datatables::of($products)
-
                 ->addIndexColumn()
-
                 ->addColumn('action', function ($row) {
-
-
                     $actionBtn = '';
-
                     if ($row->status == 0) {
                         $actionBtn .=
                             '   <a href="javascript:void(0)" id="down" data-id="' . $row->id . '" class="edit btn btn-danger btn-sm"><i class="fa fa-thumbs-down"></i></a> ';
@@ -54,7 +38,6 @@ class ProductController extends Controller
                         $actionBtn .=
                             '   <a href="javascript:void(0)" id="down" data-id="' . $row->id . '" class="edit btn btn-primary btn-sm"><i class="fa fa-thumbs-up"></i></a> ';
                     }
-
                     $actionBtn .= ' 
                   <a href="' . route("products.show", $row->id) . '" class="edit btn btn-primary btn-sm" ></i><i class="fa fa-eye"></i></a>
                      <a href="' . route("products.edit", $row->id) . '" class="edit btn btn-info btn-sm">Edit</a>
@@ -62,21 +45,16 @@ class ProductController extends Controller
                    
                 ';
                     return $actionBtn;
-
-
-
                 })
                 ->addColumn('image_one', function ($data) {
 
-                    $image_name = $data->files[0]['product_image'];
+                    $image_name = $data->productAttributes[0]['product_image'];
                     $url = "product_images/$image_name";
                     return '<img src="' . $url . '" border="0" 
                     width="60" class="img-rounded" align="center" />';
                 })
                 ->rawColumns(['action', 'image_one'])
                 ->make(true);
-
-
         }
         return view('admin.product.index', compact('brands'));
 
@@ -87,40 +65,45 @@ class ProductController extends Controller
         $brands = Brand::select(['id', 'brand_name', 'brand_photo'])->get();
 
         return view('admin.product.create', compact('categories', 'brands'));
-
     }
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
-
         $product = Product::create($request->all());
-        $image_one = $request->image_one;
-        $files = $request->file('photos');
-        if ($files) {
-            foreach($request->file('photos') as $file){
+        $product_colors = $request->product_color;
 
-            $product_file = hexdec(uniqid()) . '.' . $file->extension();
-            Image::make($file->getRealPath())->resize(540, 600)->save(public_path('product_images/' . $product_file,20));
-                File::create([
-                    'product_id'=>$product->id,
-                    'product_image'=>$product_file
-                ]);
+        for($i=0; $i < count($product_colors); $i++) {
+            $datasave=[ 
+                'product_id'=>$product->id,
+                'product_color'=>$request->product_color[$i],
+            ];
+
+            if($request->file('product_image')) {
+                $file = $request->product_image[$i];
+                $product_image = hexdec(uniqid()) . '.' . $file->extension();
+                 Image::make($file->getRealPath())->resize(540, 600)->save(public_path('product_images/' . $product_image));
+                $datasave['product_image'] = $product_image;
             }
+            DB::table('product_attributes')->insert($datasave);
         }
+        $image_one = $request->image_one;
+        $image_two = $request->image_two;
 
-           if ($image_one) {
-            // image_one
+        if ($image_one) {
             $image_name1 = hexdec(uniqid()) . '.' . $image_one->extension();
-            Image::make($image_one)->resize(540, 600)->save('product_images/' . $image_name1);
+            Image::make($image_one)->save('product_images/' . $image_name1);
             $product->image_one = $image_name1;
         }
-        $product->save();
-        // return response()->json($product);
-        return redirect()->route('products.index')->with('message', 'product created successfully');
+         if ($image_two) {
+            $image_name2 = hexdec(uniqid()) . '.' . $image_two->extension();
+            Image::make($image_one)->save('product_images/' . $image_name2);
+            $product->image_two = $image_name2;
+        }
 
+        $product->save();
+        return redirect()->route('products.index')->with('message', 'product created successfully');
     }
     public function edit($id)
     {
-
         return view('admin/product/edit', [
             'product' => Product::with('files')->findOrFail($id),
             'categories' => Category::all(),
@@ -129,22 +112,20 @@ class ProductController extends Controller
     }
     public function update(ProductRequest $request,$id)
     {
-
-        $product = Product::with('files')->findOrFail($id);
+        $product = Product::with('productAttributes')->findOrFail($id);
         $product = $product->update($request->all());
         $image_one = $request->image_one;
-        $files = $request->file('photos');
+        $image_two = $request->image_two;
+
+        $files = $request->file('product_image');
         if ($files) {
 
-        $files = File::where('product_id',$id)->get();
+        $files = ProductAttribute::where('product_id',$id)->get();
         foreach($files as $file) {
-
-
              unlink('product_images/' . $file->product_image);
              $file->delete();
         }
-
-            foreach($request->file('photos') as $file){
+            foreach($request->file('product_image') as $file){
 
             $product_file = hexdec(uniqid()) . '.' . $file->extension();
             Image::make($file->getRealPath())->resize(540, 600)->save(public_path('product_images/' . $product_file,100));
