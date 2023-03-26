@@ -33,8 +33,6 @@ class Product extends Model
     {
         return $this->hasMany(File::class);
     }
-
-
     public function reviews()
     {
         return $this->hasMany(ProductReview::class);
