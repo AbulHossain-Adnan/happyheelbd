@@ -65,8 +65,7 @@ class OrderController extends Controller
         $order_details = Order_detail::where('order_id', $id)->with('product')->get();
         // $user = User::findOrFail($orders->user_id)->first();
         // return view('admin/order/show',compact('orders','order_details','user'));
-        return view('admin/order/show',compact('orders','order_details'));
-
+        return view('admin/order/show', compact('orders', 'order_details'));
     }
 
     /**
@@ -176,12 +175,7 @@ class OrderController extends Controller
         } else {
             $notification = array('message' => 'invlid status code', 'alert-type' => 'error');
             return back()->with($notification);
-
-
         }
-
-
-
     }
     public function orderreturn($order_id)
     {
@@ -190,7 +184,4 @@ class OrderController extends Controller
         Order::find($order_id)->where('status', 3)->update(['return' => 1]);
         echo "done";
     }
-
-
-
 }

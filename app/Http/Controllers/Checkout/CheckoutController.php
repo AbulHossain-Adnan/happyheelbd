@@ -52,10 +52,10 @@ class CheckoutController extends Controller
 
         if ($Request->payment == "cash_on") {
             $order_id = Order::insertGetId([
-                'user_id' => Auth::id()?Auth::id():"",
-                'name'=>$Request->name,
+                'user_id' => Auth::id() ? Auth::id() : "",
+                // 'name'=>$Request->name,
                 'payment_type' => $Request->payment,
-                'blnc_transection'=>$Request->pnumber,
+                'blnc_transection' => $Request->pnumber,
                 'subtotal' => $subtotal,
                 'discount' => $Request->discount,
                 'paying_amount' => $payAmount,
@@ -69,7 +69,7 @@ class CheckoutController extends Controller
             foreach (Cart::content() as $value) {
 
                 Order_detail::insert([
-                    'user_id' => Auth::id()?Auth::id():"",
+                    'user_id' => Auth::id() ? Auth::id() : "",
                     'order_id' => $order_id,
                     'product_id' => $value->id,
                     'color' => $value->options->color,
@@ -94,7 +94,7 @@ class CheckoutController extends Controller
 
 
             Shipping::insert([
-                'user_id' => Auth::id()?Auth::id():"",
+                'user_id' => Auth::id() ? Auth::id() : "",
                 'user_id' => $Request->name,
                 'order_id' => $order_id,
                 'division' => $division_name->division,
@@ -106,8 +106,7 @@ class CheckoutController extends Controller
 
             Cart::destroy();
             return redirect('/')->with('message', "Your Order Successfully Done");
-
-        } 
+        }
 
         // elseif ($Request->payment == "bkash") {
         //     $order_id = Order::insertGetId([
