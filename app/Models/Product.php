@@ -24,22 +24,19 @@ class Product extends Model
     {
         return $this->belongsTo(category::class);
     }
-     public function subCategory()
+    public function subCategory()
     {
-        return $this->belongsTo(Sub_category::class,'subcategory_id');
+        return $this->belongsTo(Sub_category::class, 'subcategory_id');
     }
 
-     public function files()
+    public function files()
     {
         return $this->hasMany(File::class);
     }
 
-     public function productAttributes()
+
+    public function reviews()
     {
-        return $this->hasMany(ProductAttribute::class,'product_id');
+        return $this->hasMany(ProductReview::class);
     }
-    
-
-
-
 }
