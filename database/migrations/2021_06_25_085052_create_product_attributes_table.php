@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('product_attributes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->nullable()->constrained('products')->onDelete('cascade');
+            $table->unsignedBigInteger('product_id');
             $table->string('product_color')->nullable();
             $table->string('product_image')->nullable();
+             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -28,7 +28,7 @@ class ProductController extends Controller
     {
         $brands = Brand::select(['id', 'brand_name', 'brand_photo'])->get();
         if ($request->ajax()) {
-            $products = Product::with(['category','subCategory','files','productAttributes'])->get();
+            $products = Product::with('category','subCategory','attributes')->get();
             return Datatables::of($products)
                 ->addIndexColumn()
                 ->addColumn('action', function ($row) {
@@ -50,7 +50,7 @@ class ProductController extends Controller
                 })
                 ->addColumn('image_one', function ($data) {
 
-                    $image_name = $data->productAttributes[0]['product_image'];
+                    $image_name = $data->attributes[0]['product_image'];
                     $url = "product_images/$image_name";
                     return '<img src="' . $url . '" border="0" 
                     width="60" class="img-rounded" align="center" />';

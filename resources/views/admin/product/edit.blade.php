@@ -131,7 +131,7 @@
                <div  id="input_fields_wrap" >
             <div class="row input_field" id="addMore" >
 
-              @foreach($product->productAttributes as $item)
+              @foreach($product->attributes as $item)
 
               <div class="col-lg-4" id="inputRow">
                 <div class="form-group">
