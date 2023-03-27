@@ -37,7 +37,7 @@
                                             @php
                                                 $amout=$item->selling_price-$item->discount_price;
                                                 @endphp
-                                            <span>{{ round($amout/$item->selling_price*100) }}% Off</span>
+                                            <span>{{ round(@$amout/$item->selling_price*100) }}% Off</span>
                                         </div>
                                     </div>
                                     <div class="rating_wrap">
