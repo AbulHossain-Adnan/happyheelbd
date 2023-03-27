@@ -195,7 +195,7 @@ class ProductController extends Controller
         //     ->where('products.id', $id)->first();
 
 
-$product = Product::with(['category','subCategory','files'])->where('id',$id)->first();
+$product = Product::with(['category','subCategory','attributes'])->where('id',$id)->first();
 
 
     

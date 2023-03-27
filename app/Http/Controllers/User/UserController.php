@@ -51,10 +51,11 @@ class UserController extends Controller
     {
 
 
-        $product = Product::with(['category', 'brand', 'files', 'reviews.user'])->where('id', $id)->first();
+        $product = Product::with(['category', 'brand', 'attributes', 'reviews.user'])->where('id', $id)->first();
 
 
-        $product_color = explode(',', $product->product_color);
+        $product_color = $product->attributes;
+
         $product_size = explode(',', $product->product_size);
         // $categories=Category::all();
         // $site_setting=Site::first();
@@ -81,7 +82,7 @@ class UserController extends Controller
     public function productview($id)
     {
 
-        $product = Product::find($id)->with('brand', 'category', 'files')->where('status', 1)->where('id', $id)->first();
+        $product = Product::find($id)->with(['brand', 'category', 'attributes'])->where('status', 1)->where('id', $id)->first();
 
 
 

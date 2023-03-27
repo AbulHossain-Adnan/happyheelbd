@@ -5,7 +5,7 @@
                                  <span class="pr_flash">New</span>
                                 <div class="">
                                    <a href="{{url('/singleproduct/'.$item->id)}}">
-                                        <img src="{{ asset('product_images/'.@$item->files[0]['product_image']) }}" alt="product_img1">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
                                    </a>
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">

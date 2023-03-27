@@ -108,9 +108,9 @@
                             <div class="product_wrap">
                                 <div class="product_img">
                                <a href="{{url('/singleproduct/'.$item->id)}}">
-                                        <img src="{{ asset('product_images/'.@$item->files[0]['product_image']) }}" alt="el_img2ddddddddd" loading="lazy">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="el_img2ddddddddd" loading="lazy">
                                         <img class="product_hover_img"
-                                            src="{{ asset('product_images/'.@$item->files[0]['product_image']) }}" alt="el_hover_img2vvvv" loading="lazy">
+                                            src="{{ asset('product_images/'.@$item->attributes[1]['product_image']) }}" alt="el_hover_img2vvvv" loading="lazy">
                                             </a>
                                    
                                     <div class="product_action_box">
@@ -225,9 +225,9 @@
                             <div class="product_wrap">
                                 <div class="product_img">
                                     <a href="{{url('/singleproduct/2')}}">
-                                        <img src="{{ asset('product_images/'.@$item->files[0]['product_image']) }}" alt="fffffffff" loading="lazy">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="fffffffff" loading="lazy">
                                         <img class="product_hover_img"
-                                            src="{{ asset('product_images/'.@$item->files[1]['product_image']) }}" loading="lazy" alt="img">
+                                            src="{{ asset('product_images/'.@$item->attributes[1]['product_image']) }}" loading="lazy" alt="img">
                                     </a>
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">
@@ -302,9 +302,9 @@
                             <div class="product_wrap">
                                 <div class="product_img">
                                     <a href="{{url('/singleproduct/2')}}">
-                                        <img src="{{ asset('product_images/'.@$item->files[0]['product_image']) }}" alt="el_img2">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="el_img2">
                                         <img class="product_hover_img"
-                                            src="{{ asset('product_images/'.@$item->files[1]['product_image']) }}" alt="el_hover_img2">
+                                            src="{{ asset('product_images/'.@$item->attributes[1]['product_image']) }}" alt="el_hover_img2">
                                     </a>
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">
@@ -898,14 +898,18 @@ $.ajaxSetup({
             datatype:"json",
             url:"productview/"+id,
             success:function(data){
-                console.log(data.product_image);
+                console.log(data.product.attributes);
+                // console.log(data.product.attributes[0]['product_image']);
+
+                // console.log(data.attributes[0]['product_image']);
+
 
                 $("#pcname").text(data.product.product_code);
                 $("#ptname").text(data.product.product_name);
                 $("#pname").text(data.product.product_name);
-                $("#pimage").attr('src','/product_images/'+data.product_image);
+                $("#pimage").attr('src','/product_images/'+data.product.attributes[0]['product_image']);
                 $("#cname").text(data.product.category.category_name);
-                $("#bname").text(data.product.brand.brand_name);
+                // $("#bname").text(data.product.brand.brand_name);
                 $("#product_id").val(data.product.id);
                 $("#stock").text(data.product.product_quantity);
 
@@ -922,12 +926,18 @@ $.ajaxSetup({
                     });
 
                 var dd = $('#test_color_display').empty();
-                $.each(data.color,function(key,value){
+                $.each(data.product.attributes,function(key,value){
+
+                    console.log(value);
+                    console.log('color');
+
+
+
                     $("#test_color_display").append(`
                                    
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="color" id="color" value="${value}" ${key == 0? "checked" :"" }>
-                <label class="form-check-label" for="inlineRadio1">${value}</label>
+                <input class="form-check-input" type="radio" name="color" id="color" value="${value.product_color}" ${key == 0? "checked" :"" }>
+                <label class="form-check-label" for="inlineRadio1">${value.product_color}</label>
               </div>
               
                                 
@@ -956,22 +966,29 @@ $.ajaxSetup({
     }
 </script>
 
+<script>
+    $('input[name="color"]').change(function() {
+   alert('change hoise');
+});
+</script>
+
 
 <!-- displayed selected size  -->
-<!-- <script>
-    var selectedColor = $('input[name="color"]:checked').val();     
-    $("#color_display").html("Color:"+" "+selectedColor);
+ <script>
+        var selectedColor = $('input[name="color"]:checked').val();
+        $("#color_display").html("Color:" + " " + selectedColor);
 
-    // when size value will be changed
-    $(document).ready(function() {
-        // Add a change event listener to the radio button inputs
-        $('input[name="color"]').change(function() {
-            // Retrieve the value of the selected input
-            var selectedColor = $('input[name="color"]:checked').val();
-            $("#color_display").html("Color:"+" "+selectedColor);
+        // when size value will be changed
+        $(document).ready(function() {
+            // Add a change event listener to the radio button inputs
+            $('input[name="color"]').change(function() {
+                console.log('chenge')
+                // Retrieve the value of the selected input
+                var selectedColor = $('input[name="color"]:checked').val();
+                $("#color_display").html("Color:" + " " + selectedColor);
+            });
         });
-    });
-</script> -->
+    </script>
 
 
 
@@ -1037,6 +1054,7 @@ $.ajaxSetup({
 
 <script type="text/javascript">
     function addtocart_two(){
+        alert('hi')
 
        $.ajaxSetup({
     headers: {
@@ -1100,7 +1118,6 @@ $.ajaxSetup({
 
 <script type="text/javascript">
     function addtocart(){
-
 
        $.ajaxSetup({
     headers: {

@@ -35,8 +35,8 @@
                             <div class="product_img_box">
 
                                 <img id="product_img"
-                                    src='{{ asset('product_images/' . @$product->files[0]['product_image']) }}'
-                                    data-zoom-image="{{ asset('product_images/' . @$product->files[0]['product_image']) }}"
+                                    src='{{ asset('product_images/' . @$product->attributes[0]['product_image']) }}'
+                                    data-zoom-image="{{ asset('product_images/' . @$product->attributes[0]['product_image']) }}"
                                     alt="product_img1" />
                                 <a href="#" class="product_img_zoom" title="Zoom">
                                     <span class="linearicons-zoom-in"></span>
@@ -44,7 +44,7 @@
                             </div>
                             <div id="pr_item_gallery" class="product_gallery_item slick_slider" data-slides-to-show="4"
                                 data-slides-to-scroll="1" data-infinite="false">
-                                @foreach ($product->files as $key => $file)
+                                @foreach ($product->attributes as $key => $file)
                                     <div class="item">
                                         <a href="{{ $key }}" class="product_gallery_item active"
                                             data-image="{{ asset('product_images/' . @$file->product_image) }}"
@@ -139,12 +139,13 @@
 
                                     <span class="" id="color_display">Color: </span>
                                     <div class="product_color_switch">
-                                        @foreach ($product_color as $key => $color)
+                                        @foreach ($product_color as $key => $value)
+                                       
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="color" id="color"
-                                                    value="{{ $color }}" {{ $key == 0 ? 'checked' : '' }}>
+                                                    value="{{ $value->product_color }}" {{ $key == 0 ? 'checked' : '' }}>
                                                 <label class="form-check-label"
-                                                    for="inlineRadio1">{{ $color }}</label>
+                                                    for="inlineRadio1">{{ $value->product_color }}</label>
                                             </div>
                                         @endforeach
                                     </div>
