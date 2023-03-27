@@ -64,7 +64,7 @@ class CartController extends Controller
     }
     public function addtocart(Request $request)
     {
-        // dd($request->all());
+        dd($request->all());
         if (session::has('coupon')) {
             session::forget('coupon');
         }

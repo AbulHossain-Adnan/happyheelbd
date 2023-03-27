@@ -4,7 +4,7 @@
     <div class="col-lg-6 col-md-6 mb-4 mb-md-0">
       <div class="product-image">
         <div class="product_img_box">
-          <img id="product_img" src='{{ asset('product_images/'.@$product->files[0]['product_image']) }}' data-zoom-image="{{ asset('product_images/'.@$product->files[0]['product_image']) }}"
+          <img id="product_img" src='{{ asset('product_images/'.@$product->attributes[0]['product_image']) }}' data-zoom-image="{{ asset('product_images/'.@$product->attributes[0]['product_image']) }}"
           alt="product_img1" />
         </div>
         <div id="pr_item_gallery"  class="product_gallery_item slick_slider"
@@ -13,7 +13,7 @@
          
           
          
-        @foreach($product->files as $file)
+        @foreach($product->attributes as $file)
           <div class="item">
             <a
               href="#"
