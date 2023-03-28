@@ -7,6 +7,8 @@ use App\Models\Product;
 use App\Models\Coupon;
 use App\Models\Admin\Seo;
 use App\Models\Admin\Site;
+use App\Models\ProductAttribute;
+
 use Cart;
 use Session;
 use App\Models\Admin\Category;
@@ -64,45 +66,28 @@ class CartController extends Controller
     }
     public function addtocart(Request $request)
     {
-        dd($request->all());
         if (session::has('coupon')) {
             session::forget('coupon');
         }
-        $id = $request->product_id;
-        $product = Product::with('files')->find($id)->where('id', $id)->first();
-        $quantity = $request->quantity;
-        $color = $request->color;
-        $size = $request->size;
+        $product = Product::where('id', $request->product_id)->first();
+        $productAttribute = ProductAttribute::where('id',$request->attribute_id)->first();
+      
         $data = array();
         if ($product->discount_price == null) {
-
-            $data['id'] = $product->id;
-            $data['name'] = $product->product_name;
-            $data['qty'] = $quantity;
             $data['price'] = $product->selling_price;
-            $data['weight'] = 1;
-            $data['options']['image'] = $product->files[0]['product_image'];
-            $data['options']['color'] = $request->color;
-            $data['options']['size'] = $request->size;
-            cart::add($data);
-
-            return Response()->json(['success' => 'Data Added to Cart Succesfully']);
-
-        } else {
+        }else{
+            $data['price'] = $product->discount_price;
+        }
             $data['id'] = $product->id;
             $data['name'] = $product->product_name;
-            $data['qty'] = $quantity;
-            $data['price'] = $product->discount_price;
+            $data['qty'] = $request->quantity;
             $data['weight'] = 1;
-            $data['options']['image'] = $product->files[0]['product_image'];
-            $data['options']['color'] = $request->color;
+            $data['options']['image'] = $productAttribute->product_image;
+            $data['options']['color'] = $productAttribute->product_color;
             $data['options']['size'] = $request->size;
             cart::add($data);
 
             return Response()->json(['success' => 'Data Added to Cart Succesfully']);
-
-
-        }
 
     }
     public function couponcartremove($rowId)

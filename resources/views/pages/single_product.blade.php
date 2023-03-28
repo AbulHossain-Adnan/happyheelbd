@@ -46,12 +46,15 @@
                                 data-slides-to-scroll="1" data-infinite="false">
                                 @foreach ($product->attributes as $key => $file)
                                     <div class="item">
-                                        <a href="{{ $key }}" class="product_gallery_item active"
+                                        <a href="{{ $key }}" class="product_gallery_item active" onclick="selectAttribute({{$file->id}})"
                                             data-image="{{ asset('product_images/' . @$file->product_image) }}"
                                             data-zoom-image="{{ asset('product_images/' . @$file->product_image) }}">
                                             <img src="{{ asset('product_images/' . @$file->product_image) }}"
                                                 alt="product_small_img1" />
                                         </a>
+                                         <input type="hidden" value="{{$file->id}}" id="attribute_id">
+                                          <label class="form-check-label"
+                                                    for="inlineRadio1">{{ $file->product_color }}</label>
                                     </div>
                                     {{-- <a href="{{$key}}" class="product_gallery_item active" data-image="{{ asset('product_images/'.@$file->product_image) }}" data-zoom-image="{{ asset('product_images/'.@$file->product_image) }}">
                          <img src="{{ asset('product_images/'.@$file->product_image) }}" alt="product_small_img1"/>
@@ -137,9 +140,9 @@
                                 </div>
                                 <div class="">
 
-                                    <span class="" id="color_display">Color: </span>
+                                    <span class="" >Color: </span>
                                     <div class="product_color_switch">
-                                        @foreach ($product_color as $key => $value)
+                                        {{-- @foreach ($product_color as $key => $value)
                                        
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="color" id="color"
@@ -147,7 +150,57 @@
                                                 <label class="form-check-label"
                                                     for="inlineRadio1">{{ $value->product_color }}</label>
                                             </div>
-                                        @endforeach
+                                        @endforeach --}}
+
+
+                                        {{-- @foreach ($product->attributes as $key => $value) --}}
+
+
+                                <div id="pr_item_gallery" class="product_gallery_item slick_slider" data-slides-to-show="4"
+                                data-slides-to-scroll="1" data-infinite="false">
+                                @foreach ($product->attributes as $key => $item)
+                                    <div class="item">
+                                        <a href="{{ $key }}" class="product_gallery_item active" onclick="selectAttribute({{$item->id}})"
+                                        
+                                            data-image="{{ asset('product_images/' . @$item->product_image) }}"
+                                            data-zoom-image="{{ asset('product_images/' . @$item->product_image) }}">
+                                            
+                                            <img src="{{ asset('product_images/' . @$item->product_image) }}"
+                                                alt="product_small_img1" 
+                                                />  
+                                                
+                                        </a>
+                                        <input type="hidden" value="{{$item->id}}" id="attribute_id">
+                                         {{-- <input class="form-check-input" type="radio" name="color" id="color"
+                                                    value="{{ $item->product_color }}" {{ $key == 0 ? 'checked' : '' }}>  --}}
+                                                <label class="form-check-label"
+                                                    for="inlineRadio1">{{ $item->product_color }}</label>
+                                    </div>
+                                  
+                                @endforeach
+
+                                <!--  <div class="item">
+                                                                                                                                                                                                                    <a href="#" class="product_gallery_item" data-image="{{ asset('product_images/' . @$product->image_two) }}" data-zoom-image="{{ asset('product_images/' . @$product->image_two) }}">
+                                                                                                                                                                                                                        <img src="{{ asset('product_images/' . @$product->image_two) }}" alt="product_small_img2" />
+                                                                                                                                                                                                                    </a>
+                                                                                                                                                                                                                </div> -->
+
+                            </div>
+
+
+
+
+{{--                                        
+                                            <div class="form-check form-check-inline">
+
+                                                <img src="{{ asset('product_images/' . @$value->product_image) }}" width="40px;"
+                                                alt="product_small_img1" />
+                                                <input class="form-check-input" type="radio" name="color" id="color"
+                                                    value="{{ $value->product_color }}" {{ $key == 0 ? 'checked' : '' }}>
+                                                <label class="form-check-label"
+                                                    for="inlineRadio1">{{ $value->product_color }}</label>
+                                            </div> --}}
+                                        {{-- @endforeach --}}
                                     </div>
                                 </div>
                             </div>
@@ -976,7 +1029,8 @@
             var id = $('#product_id').val();
             // var color=$('#color').val();
             // var size=$('#size').val();
-            var color = $('input[name="color"]:checked').val();
+            // var color = $('input[name="color"]:checked').val();
+            var attribute_id = $('#attribute_id').val();
             var size = $('input[name="size"]:checked').val();
             var quantity = $('#quantity').val();
 
@@ -986,7 +1040,7 @@
                 datatype: 'json',
                 data: {
                     product_id: id,
-                    color: color,
+                    attribute_id: attribute_id,
                     size: size,
                     quantity: quantity
                 },
@@ -1026,7 +1080,11 @@
         }
 
 
+  function selectAttribute(id){
 
+             var dataId = $('#attribute_id').val(id);
+            console.log(dataId);
+        }
 
         function addwish(id) {
 
@@ -1066,6 +1124,10 @@
 
 
         }
+
+      
+
+
 
         function addnewsletter() {
 
