@@ -321,7 +321,7 @@ Route::get('/category/shop/products/{id}', [App\Http\Controllers\ShopController:
 Route::get('/brand/shop/products/{id}', [App\Http\Controllers\ShopController::class, 'brandshopproducts']);
 // Route for stockcontroller
 Route::get('/admin/stock/management/', [App\Http\Controllers\Admin\Stock\StockController::class, 'stock'])->name('stock.index');
-
+Route::get('/all/shop/products', [App\Http\Controllers\ShopController::class, 'allProducts']);
 // search page
 
 Route::get('search/page', [App\Http\Controllers\SearchController::class, 'search']);

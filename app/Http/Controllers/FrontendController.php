@@ -11,34 +11,34 @@ use App\Models\Admin\Site;
 
 class FrontendController extends Controller
 {
-    public function index(Request $request)
-    {
+    public function index(Request $request){ 
 
-        $all_products = Product::where('status', 1)->with(['category','attributes'])
-        ->select('id', 'product_name', 'product_code', 'product_quantity', 'product_details','product_size',
-        'selling_price','discount_price')->orderBy('id','desc')
-        ->paginate(12);
-        $tends = Product::where('status', 1)->where('trend', 1)
+$all_products = Product::where('status', 1)->with('attributes')
+         ->select('id', 'product_name', 'product_code', 'product_quantity', 'product_details','product_size','selling_price','discount_price')
+        ->orderBy('id','desc')->paginate(2);
+    
+
+        $best_serllers = Product::where('status', 1)->where('best_rated', 1)->with('attributes')
+        ->orderBy('id', 'desc')->select('id', 'product_name', 'product_code', 'product_quantity',
+         'product_details','product_size','selling_price','discount_price')->get();
+
+         $tends = Product::where('status', 1)->where('trend', 1)
         ->with('attributes')
         ->orderBy('id', 'desc')->select('id', 'product_name', 'product_code',
          'product_quantity', 'product_details','product_size','selling_price','discount_price')->get();
 
-        $best_rateds = Product::where('status', 1)->where('best_rated', 1)->with('attributes')
-        ->orderBy('id', 'desc')->select('id', 'product_name', 'product_code', 'product_quantity',
-         'product_details','product_size','selling_price','discount_price')->get();
+        $hot_deals = Product::where('status', 1)->where('hot_deal', 1)->with('attributes')
+         ->select('id', 'product_name', 'product_code', 'product_quantity', 'product_details','product_size','selling_price','discount_price')
+        ->orderBy('id','desc')->get();
 
-       $hot_deals = Product::where('status', 1)->where('hot_deal', 1)->with('attributes')
-       ->select('id', 'product_name', 'product_code', 'product_quantity', 'product_details','product_size','selling_price','discount_price')
-       ->orderBy('id','desc')->get();
+        $category_products = Brand::get(); //brand model use as category for sorting products
+    //  if ($request->ajax()) {
 
-         if ($request->ajax()) {
+        //     $list_view = view('partials.list_view',compact('all_products'))->render();
+        //     return response()->json(['list_view'=>$list_view]);
 
-            $list_view = view('partials.list_view',compact('all_products'))->render();
-            return response()->json(['list_view'=>$list_view]);
-
-         }
-
-        return view('frontend/index', compact('all_products','tends','best_rateds','hot_deals'));
+        //  }
+        return view('frontend/index', compact('tends','best_serllers','hot_deals','category_products','all_products'));
     }
 
 

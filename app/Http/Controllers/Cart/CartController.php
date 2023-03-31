@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Coupon;
+use App\Models\Admin\Brand;
 use App\Models\Admin\Seo;
 use App\Models\Admin\Site;
 use App\Models\ProductAttribute;
@@ -56,12 +57,13 @@ class CartController extends Controller
     }
     public function cart_show()
     {
+        $category_products = Brand::select('id','brand_name','brand_photo')->get();
         $seos = Seo::first();
         $cart = Cart::content();
         $categories = Category::all();
         $site_setting = Site::first();
 
-        return view('pages/cart', compact('cart', 'categories', 'seos', 'site_setting'));
+        return view('pages/cart', compact('cart', 'categories', 'seos', 'site_setting','category_products'));
 
     }
     public function addtocart(Request $request)

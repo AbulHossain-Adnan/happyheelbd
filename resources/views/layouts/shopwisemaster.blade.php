@@ -45,10 +45,6 @@
     <link rel="stylesheet" href="{{ asset('templateassets') }}/assets/css/responsive.css">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <!--
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-
-     alpha/css/bootstrap.css" rel="stylesheet"> -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css"
@@ -113,22 +109,6 @@
                             <ul class="header_list">
 
                                 <li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     @if (Auth::check())
                                         <a href="wishlist.html" id="wishlistfield">
 
@@ -179,6 +159,19 @@
                                 <a class="nav-link " href="{{ url('shop/page') }}">Shop</a>
 
                             </li>
+
+                             <li class="dropdown">
+                                    <a data-bs-toggle="dropdown" class="nav-link dropdown-toggle active" href="#">Women Shoes</a>
+                                    <div class="dropdown-menu">
+                                        <ul> 
+                                            @foreach ($category_products as $item)
+                                                
+                                            <li><a class="dropdown-item nav-link nav_item" href="{{url('category/shop/products',$item->id)}}">{{$item->brand_name}}</a></li>
+                                            @endforeach
+                                
+                                        </ul>
+                                    </div>   
+                                </li>
 
 
 
@@ -418,23 +411,6 @@
         </div>
     </header>
     <!-- END HEADER -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @yield('content')
 
     <!-- START FOOTER -->
@@ -638,12 +614,6 @@
         }
         miniwishlist();
     </script>
-
-
-
-
-
-
 </body>
 
 </html>

@@ -57,12 +57,11 @@ class UserController extends Controller
         $product_color = $product->attributes;
 
         $product_size = explode(',', $product->product_size);
-        // $categories=Category::all();
-        // $site_setting=Site::first();
-        $releted_products = Product::where('category_id', $product->category_id)->get();
+        $category_products = Brand::select('id','brand_name','brand_photo')->get();
+        $releted_products = Product::with('attributes')->where('brand_id', $product->brand_id)->get();
 
 
-        return view('pages/single_product', compact('product', 'product_color', 'product_size', 'releted_products'));
+        return view('pages/single_product', compact('product', 'product_color', 'product_size', 'releted_products','category_products'));
     }
 
     public function categoryshow($id)
@@ -83,17 +82,12 @@ class UserController extends Controller
     {
 
         $product = Product::find($id)->with(['brand', 'category', 'attributes'])->where('status', 1)->where('id', $id)->first();
-
-
-
-
-
-
-
         $color = $product->product_color;
         $quantity = $product->product_quantity;
         $size = $product->product_size;
-        $product_color = explode(',', $color);
+        // $product_color = explode(',', $color);
+        
+
         $product_size = explode(',', $size);
         $product_image = $product->files[0]['product_image'];
 
@@ -141,13 +135,11 @@ class UserController extends Controller
 
     public function quickview($id)
     {
-        $product = Product::with('files')->where('status', 1)->where('id', $id)->first();
+        $product = Product::with('attributes')->where('status', 1)->where('id', $id)->first();
 
-
-        $color = $product->product_color;
+        $product_color = $product->attributes;
         $quantity = $product->product_quantity;
         $size = $product->product_size;
-        $product_color = explode(',', $color);
         $product_size = explode(',', $size);
         return view('pages/quickview', compact('product', 'product_color', 'product_size'));
     }

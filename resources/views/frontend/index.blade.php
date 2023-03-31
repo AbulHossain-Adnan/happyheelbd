@@ -1,8 +1,6 @@
 @extends('layouts.shopwisemaster')
 @section('content')
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
 <!-- START SECTION BANNER -->
 <div class="banner_section slide_medium shop_banner_slider staggered-animation-wrap">
     <div id="carouselExampleControls" class="carousel slide carousel-fade light_arrow" data-bs-ride="carousel">
@@ -80,19 +78,82 @@
 <!-- END MAIN CONTENT -->
 <div class="main_content">
 
-    <!-- START SECTION BANNER -->
 
+{{-- <div class="section small_pt small_pb">
+	<div class="container">
+    	<div class="row">
+			<div class="col-md-12">
+            	<div class="heading_tab_header">
+                    <div class="heading_s2">
+                        <h2>EID COLLECTIONS <i class="fa-solid fa-fire"></i></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+            	<div class="product_slider carousel_slider owl-carousel owl-theme nav_style1" data-loop="false" data-dots="false" data-nav="true" data-margin="20" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
+                	  @foreach ($hot_deals as $item)
+                    <div class="item">
+                        <div class="product">
+                            <div class="">
+                                <a href="{{url('/singleproduct/'.$item->id)}}">
+                                    <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                </a>
+                                <div class="product_action_box">
+                                
+                                </div>
+                            </div>
+                             <div class="product_info">
+                                    <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id)}}">{{$item->product_name}}</a></h6>
 
+                                    <div class="product_price">
+                                        <span class="pr_flash">New</span>
 
+                                          @if($item->discount_price == null)
+                                          <li class="product_mark product_discount " style="background:blue;">new</li>
+                                            @else
 
+                                                @php
+                                                $amout=$item->selling_price-$item->discount_price;
+                                                @endphp
+                                        <span class="price">{{@$item->discount_price}} TK</span>
+                                        <del>
+                                            {{@$item->selling_price}} TK
+                                        </del>
+                                        <div class="on_sale">
+                                            <span>{{ round($amout/$item->selling_price*100) }}%</span>
+                                        </div>
+                                                @endif
 
-    <!-- START SECTION SHOP -->
+                                    </div>
+                                    <div class="rating_wrap">
+                                        <div class="rating">
+                                            <div class="product_rate" style="width:98%"></div>
+                                        </div>
+                                        <span class="rating_num"></span>
+                                    </div>
+                                    <div class="pr_desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit
+                                            massa enim. Nullam id varius nunc id varius nunc.</p>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                   @endforeach
+                </div>
+            </div>
+		</div>
+    </div>
+</div> --}}
+
+ <!-- START SECTION SHOP -->
     <div class="section small_pt">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="heading_s1 text-center">
-                        <h2>Trending Products </h2>
+                        <h2>EID COLLECTIONS </h2>
                     </div>
                 </div>
             </div>
@@ -116,10 +177,10 @@
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">
                                             <li class="add-to-cart">
-                                                <a type="button" type="button" id="{{ $item->id }} " data-bs-toggle="modal"
+                                                {{-- <a type="button" type="button" id="{{ $item->id }} " data-bs-toggle="modal"
                                                     data-bs-target="#cartmodal" onclick="productview(this.id)">
                                                     <i class="icon-basket-loaded"></i>
-                                                </a>
+                                                </a> --}}
                                             </li>
                                            
                                             <li>
@@ -136,7 +197,8 @@
                                     <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id)}}">{{$item->product_name}}</a></h6>
 
                                     <div class="product_price">
-                                        <span class="pr_flash">New</span>
+                                        {{-- <span class="pr_flash">New</span> --}}
+                                         <span class="pr_flash bg-success">New</span>
 
                                           @if($item->discount_price == null)
                                           <li class="product_mark product_discount " style="background:blue;">new</li>
@@ -178,7 +240,6 @@
 
 
 
-
       <!-- START SECTION BANNER -->
     <div class="section pb_20 small_pt">
         <div class="container">
@@ -193,54 +254,52 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 
 
 
 
 
 
-
-    <!-- END SECTION SHOP -->
-     <!-- START SECTION SHOP -->
-    <div class="section small_pt">
+ <div class="section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="heading_s1 text-center">
-                        <h2>Best Rated Products </h2>
-                    </div>
-                </div>
-            </div>
-
             <div class="row">
                 <div class="col-12">
-                    <div class="product_slider carousel_slider owl-carousel owl-theme dot_style1" data-loop="false"
-                        data-margin="20"
-                        data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "991":{"items": "4"}}'>
-                        @foreach ($best_rateds as $item)
+                    <div class="heading_tab_header">
+                    <div class="heading_s2">
+                        <h2>BLOCK HEELS</h2>
+                    </div>
+                    {{-- <div class="deal_timer">
+                    	<div class="countdown_time countdown_style1" data-time="2021/09/28 13:22:15"></div>
+                    </div> --}}
+                </div>
+                    <div class="row align-items-center mb-4 pb-1">
+                    </div>
+                         <div id="list_view_product" class="row shop_container loadmore" data-item="8" data-item-show="4"
+                        data-finish-message="No More Item to Show" data-btn="Load More"> 
 
-
-                        <div class="item">
-                            <div class="product_wrap">
-                                <div class="product_img">
-                                    <a href="{{url('/singleproduct/2')}}">
-                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="fffffffff" loading="lazy">
-                                        <img class="product_hover_img"
-                                            src="{{ asset('product_images/'.@$item->attributes[1]['product_image']) }}" loading="lazy" alt="img">
-                                    </a>
+                       @foreach($best_serllers as $item)
+                        <div class="col-lg-3 col-md-4 col-6 grid_item">
+                            <div class="product">
+                                 <span class="pr_flash">New</span>
+                                <div class="">
+                                   <a href="{{url('/singleproduct/'.$item->id)}}">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                   </a>
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">
-                                            <li class="add-to-cart">
-                                                <a type="button" id="{{ $item->id }} " data-bs-toggle="modal"
+                                            {{-- <li class="add-to-cart">
+                                                 <a type="button" id="{{ $item->id }} " data-bs-toggle="modal"
                                                     data-bs-target="#cartmodal" onclick="productview(this.id)">
                                                     <i class="icon-basket-loaded"></i>
                                                 </a>
-                                            </li>
+                                                </li> --}}
                                            
-                                            <li><a href="{{url('/product-quick-view/'.$item->id)}}"
-                                                    class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
                                             <li>
+                                                <a href="{{url('/product-quick-view/'.$item->id)}}"
+                                                    class="popup-ajax"><i class="icon-magnifier-add"></i></a>
+                                                </li>
+                                            <li> 
                                                 <a id="{{$item->id}}" onclick="addwish(this.id)"><i class="icon-heart"></i></a>
                                             </li>
                                         </ul>
@@ -249,21 +308,20 @@
                                 <div class="product_info">
                                     <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id)}}">{{$item->product_name}}</a></h6>
                                     <div class="product_price">
-                                         <span class="pr_flash bg-success">Sale</span>
-                                       <span class="price">{{@$item->discount_price}} TK</span>
+                                        <span class="price">{{@$item->discount_price}} TK</span>
                                         <del>
                                             {{@$item->selling_price}} TK
                                         </del>
                                         <div class="on_sale">
-                                             @php
+                                            @php
                                                 $amout=$item->selling_price-$item->discount_price;
                                                 @endphp
-                                            <span>{{ round($amout/$item->selling_price*100) }}% Off</span>
+                                            <span>{{ round(@$amout/$item->selling_price*100) }}% Off</span>
                                         </div>
                                     </div>
                                     <div class="rating_wrap">
                                         <div class="rating">
-                                            <div class="product_rate" style="width:100%"></div>
+                                            <div class="product_rate" style="width:90%"></div>
                                         </div>
                                         <span class="rating_num"></span>
                                     </div>
@@ -271,49 +329,17 @@
                                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit
                                             massa enim. Nullam id varius nunc id varius nunc.</p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END SECTION SHOP -->
-     <!-- START SECTION SHOP -->
-    <div class="section small_pt">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="heading_s1 text-center">
-                        <h2>Hot Deals </h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="product_slider carousel_slider owl-carousel owl-theme dot_style1" data-loop="false"
-                        data-margin="20"
-                        data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "991":{"items": "4"}}'>
-                        @foreach ($hot_deals as $item)
-                        <div class="item">
-                            <div class="product_wrap">
-                                <div class="product_img">
-                                    <a href="{{url('/singleproduct/2')}}">
-                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="el_img2">
-                                        <img class="product_hover_img"
-                                            src="{{ asset('product_images/'.@$item->attributes[1]['product_image']) }}" alt="el_hover_img2">
-                                    </a>
-                                    <div class="product_action_box">
+                                  <!--   <div class="pr_switch_wrap">
+                                        <div class="product_color_switch">
+                                            <span class="active" data-color="#87554B"></span>
+                                            <span data-color="#333333"></span>
+                                            <span data-color="#DA323F"></span>
+                                        </div>
+                                    </div> -->
+                                    <div class="list_product_action_box">
                                         <ul class="list_none pr_action_btn">
-                                            <li class="add-to-cart">
-                                                <a type="button" id="{{ $item->id }} " data-bs-toggle="modal"
-                                                    data-bs-target="#cartmodal" onclick="productview(this.id)">
-                                                    <i class="icon-basket-loaded"></i>
-                                                </a>
-                                            </li>
+                                            <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add ddd
+                                                    To Cart</a></li>
                                            
                                             <li><a href="{{url('/product-quick-view/'.$item->id)}}"
                                                     class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
@@ -321,50 +347,34 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="product_info">
-                                    <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id)}}">{{$item->product_name}}</a></h6>
-                                    <div class="product_price">
-                                        <span class="pr_flash bg-danger">HOT</span>
-                                        <span class="price">{{@$item->discount_price}} TK</span>
-                                        <del>
-                                            {{@$item->selling_price}} TK
-                                        </del>
-                                        <div class="on_sale">
-                                             @php
-                                                $amout=$item->selling_price-$item->discount_price;
-                                                @endphp
-                                            <span>{{ round($amout/$item->selling_price*100) }}% Off</span>
-                                        </div>
-                                    </div>
-                                    <div class="rating_wrap">
-                                        <div class="rating">
-                                            <div class="product_rate" style="width:95%"></div>
-                                        </div>
-                                        <span class="rating_num"></span>
-                                    </div>
-                                    <div class="pr_desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit
-                                            massa enim. Nullam id varius nunc id varius nunc.</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
+
                         @endforeach
+
+                        <div class="container bg-light">
+                        <div class="col-md-12 text-center mt-2">
+                            <a href="{{url('category/shop/products/1')}}" type="button" class="btn btn-outline-danger">view all</a>
+                        </div>
                     </div>
+
+                    </div>
+                       
                 </div>
             </div>
         </div>
     </div>
-    <!-- END SECTION SHOP -->
 
 
 
 
 
-    <!-- START SECTION SHOP -->
 
-    {{-- black banner --}}
-    <!-- START SECTION BANNER -->
+
+
+
+
+
     <div class="section pb_20 small_pt">
         <div class="container">
             <div class="row">
@@ -378,19 +388,347 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- END SECTION BANNER -->
-    <!-- END SECTION SHOP -->
+    </div> 
 
 
-    {{-- start load more --}}
+
+  
+
+
+
 
 
     <!-- START SECTION SHOP -->
-    <div class="section">
+   
+
+
+
+       <div class="section">
         <div class="container">
             <div class="row">
                 <div class="col-12">
+                    <div class="heading_tab_header">
+                    <div class="heading_s2">
+                        <h2>PENCIL HEELS</h2>
+                    </div>
+                    {{-- <div class="deal_timer">
+                    	<div class="countdown_time countdown_style1" data-time="2021/09/28 13:22:15"></div>
+                    </div> --}}
+                </div>
+                    <div class="row align-items-center mb-4 pb-1">
+                    </div>
+                         <div id="list_view_product" class="row shop_container loadmore" data-item="8" data-item-show="4"
+                        data-finish-message="No More Item to Show" data-btn="Load More"> 
+
+                       @foreach($best_serllers as $item)
+                        <div class="col-lg-3 col-md-4 col-6 grid_item">
+                            <div class="product">
+                                 <span class="pr_flash">New</span>
+                                <div class="">
+                                   <a href="{{url('/singleproduct/'.$item->id)}}">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                   </a>
+                                    <div class="product_action_box">
+                                        <ul class="list_none pr_action_btn">
+                                            {{-- <li class="add-to-cart">
+                                                 <a type="button" id="{{ $item->id }} " data-bs-toggle="modal"
+                                                    data-bs-target="#cartmodal" onclick="productview(this.id)">
+                                                    <i class="icon-basket-loaded"></i>
+                                                </a>
+                                                </li> --}}
+                                           
+                                            <li>
+                                                <a href="{{url('/product-quick-view/'.$item->id)}}"
+                                                    class="popup-ajax"><i class="icon-magnifier-add"></i></a>
+                                                </li>
+                                            <li> 
+                                                <a id="{{$item->id}}" onclick="addwish(this.id)"><i class="icon-heart"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product_info">
+                                    <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id)}}">{{$item->product_name}}</a></h6>
+                                    <div class="product_price">
+                                        <span class="price">{{@$item->discount_price}} TK</span>
+                                        <del>
+                                            {{@$item->selling_price}} TK
+                                        </del>
+                                        <div class="on_sale">
+                                            @php
+                                                $amout=$item->selling_price-$item->discount_price;
+                                                @endphp
+                                            <span>{{ round(@$amout/$item->selling_price*100) }}% Off</span>
+                                        </div>
+                                    </div>
+                                    <div class="rating_wrap">
+                                        <div class="rating">
+                                            <div class="product_rate" style="width:90%"></div>
+                                        </div>
+                                        <span class="rating_num"></span>
+                                    </div>
+                                    <div class="pr_desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit
+                                            massa enim. Nullam id varius nunc id varius nunc.</p>
+                                    </div>
+                                  <!--   <div class="pr_switch_wrap">
+                                        <div class="product_color_switch">
+                                            <span class="active" data-color="#87554B"></span>
+                                            <span data-color="#333333"></span>
+                                            <span data-color="#DA323F"></span>
+                                        </div>
+                                    </div> -->
+                                    <div class="list_product_action_box">
+                                        <ul class="list_none pr_action_btn">
+                                            <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add ddd
+                                                    To Cart</a></li>
+                                           
+                                            <li><a href="{{url('/product-quick-view/'.$item->id)}}"
+                                                    class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                            <li> <a id="{{$item->id}}" onclick="addwish(this.id)"><i class="icon-heart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @endforeach
+
+                        <div class="container bg-light">
+        <div class="col-md-12 text-center">
+            <a href="" type="button" class="btn btn-outline-danger">view all</a>
+        </div>
+    </div>
+
+        </div>
+                <div class="auto-load text-center" style="display: none;">
+                <img style="width:200px;height: 200px;" src="{{asset('images/loader7.gif')}}">
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+          <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading_tab_header">
+                    <div class="heading_s2">
+                        <h2>FLAT SANDLE</h2>
+                    </div>
+                    {{-- <div class="deal_timer">
+                    	<div class="countdown_time countdown_style1" data-time="2021/09/28 13:22:15"></div>
+                    </div> --}}
+                </div>
+                    <div class="row align-items-center mb-4 pb-1">
+                    </div>
+                         <div id="list_view_product" class="row shop_container loadmore" data-item="8" data-item-show="4"
+                        data-finish-message="No More Item to Show" data-btn="Load More"> 
+
+                       @foreach($best_serllers as $item)
+                        <div class="col-lg-3 col-md-4 col-6 grid_item">
+                            <div class="product">
+                                 <span class="pr_flash">New</span>
+                                <div class="">
+                                   <a href="{{url('/singleproduct/'.$item->id)}}">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                   </a>
+                                    <div class="product_action_box">
+                                        <ul class="list_none pr_action_btn">
+                                            {{-- <li class="add-to-cart">
+                                                 <a type="button" id="{{ $item->id }} " data-bs-toggle="modal"
+                                                    data-bs-target="#cartmodal" onclick="productview(this.id)">
+                                                    <i class="icon-basket-loaded"></i>
+                                                </a>
+                                                </li> --}}
+                                           
+                                            <li>
+                                                <a href="{{url('/product-quick-view/'.$item->id)}}"
+                                                    class="popup-ajax"><i class="icon-magnifier-add"></i></a>
+                                                </li>
+                                            <li> 
+                                                <a id="{{$item->id}}" onclick="addwish(this.id)"><i class="icon-heart"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product_info">
+                                    <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id)}}">{{$item->product_name}}</a></h6>
+                                    <div class="product_price">
+                                        <span class="price">{{@$item->discount_price}} TK</span>
+                                        <del>
+                                            {{@$item->selling_price}} TK
+                                        </del>
+                                        <div class="on_sale">
+                                            @php
+                                                $amout=$item->selling_price-$item->discount_price;
+                                                @endphp
+                                            <span>{{ round(@$amout/$item->selling_price*100) }}% Off</span>
+                                        </div>
+                                    </div>
+                                    <div class="rating_wrap">
+                                        <div class="rating">
+                                            <div class="product_rate" style="width:90%"></div>
+                                        </div>
+                                        <span class="rating_num"></span>
+                                    </div>
+                                    <div class="pr_desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit
+                                            massa enim. Nullam id varius nunc id varius nunc.</p>
+                                    </div>
+                                  <!--   <div class="pr_switch_wrap">
+                                        <div class="product_color_switch">
+                                            <span class="active" data-color="#87554B"></span>
+                                            <span data-color="#333333"></span>
+                                            <span data-color="#DA323F"></span>
+                                        </div>
+                                    </div> -->
+                                    <div class="list_product_action_box">
+                                        <ul class="list_none pr_action_btn">
+                                            <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add ddd
+                                                    To Cart</a></li>
+                                           
+                                            <li><a href="{{url('/product-quick-view/'.$item->id)}}"
+                                                    class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                            <li> <a id="{{$item->id}}" onclick="addwish(this.id)"><i class="icon-heart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @endforeach
+
+                        <div class="container bg-light">
+                         <div class="col-md-12 text-center">
+                        <a href="" type="button" class="btn btn-outline-danger">view all</a>
+                    </div>
+            </div>
+
+                    </div>
+                    <div class="auto-load text-center" style="display: none;">
+                    <img style="width:200px;height: 200px;" src="{{asset('images/loader7.gif')}}">
+                </div>
+        </div>
+            </div>
+        </div>
+    </div>
+
+     <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="heading_tab_header">
+                    <div class="heading_s2">
+                        <h2>Transparent Heels</h2>
+                    </div>
+                    {{-- <div class="deal_timer">
+                    	<div class="countdown_time countdown_style1" data-time="2021/09/28 13:22:15"></div>
+                    </div> --}}
+                </div>
+                    <div class="row align-items-center mb-4 pb-1">
+                    </div>
+                         <div id="list_view_product" class="row shop_container loadmore" data-item="8" data-item-show="4"
+                        data-finish-message="No More Item to Show" data-btn="Load More"> 
+
+                       @foreach($best_serllers as $item)
+                        <div class="col-lg-3 col-md-4 col-6 grid_item">
+                            <div class="product">
+                                 <span class="pr_flash">New</span>
+                                <div class="">
+                                   <a href="{{url('/singleproduct/'.$item->id)}}">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                   </a>
+                                    <div class="product_action_box">
+                                        <ul class="list_none pr_action_btn">
+                                            {{-- <li class="add-to-cart">
+                                                 <a type="button" id="{{ $item->id }} " data-bs-toggle="modal"
+                                                    data-bs-target="#cartmodal" onclick="productview(this.id)">
+                                                    <i class="icon-basket-loaded"></i>
+                                                </a>
+                                                </li> --}}
+                                           
+                                            <li>
+                                                <a href="{{url('/product-quick-view/'.$item->id)}}"
+                                                    class="popup-ajax"><i class="icon-magnifier-add"></i></a>
+                                                </li>
+                                            <li> 
+                                                <a id="{{$item->id}}" onclick="addwish(this.id)"><i class="icon-heart"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product_info">
+                                    <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id)}}">{{$item->product_name}}</a></h6>
+                                    <div class="product_price">
+                                        <span class="price">{{@$item->discount_price}} TK</span>
+                                        <del>
+                                            {{@$item->selling_price}} TK
+                                        </del>
+                                        <div class="on_sale">
+                                            @php
+                                                $amout=$item->selling_price-$item->discount_price;
+                                                @endphp
+                                            <span>{{ round(@$amout/$item->selling_price*100) }}% Off</span>
+                                        </div>
+                                    </div>
+                                    <div class="rating_wrap">
+                                        <div class="rating">
+                                            <div class="product_rate" style="width:90%"></div>
+                                        </div>
+                                        <span class="rating_num"></span>
+                                    </div>
+                                    <div class="pr_desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit
+                                            massa enim. Nullam id varius nunc id varius nunc.</p>
+                                    </div>
+                                  <!--   <div class="pr_switch_wrap">
+                                        <div class="product_color_switch">
+                                            <span class="active" data-color="#87554B"></span>
+                                            <span data-color="#333333"></span>
+                                            <span data-color="#DA323F"></span>
+                                        </div>
+                                    </div> -->
+                                    <div class="list_product_action_box">
+                                        <ul class="list_none pr_action_btn">
+                                            <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add ddd
+                                                    To Cart</a></li>
+                                           
+                                            <li><a href="{{url('/product-quick-view/'.$item->id)}}"
+                                                    class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                            <li> <a id="{{$item->id}}" onclick="addwish(this.id)"><i class="icon-heart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @endforeach
+
+                        <div class="container bg-light">
+                        <div class="col-md-12 text-center mt-2">
+                            <a href="" type="button" class="btn btn-outline-danger">view all</a>
+                        </div>
+                    </div>
+
+                    </div>
+                       
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+      <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                     <div class="heading_tab_header">
+                    <div class="heading_s2">
+                        <h2>All Products</h2><br>
+                    </div>
                     <div class="row align-items-center mb-4 pb-1">
                     </div>
                     <!-- id="list_view_product" -->
@@ -403,231 +741,150 @@
 
 
 
-                        @include('partials.list_view')
+                       
+                        @foreach($all_products as $item)
+                        <div class="col-lg-3 col-md-4 col-6 grid_item">
+                            <div class="product">
+                                 <span class="pr_flash">New</span>
+                                <div class="">
+                                   <a href="{{url('/singleproduct/'.$item->id)}}">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                   </a>
+                                    <div class="product_action_box">
+                                        <ul class="list_none pr_action_btn">
+                                            {{-- <li class="add-to-cart">
+                                                 <a type="button" id="{{ $item->id }} " data-bs-toggle="modal"
+                                                    data-bs-target="#cartmodal" onclick="productview(this.id)">
+                                                    <i class="icon-basket-loaded"></i>
+                                                </a>
+                                                </li> --}}
+                                           
+                                            <li>
+                                                <a href="{{url('/product-quick-view/'.$item->id)}}"
+                                                    class="popup-ajax"><i class="icon-magnifier-add"></i></a>
+                                                </li>
+                                            <li> 
+                                                <a id="{{$item->id}}" onclick="addwish(this.id)"><i class="icon-heart"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product_info">
+                                    <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id)}}">{{$item->product_name}}</a></h6>
+                                    <div class="product_price">
+                                        <span class="price">{{@$item->discount_price}} TK</span>
+                                        <del>
+                                            {{@$item->selling_price}} TK
+                                        </del>
+                                        <div class="on_sale">
+                                            @php
+                                                $amout=$item->selling_price-$item->discount_price;
+                                                @endphp
+                                            <span>{{ round(@$amout/$item->selling_price*100) }}% Off</span>
+                                        </div>
+                                    </div>
+                                    <div class="rating_wrap">
+                                        <div class="rating">
+                                            <div class="product_rate" style="width:90%"></div>
+                                        </div>
+                                        <span class="rating_num"></span>
+                                    </div>
+                                    <div class="pr_desc">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit
+                                            massa enim. Nullam id varius nunc id varius nunc.</p>
+                                    </div>
+                                  <!--   <div class="pr_switch_wrap">
+                                        <div class="product_color_switch">
+                                            <span class="active" data-color="#87554B"></span>
+                                            <span data-color="#333333"></span>
+                                            <span data-color="#DA323F"></span>
+                                        </div>
+                                    </div> -->
+                                    <div class="list_product_action_box">
+                                        <ul class="list_none pr_action_btn">
+                                            <li class="add-to-cart"><a href="#"><i class="icon-basket-loaded"></i> Add ddd
+                                                    To Cart</a></li>
+                                           
+                                            <li><a href="{{url('/product-quick-view/'.$item->id)}}"
+                                                    class="popup-ajax"><i class="icon-magnifier-add"></i></a></li>
+                                            <li> <a id="{{$item->id}}" onclick="addwish(this.id)"><i class="icon-heart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        @endforeach
+               
 
 
                     </div>
-                         <div class="auto-load text-center" style="display: none;">
-                            <img style="width:200px;height: 200px;" src="{{asset('images/loader7.gif')}}">
+                         <div class="container bg-light">
+                        <div class="col-md-12 text-center mt-2">
+                            <a href="{{url('all/shop/products')}}" type="button" class="btn btn-outline-danger">view all</a>
                         </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- START SECTION CATEGORIES -->
+<div class="section small_pb small_pt">
+	<div class="container">
+    	<div class="row justify-content-center">
+			<div class="col-md-6">
+                <div class="heading_s4 text-center">
+                    <h2>All Shoes Categories</h2>
+                </div>
+               
+            </div>
+		</div>
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div class="cat_slider cat_style1 mt-4 mt-md-0 carousel_slider owl-carousel owl-theme nav_style5" data-loop="false" data-dots="false" data-nav="false" data-margin="30" data-responsive='{"0":{"items": "2"}, "480":{"items": "3"}, "576":{"items": "4"}, "768":{"items": "5"}, "991":{"items": "6"}, "1199":{"items": "7"}}'>
+                    
+                @foreach($category_products as $item)
+                    <div class="item">
+                        <div class="categories_box">
+                            <a href="{{url('category/shop/products/1')}}">
+                                <img src="{{ asset('images/'.@$item->brand_photo) }}" alt="cat_img1"/>
+                                <span>{{$item->brand_name}}</span>
+                            </a>
+                        </div>
+                    </div>
+                 @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END SECTION CATEGORIES --> 
+
+
+ 
+
+
+
     <!-- END SECTION SHOP -->
 
 
-    {{-- end --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- START SECTION TESTIMONIAL -->
-
-
-
-    {{-- <div class="section bg_redon">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    <div class="heading_s1 text-center">
-                        <h2>Our Client Say!</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-9">
-                    <div class="testimonial_wrap testimonial_style1 carousel_slider owl-carousel owl-theme nav_style2"
-                        data-nav="true" data-dots="false" data-center="true" data-loop="true" data-autoplay="true"
-                        data-items='1'>
-                        <div class="testimonial_box">
-                            <div class="testimonial_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi
-                                    blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam
-                                    natus perferendis possimus quasi sint sit tempora voluptatem.</p>
-                            </div>
-                            <div class="author_wrap">
-                                <div class="author_img">
-                                    <img src="{{ asset('templateassets') }}/assets/images/user_img1.jpg"
-                                        alt="user_img1" />
-                                </div>
-                                <div class="author_name">
-                                    <h6>Lissa Castro</h6>
-                                    <span>Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial_box">
-                            <div class="testimonial_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi
-                                    blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam
-                                    natus perferendis possimus quasi sint sit tempora voluptatem.</p>
-                            </div>
-                            <div class="author_wrap">
-                                <div class="author_img">
-                                    <img src="{{ asset('templateassets') }}/assets/images/user_img2.jpg"
-                                        alt="user_img2" />
-                                </div>
-                                <div class="author_name">
-                                    <h6>Alden Smith</h6>
-                                    <span>Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial_box">
-                            <div class="testimonial_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi
-                                    blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam
-                                    natus perferendis possimus quasi sint sit tempora voluptatem.</p>
-                            </div>
-                            <div class="author_wrap">
-                                <div class="author_img">
-                                    <img src="{{ asset('templateassets') }}/assets/images/user_img3.jpg"
-                                        alt="user_img3" />
-                                </div>
-                                <div class="author_name">
-                                    <h6>Daisy Lana</h6>
-                                    <span>Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial_box">
-                            <div class="testimonial_desc">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam amet animi
-                                    blanditiis consequatur debitis dicta distinctio, enim error eum iste libero modi nam
-                                    natus perferendis possimus quasi sint sit tempora voluptatem.</p>
-                            </div>
-                            <div class="author_wrap">
-                                <div class="author_img">
-                                    <img src="{{ asset('templateassets') }}/assets/images/user_img4.jpg"
-                                        alt="user_img4" />
-                                </div>
-                                <div class="author_name">
-                                    <h6>John Becker</h6>
-                                    <span>Designer</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-
-
-    <!-- END SECTION TESTIMONIAL -->
-
-    <!-- START SECTION BLOG -->
-
-
-    {{-- letes news --}}
-
-    {{-- <div class="section pb_20">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-8">
-                    <div class="heading_s1 text-center">
-                        <h2>Latest News</h2>
-                    </div>
-                    <p class="leads text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                        tempor incididunt ut labore.</p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog_post blog_style2 box_shadow1">
-                        <div class="blog_img">
-                            <a href="blog-single.html">
-                                <img src="{{ asset('templateassets') }}/assets/images/el_blog_img1.jpg"
-                                    alt="el_blog_img1">
-                            </a>
-                        </div>
-                        <div class="blog_content bg-white">
-                            <div class="blog_text">
-                                <h5 class="blog_title"><a href="blog-single.html">But I must explain to you how all this
-                                        mistaken idea</a></h5>
-                                <ul class="list_none blog_meta">
-                                    <li><a href="#"><i class="ti-calendar"></i> April 14, 2018</a></li>
-                                    <li><a href="#"><i class="ti-comments"></i> 2 Comment</a></li>
-                                </ul>
-                                <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                                    anything hidden in the text</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog_post blog_style2 box_shadow1">
-                        <div class="blog_img">
-                            <a href="blog-single.html">
-                                <img src="{{ asset('templateassets') }}/assets/images/el_blog_img2.jpg"
-                                    alt="el_blog_img2">
-                            </a>
-                        </div>
-                        <div class="blog_content bg-white">
-                            <div class="blog_text">
-                                <h5 class="blog_title"><a href="blog-single.html">On the other hand we provide denounce
-                                        with righteous</a></h5>
-                                <ul class="list_none blog_meta">
-                                    <li><a href="#"><i class="ti-calendar"></i> April 14, 2018</a></li>
-                                    <li><a href="#"><i class="ti-comments"></i> 2 Comment</a></li>
-                                </ul>
-                                <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                                    anything hidden in the text</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog_post blog_style2 box_shadow1">
-                        <div class="blog_img">
-                            <a href="blog-single.html">
-                                <img src="{{ asset('templateassets') }}/assets/images/el_blog_img3.jpg"
-                                    alt="el_blog_img2">
-                            </a>
-                        </div>
-                        <div class="blog_content bg-white">
-                            <div class="blog_text">
-                                <h5 class="blog_title"><a href="blog-single.html">Why is a ticket to Lagos so
-                                        expensive?</a></h5>
-                                <ul class="list_none blog_meta">
-                                    <li><a href="#"><i class="ti-calendar"></i> April 14, 2018</a></li>
-                                    <li><a href="#"><i class="ti-comments"></i> 2 Comment</a></li>
-                                </ul>
-                                <p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                                    anything hidden in the text</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-
-    <!-- END SECTION BLOG -->
-
-    <!-- START SECTION CLIENT LOGO -->
-
-
-    
-    <!-- END SECTION CLIENT LOGO -->
-
-    <!-- START SECTION SUBSCRIBE NEWSLETTER -->
-    <div class="section bg_default small_pt small_pb">
+  <div class="section bg_default small_pt small_pb">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6">
@@ -655,6 +912,7 @@
     <!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
 </div>
+
 <!-- END MAIN CONTENT -->
 
 <!-- <div class="modal fade" id="cartmodal" tabindex="-1" role="dialog"
@@ -803,10 +1061,9 @@
                 </div> 
 
 
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+   
 
-    
-    <script>
+    {{-- <script>
         
         function infinteLoadMore(page) {
             $.ajax({
@@ -844,7 +1101,7 @@
 
 
        
-    </script>
+    </script> --}}
 
 
 <script type="text/javascript">
@@ -889,82 +1146,7 @@ $.ajaxSetup({
     }
 });
     
-    function productview(id){
-      
-
-        $.ajax({
-          
-            type:"GET",
-            datatype:"json",
-            url:"productview/"+id,
-            success:function(data){
-                console.log(data.product.attributes);
-                // console.log(data.product.attributes[0]['product_image']);
-
-                // console.log(data.attributes[0]['product_image']);
-
-
-                $("#pcname").text(data.product.product_code);
-                $("#ptname").text(data.product.product_name);
-                $("#pname").text(data.product.product_name);
-                $("#pimage").attr('src','/product_images/'+data.product.attributes[0]['product_image']);
-                $("#cname").text(data.product.category.category_name);
-                // $("#bname").text(data.product.brand.brand_name);
-                $("#product_id").val(data.product.id);
-                $("#stock").text(data.product.product_quantity);
-
-
-               if( data.product.product_quantity < $('#quantity').val() ){
-                   $("#test").text(data.product.brand.brand_name);  
-               }
-               else{
-                $("#test").text(data.product.product_quantity);
-               }
-              
-                $("#quantity").focus(function(){
-                $(this).blur(); 
-                    });
-
-                var dd = $('#test_color_display').empty();
-                $.each(data.product.attributes,function(key,value){
-
-                    console.log(value);
-                    console.log('color');
-
-
-
-                    $("#test_color_display").append(`
-                                   
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="color" id="color" value="${value.product_color}" ${key == 0? "checked" :"" }>
-                <label class="form-check-label" for="inlineRadio1">${value.product_color}</label>
-              </div>
-              
-                                
-            `
-                        );
-                });
-
-                var dd = $('#test_size_display').empty();
-                $.each(data.size ,function(key,value) {
-                     $("#test_size_display").append(`
-                                  <div class="form-check form-check-inline">
-                                    <input style="border: 1px solid red;" class="form-check-input" type="radio" name="size" id="size" value="${value}" ${key == 0? "checked" :"" }>
-                                    <label class="form-check-label" for="inlineRadio1">${value}</label>
-                                  </div>
-                                
-            `
-                        );
-
-            });
- 
-  
-            }
-            
-        })
-
-    }
-</script>
+// </script>
 
 <script>
     $('input[name="color"]').change(function() {
@@ -989,66 +1171,6 @@ $.ajaxSetup({
             });
         });
     </script>
-
-
-
-<!-- <script type="text/javascript">
-
-    $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-    
-    function productview(id){
-      
-
-        $.ajax({
-          
-            type:"GET",
-            datatype:"json",
-            url:"productview/"+id,
-            success:function(data){
-                console.log(data.product_image);
-
-                $("#pcname").text(data.product.product_code);
-                $("#ptname").text(data.product.product_name);
-                $("#pname").text(data.product.product_name);
-                $("#pimage").attr('src','/product_images/'+data.product_image);
-                $("#cname").text(data.product.category.category_name);
-                $("#bname").text(data.product.brand.brand_name);
-                $("#product_id").val(data.product.id);
-               $("#stock").text(data.product.product_quantity);
-
-
-               if( data.product.product_quantity < $('#quantity').val() ){
-                   $("#test").text(data.product.brand.brand_name);  
-               }
-               else{
-                $("#test").text(data.product.product_quantity);
-               }
-              
-                $("#quantity").focus(function(){
-                $(this).blur(); 
-                    });
-
-                var d=$('select[name="color"]').empty();
-                $.each(data.color,function(key,value){
-                    $('select[name="color"]').append('<option value="'+value+'">'+value+'</option>');
-                });
-                var e=$('select[name="size"]').empty();
-                $.each(data.size ,function(key,value){
-                $('select[name="size"]').append('<option value ="'+value+'">'+value+'</option>');
-
-            });
- 
-  
-            }
-            
-        })
-
-    }
-</script> -->
 
 
 
@@ -1113,9 +1235,6 @@ $.ajaxSetup({
 </script>
 
 
-
-
-
 <script type="text/javascript">
     function addtocart(){
 
@@ -1173,8 +1292,6 @@ $.ajaxSetup({
     }
 
 
-
-
 function addwish(id){
    
     $.ajax({
@@ -1214,7 +1331,6 @@ function addwish(id){
 
 
 }
-
 function addnewsletter(){
  
      $.ajaxSetup({
@@ -1260,9 +1376,4 @@ function addnewsletter(){
 }
 
 </script>
-
-
-
-
-
 @endsection
