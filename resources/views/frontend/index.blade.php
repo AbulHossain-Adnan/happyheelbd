@@ -6,7 +6,7 @@
     <div id="carouselExampleControls" class="carousel slide carousel-fade light_arrow" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item background_bg active"
-                data-img-src="{{ asset('templateassets') }}/assets/images/women/banner_eid.png" loading="lazy">
+                data-img-src="{{ asset('templateassets') }}/assets/images/women/eidBanner.jpg" loading="lazy">
                 <div class="banner_slide_content banner_content_inner">
                     <div class="container">
                         <div class="row">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item background_bg" data-img-src="{{ asset('templateassets') }}/assets/images/women/eidBanner.jpg" loading="lazy">
+            <div class="carousel-item background_bg" data-img-src="{{ asset('templateassets') }}/assets/images/women/romadan2.jpg" loading="lazy">
                 <div class="banner_slide_content banner_content_inner">
                     <div class="container">
                         <div class="row">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item background_bg" data-img-src="{{ asset('templateassets') }}/assets/images/women/romadan1.png" loading="lazy">
+            <div class="carousel-item background_bg" data-img-src="{{ asset('templateassets') }}/assets/images/women/romadan8.jpg" loading="lazy">
                 <div class="banner_slide_content banner_content_inner">
                     <div class="container">
                         <div class="row">
@@ -233,7 +233,7 @@
                     <div class="sale-banner mb-3 mb-md-4">
 
                         <a class="hover_effect1" href="#">
-                            <img src="{{ asset('templateassets/assets/images/women/romadan1.png') }}" loading="lazy" alt="shop_banner_img11">
+                            <img src="{{ asset('templateassets/assets/images/women/romadan2.jpg') }}" loading="lazy" alt="shop_banner_img11">
                         </a>
                     </div>
                 </div>
@@ -471,7 +471,7 @@
                     <div class="sale-banner mb-3 mb-md-4">
 
                         <a class="hover_effect1" href="#">
-                            <img src="{{ asset('templateassets/assets/images/women/2.jpg') }}" alt="shop_banner_img11">
+                            <img src="{{ asset('templateassets/assets/images/women/romadan1.png') }}" alt="shop_banner_img11">
                         </a>
                     </div>
                 </div>

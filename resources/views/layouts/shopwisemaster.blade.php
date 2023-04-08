@@ -173,7 +173,7 @@
                     <a type="button" class="navbar-brand" href="{{ url('/') }}">
                         <img class="logo_light" src="{{ asset('templateassets') }}/assets/images/happy2.png"
                             alt="logo" />
-                        <img style="height: 75px;width: 108px;" class="logo_dark"
+                        <img style="height: 60px;width: 80px;" class="logo_dark"
                             src="{{ asset('templateassets') }}/assets/images/happy2.png" alt="logo" />
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
