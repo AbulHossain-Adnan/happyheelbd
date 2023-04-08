@@ -151,6 +151,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/admin/order/cancel/{order_id}', [App\Http\Controllers\OrderController::class, 'ordercancel']);
     Route::get('/admin/order/progress/{order_id}', [App\Http\Controllers\OrderController::class, 'orderprogress']);
     Route::get('/admin/delevary/success/{order_id}', [App\Http\Controllers\OrderController::class, 'orderdelivarysuccess']);
+    Route::get('invoce/{order_id}', [App\Http\Controllers\OrderController::class, 'invoice']);
+
     Route::resource('order', OrderController::class);
 
 
@@ -244,7 +246,7 @@ Route::get('/about-us', [App\Http\Controllers\AboutController::class, 'aboutuspa
 
 // route for checkout Controller
 Route::post('/checkout', [App\Http\Controllers\Checkout\CheckoutController::class, 'checkout']);
-Route::post('/checkoutpage', [App\Http\Controllers\Checkout\CheckoutController::class, 'checkoutpage'])->name('checkout');;
+Route::any('/checkoutpage', [App\Http\Controllers\Checkout\CheckoutController::class, 'checkoutpage'])->name('checkout');;
 
 
 Route::post('/final/step', [App\Http\Controllers\Checkout\CheckoutController::class, 'payment'])->name('final_step');
@@ -317,11 +319,11 @@ Route::get('loadmore', [App\Http\Controllers\Admin\Product\ProductController::cl
 
 // rotue for shop controller
 Route::get('shop/page', [App\Http\Controllers\ShopController::class, 'shoppage']);
-Route::get('/category/shop/products/{id}', [App\Http\Controllers\ShopController::class, 'categoryshopproducts']);
+Route::get('/category/shop/products/{id}/{name}', [App\Http\Controllers\ShopController::class, 'categoryshopproducts']);
 Route::get('/brand/shop/products/{id}', [App\Http\Controllers\ShopController::class, 'brandshopproducts']);
 // Route for stockcontroller
 Route::get('/admin/stock/management/', [App\Http\Controllers\Admin\Stock\StockController::class, 'stock'])->name('stock.index');
-
+Route::get('/all/shop/products', [App\Http\Controllers\ShopController::class, 'allProducts']);
 // search page
 
 Route::get('search/page', [App\Http\Controllers\SearchController::class, 'search']);
@@ -343,7 +345,7 @@ Route::get('/product-quick-view/{id}', [App\Http\Controllers\User\UserController
 Route::get('/get_district/{division_id}', [App\Http\Controllers\User\UserController::class, 'getdistrict']);
 // route for user Acess area
 Route::get('/get_area/{district_id}', [App\Http\Controllers\User\UserController::class, 'getarea']);
-Route::get('/singleproduct/{id}', [App\Http\Controllers\User\UserController::class, 'singleproduct'])
+Route::get('/singleproduct/{id}/{name}', [App\Http\Controllers\User\UserController::class, 'singleproduct'])
     ->name('singleproduct.show');
 // route for user  category
 Route::get('category/page/{id}', [App\Http\Controllers\User\UserController::class, 'categoryshow'])

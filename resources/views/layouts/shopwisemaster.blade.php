@@ -45,10 +45,6 @@
     <link rel="stylesheet" href="{{ asset('templateassets') }}/assets/css/responsive.css">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-    <!--
-<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-
-     alpha/css/bootstrap.css" rel="stylesheet"> -->
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" type="text/css"
@@ -60,6 +56,37 @@
 </head>
 
 <body>
+
+    <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
+
+    <!-- Your Chat Plugin code -->
+    <div id="fb-customer-chat" class="fb-customerchat">
+    </div>
+
+    <script>
+      var chatbox = document.getElementById('fb-customer-chat');
+      chatbox.setAttribute("page_id", "117250924658896");
+      chatbox.setAttribute("attribution", "biz_inbox");
+    </script>
+
+    <!-- Your SDK code -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          xfbml            : true,
+          version          : 'v16.0'
+        });
+      };
+
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
 
     <!-- LOADER -->
     <div class="preloader">
@@ -113,22 +140,6 @@
                             <ul class="header_list">
 
                                 <li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     @if (Auth::check())
                                         <a href="wishlist.html" id="wishlistfield">
 
@@ -162,7 +173,7 @@
                     <a type="button" class="navbar-brand" href="{{ url('/') }}">
                         <img class="logo_light" src="{{ asset('templateassets') }}/assets/images/happy2.png"
                             alt="logo" />
-                        <img style="height: 60px;width: 100px;" class="logo_dark"
+                        <img style="height: 75px;width: 108px;" class="logo_dark"
                             src="{{ asset('templateassets') }}/assets/images/happy2.png" alt="logo" />
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -179,6 +190,21 @@
                                 <a class="nav-link " href="{{ url('shop/page') }}">Shop</a>
 
                             </li>
+
+                             <li class="dropdown">
+                                    <a data-bs-toggle="dropdown" class="nav-link dropdown-toggle active" href="#">Women Shoes</a>
+                                    <div class="dropdown-menu">
+                                        <ul> 
+                                            @if(isset($category_products))
+                                            @foreach ($category_products as $item)
+                                                
+                                            <li><a class="dropdown-item nav-link nav_item" href="{{url('category/shop/products'.'/'.$item->id.'/'.$item->brand_name)}}">{{@$item->brand_name}}</a></li>
+                                            @endforeach
+                                            @endif
+                                
+                                        </ul>
+                                    </div>   
+                                </li>
 
 
 
@@ -418,24 +444,29 @@
         </div>
     </header>
     <!-- END HEADER -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @yield('content')
+
+     <div class="section bg_default small_pt small_pb">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="newsletter_text text_white">
+                        <h3>Join Our Newsletter Now</h3>
+                        <p> Register now to get updates on promotions. </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="newsletter_form2">
+                    <form>
+                        <input type="email" required="" class="form-control rounded-0" id="newsemail" placeholder="Enter Email Address">
+                        <button type="button" onclick="addnewsletter()" class="btn btn-dark rounded-0" name="submit" value="Submit">Subscribe</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
 
     <!-- START FOOTER -->
     <footer class="footer_dark">
@@ -640,10 +671,52 @@
     </script>
 
 
+<script>
+function addnewsletter(){
+ 
+     $.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+     let newsletterr= $('#newsemail').val();
 
+     $.ajax({
+        type:'POST',
+        datatype:'json',
+        data:{newsletter:newsletterr},
+        url:'/add/newsletter',
+        success:function(data){
+            $('#newsemail').val("")
+              const Toast = Swal.mixin({
+                      toast: true,
+                      position: 'top-end',
+                      showConfirmButton: false,
+                      timer: 3000,
+                      timerProgressBar: true,
+                      didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                      }
+                    })
+                    if ($.isEmptyObject(data.error)){
+                         Toast.fire({
+                      icon: 'success',
+                      title: data.success
+                    })
 
+                    }
+                    else{
+                        Toast.fire({
+                          icon: 'error',
+                          title: data.error
+                        })
+                    }
+        }
+        })
+}
 
-
+</script>
 </body>
 
 </html>

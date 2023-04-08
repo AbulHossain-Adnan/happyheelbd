@@ -1,8 +1,8 @@
 @extends('layouts.shopwisemaster')
 @section('content')
 <!-- START SECTION BREADCRUMB -->
-<div class="breadcrumb_section bg_gray page-title-mini">
-    <div class="container"><!-- STRART CONTAINER -->
+{{-- <div class="breadcrumb_section bg_gray page-title-mini">
+    <div class="container">
         <div class="row align-items-center">
             <div class="col-md-6">
                 <div class="page-title">
@@ -17,8 +17,8 @@
                 </ol>
             </div>
         </div>
-    </div><!-- END CONTAINER-->
-</div>
+    </div>
+</div> --}}
 <!-- END SECTION BREADCRUMB -->
 
 <!-- START MAIN CONTENT -->
@@ -33,7 +33,7 @@
                     <div class="col-12">
                         <div class="product_header">
                             <div class="product_header_left">
-                                <div class="custom_select">
+                                {{-- <div class="custom_select">
                                     <select class="form-control form-control-sm">
                                         <option value="order">Default sorting</option>
                                         <option value="popularity">Sort by popularity</option>
@@ -41,21 +41,21 @@
                                         <option value="price">Sort       price: low to high</option>
                                         <option value="price-desc">Sort by price: high to low</option>
                                     </select>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="product_header_right">
                                 <div class="products_view">
-                                    <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
-                                    <a href="javascript:Void(0);" class="shorting_icon list"><i class="ti-layout-list-thumb"></i></a>
+                                    {{-- <a href="javascript:Void(0);" class="shorting_icon grid active"><i class="ti-view-grid"></i></a>
+                                    <a href="javascript:Void(0);" class="shorting_icon list"><i class="ti-layout-list-thumb"></i></a> --}}
                                 </div>
-                                <div class="custom_select">
+                                {{-- <div class="custom_select">
                                     <select class="form-control form-control-sm">
                                         <option value="">Showing</option>
                                         <option value="9">9</option>
                                         <option value="12">12</option>
                                         <option value="18">18</option>
                                     </select>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -69,7 +69,7 @@
                         <div class="product">
                             <div class="product_img">
                                 <a href="shop-product-detail.html">
-                                    <img src="{{ asset('product_images/'.@$item->files[0]['product_image']) }}">
+                                    <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}">
                                 </a>
                                 <div class="product_action_box">
                                     <ul class="list_none pr_action_btn">
@@ -218,111 +218,10 @@
 </div>
 <!-- END SECTION SHOP -->
 
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
-<div class="section bg_default small_pt small_pb">
-    <div class="container"> 
-        <div class="row align-items-center">    
-            <div class="col-md-6">
-                <div class="heading_s1 mb-md-0 heading_light">
-                    <h3>Subscribe Our Newsletter</h3>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="newsletter_form">
-                    <form>
-                        <input type="text" required="" class="form-control rounded-0" placeholder="Enter Email Address">
-                        <button type="submit" class="btn btn-dark rounded-0" name="submit" value="Submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
 </div>
-<!-- END MAIN CONTENT -->
 
-
-
-<div class="modal fade" id="cartmodal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModallevel" aria-hidden="true">
-                        <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <a type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></a>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-sm-4">
-                                            <div class="form-group">
-                                                <div class="card">
-                                                    <img src="" id="pimage" name="image"
-                                                        style="width:235px;height: 200px;">
-                                                    <div class="card-body">
-                                                        <li class="list-group-item">Product_Title::<span
-                                                                id="ptname"></span></li>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <ul class="list-group">
-                                                <li class="list-group-item">Product Code::<span id="pcname"></span></li>
-                                                <li class="list-group-item">Product Name::<span id="pname"></span></li>
-                                                <li class="list-group-item">Category Name::<span id="cname"></span></li>
-                                                <li class="list-group-item">Brand name::<span id="bname"></span></li>
-                                                <li class="list-group-item">Stock::<span class="badge badge-success"
-                                                        id="stock"></span></li>
-                                            </ul>
-                                        </div>
-
-                                        <div class="col-sm-4">
-
-                                            <input type="hidden" id="product_id" name="product_id">
-                                            <div class="form-group">
-                                        <div class="">
-
-                                     <span class="" id="color_display">Color: </span>
-                                    <div class="product_color_switch">
-
-                                        <div class="" id="test_color_display">
-                                 
-                                        </div>
-                                      
-                                    </div>
-                                  </div> 
-                                </div>
-                            <div class="form-group">
-                                               
-
-                            <div class="pr_switch_wrap">
-                            <span class="" id="size_display">Size:</span>
-                            <div class="" id="test_size_display">
-                            </div>
-                               
-                              </div>
-                                </div><br>
-                                     <span class="mt-5" id="size_display">Quantity:</span><br>
-                                   <select class="form-select" aria-label="Default select example" id="quantity2">
-                                      <!-- <option selected>Choose one</option> -->
-                                      <option value="1">1</option>
-                                      <option value="2">2</option>
-                                      <option value="3">3</option>
-                                    </select>
-                                            <br>
-                                            <a class="bth btn-primary btn-sm" id="addtocarttest" type="submit"
-                                                onclick="addtocart()">Add to card</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                    </div>
+</div>
 
 
 
@@ -337,7 +236,7 @@
 
 
 
-               <script type="text/javascript">
+<script type="text/javascript">
 $.ajaxSetup({
     headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -354,96 +253,10 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
-    
-  function productview(id){
-      
-
-        $.ajax({
-          
-            type:"GET",
-            datatype:"json",
-            url:"/productview/"+id,
-            success:function(data){
-                console.log(data.product_image);
-
-                $("#pcname").text(data.product.product_code);
-                $("#ptname").text(data.product.product_name);
-                $("#pname").text(data.product.product_name);
-                $("#pimage").attr('src','/product_images/'+data.product_image);
-                $("#cname").text(data.product.category.category_name);
-                $("#bname").text(data.product.brand.brand_name);
-                $("#product_id").val(data.product.id);
-               $("#stock").text(data.product.product_quantity);
-
-
-               if( data.product.product_quantity < $('#quantity').val() ){
-                   $("#test").text(data.product.brand.brand_name);  
-               }
-               else{
-                $("#test").text(data.product.product_quantity);
-               }
-              
-                $("#quantity").focus(function(){
-                $(this).blur(); 
-                    });
-
-                // var d=$('select[name="color"]').empty();
-                var dd = $('#test_color_display').empty();
-
-                $.each(data.color,function(key,value){
-                    $("#test_color_display").append(`
-                                   
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="color" id="color" value="${value}" ${key == 0? "checked" :"" }>
-                <label class="form-check-label" for="inlineRadio1">${value}</label>
-              </div>
-              
-                                
-            `
-                        );
-                });
-                var e=$('select[name="size"]').empty();
-
-                var dd = $('#test_size_display').empty();
-                $.each(data.size ,function(key,value) {
-
-
-                // $('select[name="size"]').append('dfsdfsdfsdfsdf');
-
-                     $("#test_size_display").append(`
-                                  <div class="form-check form-check-inline">
-                                    <input style="border: 1px solid red;" class="form-check-input" type="radio" name="size" id="size" value="${value}" ${key == 0? "checked" :"" }>
-                                    <label class="form-check-label" for="inlineRadio1">${value}</label>
-                                  </div>
-                                
-            `
-                        );
-
-            //           $('#test_size_display').html(`
-
-
-            //                       <div class="form-check form-check-inline">
-            //                         <input style="border: 1px solid red;" class="form-check-input" type="radio" name="size" id="size" value="${value}" ${key == 0? "checked" :"" }>
-            //                         <label class="form-check-label" for="inlineRadio1">${value}</label>
-            //                       </div>
-                                
-
-            // `)
-
-
-
-
-            });
- 
-  
-            }
-            
-        })
-
-    }
 </script>
+    
 
- <script>
+ {{-- <script>
     @if(Session::has('message'))
                 var type="{{Session::get('alert-type','success')}}"
                 switch(type){
@@ -461,71 +274,7 @@ $.ajaxSetup({
                         break;
                 }
               @endif
-  </script>
-
-
-
-
-<script type="text/javascript">
-    function addtocart_two(){
-
-        alert('hi');
-
-       $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-       var id=$('#product_id').val();
-       // var color=$('#color').val();
-       // var size=$('#size').val();
-       var color=$('input[name="color"]:checked').val();
-       var size=$('input[name="size"]:checked').val();
-       var quantity=$('#quantity2').val();
-
-
-       $.ajax({
-        type:'POST',
-        datatype:'json',
-        data:{product_id:id,color:color,size:size,quantity:quantity},
-        url:"/addtocart",
-        success:function(data){
-            console.log(data)
-            minicart();
-           
-            $("#cartmodal").modal('hide')
-
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                    })
-                    if ($.isEmptyObject(data.error)){
-        Toast.fire({
-        icon: 'success',
-        title: data.success
-        })
-        $('#applycouponfield').hide();
-        }
-        else{
-        Toast.fire({
-        icon: 'error',
-        title: data.error
-        })
-        }
-
-        }
-       })
-    }
-
-</script>
+  </script> --}}
 
 
 

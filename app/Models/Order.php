@@ -21,7 +21,7 @@ class Order extends Model
     }
      public function shipping()
     {
-        return $this->hasOne(shipping::class);
+        return $this->hasOne(Shipping::class);
     }
     
 }

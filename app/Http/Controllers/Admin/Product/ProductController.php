@@ -80,7 +80,9 @@ class ProductController extends Controller
             if($request->file('product_image')) {
                 $file = $request->product_image[$i];
                 $product_image = hexdec(uniqid()) . '.' . $file->extension();
-                 Image::make($file->getRealPath())->resize(540, 600)->save(public_path('product_images/' . $product_image));
+                $image_make =  Image::make($file->getRealPath())->resize(540, 600);
+                $image_make->encode('jpg', 50);
+                $image_make->save('product_images/' . $product_image);
                 $datasave['product_image'] = $product_image;
             }
             DB::table('product_attributes')->insert($datasave);
@@ -90,12 +92,16 @@ class ProductController extends Controller
 
         if ($image_one) {
             $image_name1 = hexdec(uniqid()) . '.' . $image_one->extension();
-            Image::make($image_one)->save('product_images/' . $image_name1);
+            $image_make = Image::make($image_one);
+            $image_make->encode('jpg', 50);
+            $image_make->save('product_images/' . $image_name1);
             $product->image_one = $image_name1;
         }
          if ($image_two) {
             $image_name2 = hexdec(uniqid()) . '.' . $image_two->extension();
-            Image::make($image_one)->save('product_images/' . $image_name2);
+            $image_make = Image::make($image_two);
+             $image_make->encode('jpg', 50);
+            $image_make->save('product_images/' . $image_name2);
             $product->image_two = $image_name2;
         }
         $product->save();
@@ -118,13 +124,13 @@ class ProductController extends Controller
         if($image_one) {
             unlink('product_images/' . $product->image_one);
             $product_file = hexdec(uniqid()) . '.' . $image_one->extension();
-            Image::make($image_one->getRealPath())->save(public_path('product_images/' . $product_file));
+            Image::make($image_one->getRealPath())->save('product_images/' . $product_file);
             $request['image_one'] = $product_file;
         }
          if($image_two) {
             unlink('product_images/' . $product->image_two);
             $product_file = hexdec(uniqid()) . '.' . $image_two->extension();
-            Image::make($image_two->getRealPath())->save(public_path('product_images/' . $product_file));
+            Image::make($image_two->getRealPath())->save('product_images/' . $product_file);
             $request['image_two'] = $product_file;
 
         }

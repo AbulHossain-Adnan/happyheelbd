@@ -17,7 +17,7 @@
           <div class="item">
             <a
               href="#"
-              class="product_gallery_item active"
+              class="product_gallery_item active" onclick="selectAttribute({{$file->id}})"
               data-image="{{ asset('product_images/'.@$file->product_image) }}"
               data-zoom-image="{{ asset('product_images/'.@$file->product_image) }}"
             >
@@ -26,6 +26,8 @@
                 alt="product_small_img1"
               />
             </a>
+             <label class="form-check-label"
+              for="inlineRadio1">{{ $file->product_color }}</label>
           </div>
         @endforeach
           
@@ -75,13 +77,36 @@
           <div class="pr_switch_wrap">
             <span class="switch_lable">Color: </span>
             <div class="product_color_switch">
-               @foreach ($product_color as $key=>$color)
+                 <div id="pr_item_gallery" class="product_gallery_item slick_slider" data-slides-to-show="4"
+                                data-slides-to-scroll="1" data-infinite="false">
+                                @foreach ($product_color as $key => $item)
+                                    <div class="item">
+                                        <a href="{{ $key }}" class="product_gallery_item active" onclick="selectAttribute({{$item->id}})"
+                                        
+                                            data-image="{{ asset('product_images/' . @$item->product_image) }}"
+                                            data-zoom-image="{{ asset('product_images/' . @$item->product_image) }}">
+                                            
+                                            <img src="{{ asset('product_images/' . @$item->product_image) }}"
+                                                alt="product_small_img1" 
+                                                />  
+                                                
+                                        </a>
+                                        <input type="hidden" value="{{$item->id}}" id="attribute_id">
+                                         {{-- <input class="form-check-input" type="radio" name="color" id="color"
+                                                    value="{{ $item->product_color }}" {{ $key == 0 ? 'checked' : '' }}>  --}}
+                                                <label class="form-check-label"
+                                                    for="inlineRadio1">{{ $item->product_color }}</label>
+                                    </div>
+                                  
+                                @endforeach
 
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="color" id="color" {{$key == 0? "checked" :"" }} value="{{$color}}" >
-                <label class="form-check-label" for="inlineRadio1">{{$color}}</label>
-              </div>
-               @endforeach
+                                <!--  <div class="item">
+                                                                                                                                                                                                                    <a href="#" class="product_gallery_item" data-image="{{ asset('product_images/' . @$product->image_two) }}" data-zoom-image="{{ asset('product_images/' . @$product->image_two) }}">
+                                                                                                                                                                                                                        <img src="{{ asset('product_images/' . @$product->image_two) }}" alt="product_small_img2" />
+                                                                                                                                                                                                                    </a>
+                                                                                                                                                                                                                </div> -->
+
+                            </div>
             </div>
           </div>
           <div class="pr_switch_wrap">
@@ -111,7 +136,7 @@
              
           </div>
           <div class="cart_btn">
-      <button id="addtocarttest" onclick="addtocart_two()" class="btn btn-fill-out btn-addtocart " type="button">
+          <button id="addtocarttest" onclick="addtocart()" class="btn btn-fill-out btn-addtocart " type="button">
               <i class="icon-basket-loaded"></i> Add to cart
             </button>
 

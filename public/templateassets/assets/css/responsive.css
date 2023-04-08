@@ -1293,7 +1293,7 @@ p {
 	height: 250px;
 }
 .banner_section:not(.full_screen), .banner_section:not(.full_screen) .carousel-item, .banner_section:not(.full_screen) .banner_content_wrap, .banner_section:not(.full_screen) .banner_content_wrap .carousel-item {
-	height: 145px;
+	height: 125px;
 }
 .banner_content h2 {
 	font-size: 28px;

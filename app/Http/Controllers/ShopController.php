@@ -20,44 +20,35 @@ class ShopController extends Controller
     public function shoppage(request $request){
 
         if(Request()->get('sort') == "price_asc"){
-            $products = Product::with('files')->where('status',1)->orderBy('discount_price','asc')->paginate(9);
+            $products = Product::with('attributes')->where('status',1)->orderBy('discount_price','asc')->paginate(9);
         }
         elseif(Request()->get('sort') == "price_dsc"){
-            $products = Product::with('files')->where('status',1)->orderBy('discount_price','desc')->paginate(9);
+            $products = Product::with('attributes')->where('status',1)->orderBy('discount_price','desc')->paginate(9);
         }
         elseif(Request()->get('sort') == "newest"){
-            $products = Product::with('files')->where('status',1)->orderBy('created_at','desc')->paginate(9);
+            $products = Product::with('attributes')->where('status',1)->orderBy('created_at','desc')->paginate(9);
         }
         else{
-            $products = Product::where('status',1)->paginate(9);
+            $products = Product::with('attributes')->where('status',1)->paginate(9);
         }
 
     	$brands=Brand::get();
     	$seos=Seo::first();
         $site_setting=Site::first();
+        $category_products = Brand::get();
 	  
-    return view('pages/search_product',compact('seos','site_setting','products','brands'));
+    return view('pages/search_product',compact('seos','site_setting','products','brands','category_products'));
 
 
     }
     public function categoryshopproducts($id){
-    		$brands=Brand::all();
-    		$seos=Seo::first();
-        $categories=Category::all();
-        $category_name=Category::first();
-
-        $site_setting=Site::first();
-        $products=Product::where('status',1)->with('category','brand')->where('category_id',$id)->paginate(20);
-    	  return view('pages/shop',compact('categories','seos','site_setting','products','brands','category_name'));
-
-
-
+    	$category_products = Brand::get(); //brand model use as category for sorting products
+        $products=Product::where('status',1)->where('brand_id',$id)->with(['category','attributes'])->select('id', 'product_name', 'product_code', 'product_quantity',
+         'product_details','product_size','selling_price','discount_price')->get();
+    	return view('pages/category_product',compact('products','category_products'));
     }
     public function brandshopproducts($id){
-    	$brands=Brand::all();
-    		$seos=Seo::first();
-        $categories=Category::all();
-        $site_setting=Site::first();
+    	
         $products=Product::where('status',1)->with('category','brand')->where('brand_id',$id)->paginate(20);
     	  return view('pages/shop',compact('categories','seos','site_setting','products','brands'));
 
@@ -66,21 +57,19 @@ class ShopController extends Controller
 
 
     public function sorting(Request $request){
-
-    	
-    	if($request->select == 'option1'){
-    			$brands=Brand::all();
-    		$seos=Seo::first();
-        $categories=Category::all();
-        $site_setting=Site::first();
+    if($request->select == 'option1'){
+    $brands=Brand::all();
+    $seos=Seo::first();
+    $categories=Category::all();
+    $site_setting=Site::first();
 	 $products=Product::where('discount_price', '<=', 500000 )->paginate(12);
   return view('pages/shop',compact('categories','seos','site_setting','products','brands'));
 	 
     		
     	}
     	elseif($request->select == 'option2'){
- 	$brands=Brand::all();
-    		$seos=Seo::first();
+ 	    $brands=Brand::all();
+    	$seos=Seo::first();
         $categories=Category::all();
         $site_setting=Site::first();
 	 	 $products=Product::where('discount_price','>',500000)->where('discount_price','<=',1000000)->paginate(12);
@@ -114,8 +103,8 @@ class ShopController extends Controller
 	 }
 
 	  elseif($request->select == 'option6'){
- 	$brands=Brand::all();
-    		$seos=Seo::first();
+ 	    $brands=Brand::all();
+    	$seos=Seo::first();
         $categories=Category::all();
         $site_setting=Site::first();
 	 	 $products=Product::where('discount_price','>',100000000)->where('discount_price','<=',500000000)->paginate(12);
@@ -126,7 +115,11 @@ class ShopController extends Controller
     	
     }
 
-
+    public function allProducts(){
+        $category_products = Brand::select('id','brand_name','brand_photo')->get();
+        $products=Product::where('status',1)->with(['category','attributes'])->get();
+    	return view('pages/all_product',compact('products','category_products'));
+    }
 
 
     public function sortingred(){

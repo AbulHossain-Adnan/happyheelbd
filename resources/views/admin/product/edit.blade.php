@@ -49,7 +49,7 @@
                 </div>
               </div><!-- col-4 -->
              
-              <div class="col-lg-6">
+              <div class="col-lg-4">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Category: <span class="tx-danger">*</span></label>
                   @error('category_id')
@@ -77,7 +77,7 @@
                   </select>
                 </div>
               </div><!-- col-4 -->
-              <div class="col-lg-6">
+              <div class="col-lg-4">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Subcategory: <span class="tx-danger">*</span></label>
                   <select class="form-control select2" data-placeholder="Choose country" name="subcategory_id">
@@ -85,7 +85,7 @@
                   </select>
                 </div>
               </div><!-- col-4 -->
-              {{-- <div class="col-lg-4">
+               <div class="col-lg-4">
                 <div class="form-group mg-b-10-force">
                   <label class="form-control-label">Brand: <span class="tx-danger">*</span></label>
                   @error('brand_id')
@@ -96,18 +96,15 @@
                     <option label="Choose brand"></option>
                     @foreach ($brands as $item)  
                     <option value="{{$item->id}}" <?php 
-
                     if($item->id == $product->brand_id){
                       echo "selected";
                     }
-
-
                   ?>>{{$item->brand_name}}</option>
                     @endforeach
                    
                   </select>
                 </div>
-              </div> --}}
+              </div><!-- col-4 -->
               <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label">Product size<span class="tx-danger">*</span></label>

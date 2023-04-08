@@ -87,8 +87,8 @@
                                     @php
                                         $amout = $product->selling_price - $product->discount_price;
                                     @endphp
-                                    <span class="price">${{ $product->discount_price }}</span>
-                                    <del>${{ $product->selling_price }}</del>
+                                    <span class="price"> TK{{ $product->discount_price }}</span>
+                                    <del> TK {{ $product->selling_price }}</del>
                                     <div class="on_sale">
                                         <span>
                                             {{ round(($amout / $product->selling_price) * 100) }}% Off
@@ -140,22 +140,8 @@
                                 </div>
                                 <div class="">
 
-                                    <span class="" >Color: </span>
-                                    <div class="product_color_switch">
-                                        {{-- @foreach ($product_color as $key => $value)
-                                       
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="color" id="color"
-                                                    value="{{ $value->product_color }}" {{ $key == 0 ? 'checked' : '' }}>
-                                                <label class="form-check-label"
-                                                    for="inlineRadio1">{{ $value->product_color }}</label>
-                                            </div>
-                                        @endforeach --}}
-
-
-                                        {{-- @foreach ($product->attributes as $key => $value) --}}
-
-
+                            <span class="" >Color: </span>
+                            <div class="product_color_switch">
                                 <div id="pr_item_gallery" class="product_gallery_item slick_slider" data-slides-to-show="4"
                                 data-slides-to-scroll="1" data-infinite="false">
                                 @foreach ($product->attributes as $key => $item)
@@ -331,7 +317,7 @@
                                             <td>Colors</td>
                                             <td>
                                                 @foreach ($product_color as $color)
-                                                    {{ $color }},
+                                                    {{ $color->product_color }},
                                                 @endforeach
                                             </td>
                                         </tr>
@@ -412,23 +398,23 @@
                             data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
 
                             @foreach ($releted_products as $product)
+
                                 <div class="item">
                                     <div class="product">
-                                        <div class="product_img">
-                                            <a href="shop-product-detail.html">
-                                                <img src="{{ asset('product_images/' . @$product->image_one) }}"
+                                        <div class="">
+                                            <a href="{{url('/singleproduct/'.$product->id)}}">
+                                                <img src="{{ asset('product_images/' . @$product->attributes[0]['product_image']) }}"
                                                     alt="product_img1">
                                             </a>
                                             <div class="product_action_box">
                                                 <ul class="list_none pr_action_btn">
-                                                    <li class="add-to-cart">
+                                                    {{-- <li class="add-to-cart">
                                                         <a type="button" id="{{ $product->id }} "
                                                             data-bs-toggle="modal" data-bs-target="#cartmodal"
                                                             onclick="productview(this.id)">
                                                             <i class="icon-basket-loaded"></i>
                                                         </a>
-                                                    </li>
-                                                    <li><a href="shop-compare.html"><i class="icon-shuffle"></i></a></li>
+                                                    </li>  --}}
                                                     <li>
                                                         <a href="{{ url('/product-quick-view/' . $product->id) }}"
                                                             class="popup-ajax"><i class="icon-magnifier-add"></i></a>
@@ -445,8 +431,8 @@
                                                     href="{{ url('/singleproduct/' . $product->id) }}">{{ $product->product_name }}</a>
                                             </h6>
                                             <div class="product_price">
-                                                <span class="price">${{ $product->discout_price }}</span>
-                                                <del>${{ $product->selling_price }}</del>
+                                                <span class="price"> TK {{ $product->discount_price }}</span>
+                                                <del>TK {{ $product->selling_price }}</del>
                                                 <div class="on_sale">
                                                     @php
                                                         $amout = $product->selling_price - $product->discount_price;
@@ -788,31 +774,6 @@
                 </div>
             </div>
         </div>
-        <!-- END SECTION SHOP -->
-
-        <!-- START SECTION SUBSCRIBE NEWSLETTER -->
-        <div class="section bg_default small_pt small_pb">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <div class="heading_s1 mb-md-0 heading_light">
-                            <h3>Subscribe Our Newsletter</h3>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="newsletter_form">
-                            <form>
-                                <input type="text" required="" class="form-control rounded-0"
-                                    placeholder="Enter Email Address">
-                                <button type="submit" class="btn btn-dark rounded-0" name="submit"
-                                    value="Submit">Subscribe</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
     </div>
     <!-- END MAIN CONTENT -->
@@ -905,56 +866,7 @@
             }
         });
 
-        function productview(id) {
-
-
-            $.ajax({
-
-                type: "GET",
-                datatype: "json",
-                url: "/productview/" + id,
-                success: function(data) {
-
-                    $("#pcname").text(data.product.product_code);
-                    $("#ptname").text(data.product.product_name);
-                    $("#pname").text(data.product.product_name);
-                    $("#pimage").attr('src', '/product_images/' + data.product.image_one);
-                    $("#cname").text(data.product.category.category_name);
-                    $("#bname").text(data.product.brand.brand_name);
-                    $("#product_id").val(data.product.id);
-                    $("#stock").text(data.product.product_quantity);
-
-
-                    if (data.product.product_quantity < $('#quantity').val()) {
-                        $("#test").text(data.product.brand.brand_name);
-                    } else {
-                        $("#test").text(data.product.product_quantity);
-                    }
-
-                    $("#quantity").focus(function() {
-                        $(this).blur();
-                    });
-
-
-                    var d = $('select[name="color"]').empty();
-                    $.each(data.color, function(key, value) {
-                        $('select[name="color"]').append('<option value="' + value + '">' + value +
-                            '</option>');
-                    });
-                    var e = $('select[name="size"]').empty();
-                    $.each(data.size, function(key, value) {
-                        $('select[name="size"]').append('<option value ="' + value + '">' + value +
-                            '</option>');
-
-                    });
-
-
-                }
-
-            })
-
-        }
-    </script>
+     </script>
 
     <script>
         @if (Session::has('message'))
@@ -978,9 +890,6 @@
 
 
 
-
-
-
     <!-- displayed selected size  -->
     <script>
         var selectedSize = $('input[name="size"]:checked').val();
@@ -1000,41 +909,33 @@
 
 
     <!-- displayed selected size  -->
-    <script>
+    {{-- <script>
         var selectedColor = $('input[name="color"]:checked').val();
         $("#color_display").html("Color:" + " " + selectedColor);
 
-        // when size value will be changed
         $(document).ready(function() {
-            // Add a change event listener to the radio button inputs
+           
             $('input[name="color"]').change(function() {
-                // Retrieve the value of the selected input
+              
                 var selectedColor = $('input[name="color"]:checked').val();
                 $("#color_display").html("Color:" + " " + selectedColor);
             });
         });
-    </script>
+    </script> --}}
 
 
-
+{{-- product added to shopping cart  --}}
     <script type="text/javascript">
         function addtocart() {
-
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-
             var id = $('#product_id').val();
-            // var color=$('#color').val();
-            // var size=$('#size').val();
-            // var color = $('input[name="color"]:checked').val();
             var attribute_id = $('#attribute_id').val();
             var size = $('input[name="size"]:checked').val();
             var quantity = $('#quantity').val();
-
-
             $.ajax({
                 type: 'POST',
                 datatype: 'json',
@@ -1080,11 +981,12 @@
         }
 
 
-  function selectAttribute(id){
-
+    //  get attribute_id when clicked image    
+        function selectAttribute(id){
              var dataId = $('#attribute_id').val(id);
             console.log(dataId);
         }
+    // end 
 
         function addwish(id) {
 
@@ -1126,9 +1028,6 @@
         }
 
       
-
-
-
         function addnewsletter() {
 
             $.ajaxSetup({

@@ -9,12 +9,12 @@
                                    </a>
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">
-                                            <li class="add-to-cart">
+                                            {{-- <li class="add-to-cart">
                                                  <a type="button" id="{{ $item->id }} " data-bs-toggle="modal"
                                                     data-bs-target="#cartmodal" onclick="productview(this.id)">
                                                     <i class="icon-basket-loaded"></i>
                                                 </a>
-                                                </li>
+                                                </li> --}}
                                            
                                             <li>
                                                 <a href="{{url('/product-quick-view/'.$item->id)}}"

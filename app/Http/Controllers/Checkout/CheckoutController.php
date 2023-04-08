@@ -10,6 +10,7 @@ use App\Models\Admin\Division;
 use App\Models\Admin\District;
 use App\Models\Admin\Site;
 use App\Models\Admin\Area;
+use App\Models\Admin\Brand;
 use App\Models\Order;
 use App\Models\Order_detail;
 use App\Models\Shipping;
@@ -40,22 +41,34 @@ class CheckoutController extends Controller
                 'categories' => Category::get(),
                 'carts' => $Request->all(),
                 'divisions' => Division::get(),
-                // 'site_setting' => Site::first(),
+                'category_products' => Brand::get(),
             ]
         );
     }
 
     public function payment(Request $Request)
     {
+        // dd($Request->all());
+        $Request->validate([
+            'name'=>'required',
+            'pnumber'=>'required|numeric|min:10',
+            'division_id'=>'required',
+            'district_id'=>'required',
+            'area_id'=>'required',
+            'adress'=>'required',
+        ]);
+
         $payAmount = $Request->subtotal + $Request->sheeping;
         $subtotal = $Request->subtotal;
 
         if ($Request->payment == "cash_on") {
             $order_id = Order::insertGetId([
-                'user_id' => Auth::id() ? Auth::id() : "",
-                // 'name'=>$Request->name,
+                'user_id' => Auth::id() ? Auth::id() : null,
+                'name'=>$Request->name,
+                'pnumber'=>$Request->pnumber,
+                'email'=>$Request->email,
                 'payment_type' => $Request->payment,
-                'blnc_transection' => $Request->pnumber,
+                // 'blnc_transection' => $Request->pnumber,
                 'subtotal' => $subtotal,
                 'discount' => $Request->discount,
                 'paying_amount' => $payAmount,
@@ -69,17 +82,17 @@ class CheckoutController extends Controller
             foreach (Cart::content() as $value) {
 
                 Order_detail::insert([
-                    'user_id' => Auth::id() ? Auth::id() : "",
+                    'user_id' => Auth::id() ? Auth::id() : null,
                     'order_id' => $order_id,
                     'product_id' => $value->id,
                     'color' => $value->options->color,
+                    'product_image' => $value->options->image,
                     'size' => $value->options->size,
                     'quantity' => $value->qty,
                     'price' => $value->price,
                     'subtotal' => $value->price * $value->qty,
                     'shipping' => $Request->sheeping,
                     'vat' => 0,
-
                 ]);
             }
 
@@ -94,13 +107,11 @@ class CheckoutController extends Controller
 
 
             Shipping::insert([
-                'user_id' => Auth::id() ? Auth::id() : "",
-                'user_id' => $Request->name,
+                'user_id' => Auth::id() ? Auth::id() : null,
                 'order_id' => $order_id,
                 'division' => $division_name->division,
                 'district' => $district_name->district,
                 'area' => $area_name->area,
-                'zip' => $Request->zip,
                 'address' => $Request->adress,
             ]);
 
