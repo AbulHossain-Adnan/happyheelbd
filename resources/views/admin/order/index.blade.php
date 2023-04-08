@@ -77,6 +77,7 @@
                     <input type="hidden" value="{{$item->id}}" name="product_id">
                 
                   <a class="btn btn-primary btn-sm" href="{{ route('order.show',$item->id) }}"><i class="fa fa-eye"></i></a>
+                    <a class="btn btn-info btn-sm" href="{{ url('invoce',$item->id) }}">invoice</a>
                 
                  
                  

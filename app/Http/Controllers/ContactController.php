@@ -8,6 +8,7 @@ use App\Models\Admin\Site;
 use App\Models\Admin\Category;
 use App\Models\Admin\Post;
 use App\Models\Contact;
+use App\Models\Admin\Brand;
 
 use Illuminate\Support\Facades\Validator;
 
@@ -21,7 +22,8 @@ class ContactController extends Controller
 
   public function contact()
   {
-    return view('pages/contact');
+    $category_products = Brand::get(); //brand model use as category for sorting products
+    return view('pages/contact',compact('category_products'));
   }
 
   public function sendmessage(Request $Request)
@@ -32,8 +34,6 @@ class ContactController extends Controller
       'email' => 'required|email',
       'phone' => 'required',
       'message' => 'required',
-
-
     ]);
     if ($validator->fails()) {
       return \Response()->json(['error' => 'fill the form courrectly']);

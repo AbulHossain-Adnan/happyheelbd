@@ -15,12 +15,12 @@ class CreateShippingsTable extends Migration
     {
         Schema::create('shippings', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->integer('user_id')->nullable();
             $table->integer('order_id');
             $table->string('division');
             $table->string('district');
             $table->string('area');
-            $table->string('zip');
+            $table->string('zip')->nullable();
             $table->string('address');
             $table->timestamps();
         });

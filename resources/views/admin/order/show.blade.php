@@ -41,7 +41,7 @@
                 <div class="form-group">
                   <label class="form-control-label">Phone Number: <span class="tx-danger">*</span></label><br>
                  
-                 <b>{{$orders->blnc_transection}}</b>
+                 <b>{{$orders->pnumber}}</b>
                 </div>
               </div><!-- col-4 --> 
               <div class="col-lg-4">
@@ -213,7 +213,7 @@
               		<td>{{$item->product->product_name}}</td>
               		<td>{{$item->product->product_code}}</td>
               		<td>
-              			<img src="{{asset('product_images/'.@$item->product->files[0]['product_image'])}}" width="80">
+              			<img src="{{asset('product_images/'.@$item->product_image)}}" width="80">
               		</td>
               		<td>{{$item->color}}</td>
 

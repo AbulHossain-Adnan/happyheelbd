@@ -317,7 +317,7 @@
                                             <td>Colors</td>
                                             <td>
                                                 @foreach ($product_color as $color)
-                                                    {{ $color }},
+                                                    {{ $color->product_color }},
                                                 @endforeach
                                             </td>
                                         </tr>
@@ -774,31 +774,6 @@
                 </div>
             </div>
         </div>
-        <!-- END SECTION SHOP -->
-
-        <!-- START SECTION SUBSCRIBE NEWSLETTER -->
-        <div class="section bg_default small_pt small_pb">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-6">
-                        <div class="heading_s1 mb-md-0 heading_light">
-                            <h3>Subscribe Our Newsletter</h3>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="newsletter_form">
-                            <form>
-                                <input type="text" required="" class="form-control rounded-0"
-                                    placeholder="Enter Email Address">
-                                <button type="submit" class="btn btn-dark rounded-0" name="submit"
-                                    value="Submit">Subscribe</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
     </div>
     <!-- END MAIN CONTENT -->
@@ -891,56 +866,7 @@
             }
         });
 
-    //     function productview(id) {
-
-
-    //         $.ajax({
-
-    //             type: "GET",
-    //             datatype: "json",
-    //             url: "/productview/" + id,
-    //             success: function(data) {
-
-    //                 $("#pcname").text(data.product.product_code);
-    //                 $("#ptname").text(data.product.product_name);
-    //                 $("#pname").text(data.product.product_name);
-    //                 $("#pimage").attr('src', '/product_images/' + data.product.image_one);
-    //                 $("#cname").text(data.product.category.category_name);
-    //                 $("#bname").text(data.product.brand.brand_name);
-    //                 $("#product_id").val(data.product.id);
-    //                 $("#stock").text(data.product.product_quantity);
-
-
-    //                 if (data.product.product_quantity < $('#quantity').val()) {
-    //                     $("#test").text(data.product.brand.brand_name);
-    //                 } else {
-    //                     $("#test").text(data.product.product_quantity);
-    //                 }
-
-    //                 $("#quantity").focus(function() {
-    //                     $(this).blur();
-    //                 });
-
-
-    //                 var d = $('select[name="color"]').empty();
-    //                 $.each(data.color, function(key, value) {
-    //                     $('select[name="color"]').append('<option value="' + value + '">' + value +
-    //                         '</option>');
-    //                 });
-    //                 var e = $('select[name="size"]').empty();
-    //                 $.each(data.size, function(key, value) {
-    //                     $('select[name="size"]').append('<option value ="' + value + '">' + value +
-    //                         '</option>');
-
-    //                 });
-
-
-    //             }
-
-    //         })
-
-    //     }
-    // </script>
+     </script>
 
     <script>
         @if (Session::has('message'))
@@ -963,67 +889,6 @@
     </script>
 
 
-<script type="text/javascript">
-    function addtocart_two(){
-        alert('hi')
-
-       $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-       var id=$('#product_id').val();
-       // var color=$('#color').val();
-       // var size=$('#size').val();
-       var color=$('input[name="color"]:checked').val();
-       var size=$('input[name="size"]:checked').val();
-       var quantity=$('#quantity').val();
-
-
-       $.ajax({
-        type:'POST',
-        datatype:'json',
-        data:{product_id:id,color:color,size:size,quantity:quantity},
-        url:"/addtocart",
-        success:function(data){
-            console.log(data)
-            minicart();
-           
-            $("#cartmodal").modal('hide')
-
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                    })
-                    if ($.isEmptyObject(data.error)){
-        Toast.fire({
-        icon: 'success',
-        title: data.success
-        })
-        $('#applycouponfield').hide();
-        }
-        else{
-        Toast.fire({
-        icon: 'error',
-        title: data.error
-        })
-        }
-
-        }
-       })
-    }
-
-</script>
-
-
 
     <!-- displayed selected size  -->
     <script>
@@ -1044,35 +909,30 @@
 
 
     <!-- displayed selected size  -->
-    <script>
+    {{-- <script>
         var selectedColor = $('input[name="color"]:checked').val();
         $("#color_display").html("Color:" + " " + selectedColor);
 
-        // when size value will be changed
         $(document).ready(function() {
-            // Add a change event listener to the radio button inputs
+           
             $('input[name="color"]').change(function() {
-                // Retrieve the value of the selected input
+              
                 var selectedColor = $('input[name="color"]:checked').val();
                 $("#color_display").html("Color:" + " " + selectedColor);
             });
         });
-    </script>
+    </script> --}}
 
 
-
+{{-- product added to shopping cart  --}}
     <script type="text/javascript">
         function addtocart() {
-            alert('addtocart');
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
             var id = $('#product_id').val();
-            // var color=$('#color').val();
-            // var size=$('#size').val();
-            // var color = $('input[name="color"]:checked').val();
             var attribute_id = $('#attribute_id').val();
             var size = $('input[name="size"]:checked').val();
             var quantity = $('#quantity').val();
@@ -1121,10 +981,12 @@
         }
 
 
+    //  get attribute_id when clicked image    
         function selectAttribute(id){
              var dataId = $('#attribute_id').val(id);
             console.log(dataId);
         }
+    // end 
 
         function addwish(id) {
 
@@ -1166,9 +1028,6 @@
         }
 
       
-
-
-
         function addnewsletter() {
 
             $.ajaxSetup({

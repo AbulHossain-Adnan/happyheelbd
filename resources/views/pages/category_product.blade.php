@@ -2,7 +2,7 @@
 @section('content')
 
 <!-- START SECTION BREADCRUMB -->
-<div class="breadcrumb_section bg_gray page-title-mini">
+{{-- <div class="breadcrumb_section bg_gray page-title-mini">
     <div class="container"><!-- STRART CONTAINER -->
         <div class="row align-items-center">
         	<div class="col-md-6">
@@ -19,7 +19,7 @@
             </div>
         </div>
     </div><!-- END CONTAINER-->
-</div>
+</div> --}}
 <!-- END SECTION BREADCRUMB -->
 
 <!-- START MAIN CONTENT -->
@@ -131,31 +131,231 @@
         </div>
     </div>
 </div>
-<!-- END SECTION SHOP -->
-
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
-<div class="section bg_default small_pt small_pb">
-	<div class="container">	
-    	<div class="row align-items-center">	
-            <div class="col-md-6">
-                <div class="heading_s1 mb-md-0 heading_light">
-                    <h3>Subscribe Our Newsletter</h3>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="newsletter_form">
-                    <form>
-                        <input type="text" required="" class="form-control rounded-0" placeholder="Enter Email Address">
-                        <button type="submit" class="btn btn-dark rounded-0" name="submit" value="Submit">Subscribe</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-<!-- START SECTION SUBSCRIBE NEWSLETTER -->
 
-</div>
-<!-- END MAIN CONTENT -->
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
 
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+     </script>
+
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'success') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info("{{ Session::get('message') }}");
+                    break;
+                case 'success':
+                    toastr.success("{{ Session::get('message') }}");
+                    break;
+                case 'warning':
+                    toastr.warning("{{ Session::get('message') }}");
+                    break;
+                case 'error':
+                    toastr.error("{{ Session::get('message') }}");
+                    break;
+            }
+        @endif
+    </script>
+
+
+
+    <!-- displayed selected size  -->
+    <script>
+        var selectedSize = $('input[name="size"]:checked').val();
+        $("#size_display").html("Size:" + " " + selectedSize);
+
+        // when size value will be changed
+        $(document).ready(function() {
+            // Add a change event listener to the radio button inputs
+            $('input[name="size"]').change(function() {
+                // Retrieve the value of the selected input
+                var selectedSize = $('input[name="size"]:checked').val();
+
+                $("#size_display").html("Size:" + " " + selectedSize);
+            });
+        });
+    </script>
+
+
+    <!-- displayed selected size  -->
+    {{-- <script>
+        var selectedColor = $('input[name="color"]:checked').val();
+        $("#color_display").html("Color:" + " " + selectedColor);
+
+        $(document).ready(function() {
+           
+            $('input[name="color"]').change(function() {
+              
+                var selectedColor = $('input[name="color"]:checked').val();
+                $("#color_display").html("Color:" + " " + selectedColor);
+            });
+        });
+    </script> --}}
+
+
+{{-- product added to shopping cart  --}}
+    <script type="text/javascript">
+        function addtocart() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            var id = $('#product_id').val();
+            var attribute_id = $('#attribute_id').val();
+            var size = $('input[name="size"]:checked').val();
+            var quantity = $('#quantity').val();
+            $.ajax({
+                type: 'POST',
+                datatype: 'json',
+                data: {
+                    product_id: id,
+                    attribute_id: attribute_id,
+                    size: size,
+                    quantity: quantity
+                },
+                url: "/addtocart",
+                success: function(data) {
+                    console.log(data)
+                    minicart();
+
+                    $("#cartmodal").modal('hide')
+
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            icon: 'success',
+                            title: data.success
+                        })
+                        $('#applycouponfield').hide();
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            title: data.error
+                        })
+                    }
+
+                }
+            })
+        }
+
+
+    //  get attribute_id when clicked image    
+        function selectAttribute(id){
+             var dataId = $('#attribute_id').val(id);
+            console.log(dataId);
+        }
+    // end 
+
+        function addwish(id) {
+
+            $.ajax({
+                type: "GET",
+                datatype: "json",
+                url: "/addwishlistt/" + id,
+                success: function(data) {
+                    miniwishlist();
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            icon: 'success',
+                            title: data.success
+                        })
+
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            title: data.error
+                        })
+                    }
+
+                }
+            })
+
+
+
+        }
+
+      
+        function addnewsletter() {
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            let newsletterr = $('#newsemail').val();
+
+            $.ajax({
+                type: 'POST',
+                datatype: 'json',
+                data: {
+                    newsletter: newsletterr
+                },
+                url: '/add/newsletter',
+                success: function(data) {
+                    $('#newsemail').val("")
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            icon: 'success',
+                            title: data.success
+                        })
+
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            title: data.error
+                        })
+                    }
+                }
+            })
+        }
+    </script>
 @endsection

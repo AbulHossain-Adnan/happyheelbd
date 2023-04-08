@@ -58,14 +58,20 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-
-
         $orders = Order::find($id)->where('id', $id)->OrderBY('id', 'desc')->with('Shipping')->first();
 
-        $order_details = Order_detail::where('order_id', $id)->with('product')->get();
+        $order_details = Order_detail::where('order_id', $id)->with(['product'])->get();
         // $user = User::findOrFail($orders->user_id)->first();
         // return view('admin/order/show',compact('orders','order_details','user'));
+
         return view('admin/order/show', compact('orders', 'order_details'));
+    }
+
+     public function invoice($id)
+    {
+        $orders = Order::find($id)->where('id', $id)->OrderBY('id', 'desc')->with('Shipping')->first();
+        $order_details = Order_detail::where('order_id', $id)->with(['product'])->get();
+        return view('admin/order/invoice', compact('orders', 'order_details'));
     }
 
     /**

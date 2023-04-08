@@ -20,30 +20,32 @@ class ShopController extends Controller
     public function shoppage(request $request){
 
         if(Request()->get('sort') == "price_asc"){
-            $products = Product::with('files')->where('status',1)->orderBy('discount_price','asc')->paginate(9);
+            $products = Product::with('attributes')->where('status',1)->orderBy('discount_price','asc')->paginate(9);
         }
         elseif(Request()->get('sort') == "price_dsc"){
-            $products = Product::with('files')->where('status',1)->orderBy('discount_price','desc')->paginate(9);
+            $products = Product::with('attributes')->where('status',1)->orderBy('discount_price','desc')->paginate(9);
         }
         elseif(Request()->get('sort') == "newest"){
-            $products = Product::with('files')->where('status',1)->orderBy('created_at','desc')->paginate(9);
+            $products = Product::with('attributes')->where('status',1)->orderBy('created_at','desc')->paginate(9);
         }
         else{
-            $products = Product::where('status',1)->paginate(9);
+            $products = Product::with('attributes')->where('status',1)->paginate(9);
         }
 
     	$brands=Brand::get();
     	$seos=Seo::first();
         $site_setting=Site::first();
+        $category_products = Brand::get();
 	  
-    return view('pages/search_product',compact('seos','site_setting','products','brands'));
+    return view('pages/search_product',compact('seos','site_setting','products','brands','category_products'));
 
 
     }
     public function categoryshopproducts($id){
     	$category_products = Brand::get(); //brand model use as category for sorting products
-        $products=Product::where('status',1)->with(['category','attributes'])->get();
-    	return view('pages/category_product.blade',compact('products','category_products'));
+        $products=Product::where('status',1)->where('brand_id',$id)->with(['category','attributes'])->select('id', 'product_name', 'product_code', 'product_quantity',
+         'product_details','product_size','selling_price','discount_price')->get();
+    	return view('pages/category_product',compact('products','category_products'));
     }
     public function brandshopproducts($id){
     	

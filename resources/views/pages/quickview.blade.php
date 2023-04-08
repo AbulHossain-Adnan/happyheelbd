@@ -26,6 +26,8 @@
                 alt="product_small_img1"
               />
             </a>
+             <label class="form-check-label"
+              for="inlineRadio1">{{ $file->product_color }}</label>
           </div>
         @endforeach
           
