@@ -208,10 +208,10 @@
 
 
 
-                            <li class="dropdown">
+                            {{-- <li class="dropdown">
                                 <a class="nav-link " href="{{ url('about-us') }}">About Us</a>
 
-                            </li>
+                            </li> --}}
                             <!--    <li class="dropdown">
                             <a class="dropdown-toggle nav-link" href="#" data-bs-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
