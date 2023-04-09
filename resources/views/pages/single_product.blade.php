@@ -402,7 +402,7 @@
                                 <div class="item">
                                     <div class="product">
                                         <div class="">
-                                            <a href="{{url('/singleproduct/'.$product->id)}}">
+                                            <a href="{{url('/singleproduct/'.$product->id.'/'.$product->product_name)}}">
                                                 <img src="{{ asset('product_images/' . @$product->attributes[0]['product_image']) }}"
                                                     alt="product_img1">
                                             </a>
@@ -427,8 +427,7 @@
                                             </div>
                                         </div>
                                         <div class="product_info">
-                                            <h6 class="product_title"><a
-                                                    href="{{ url('/singleproduct/' . $product->id) }}">{{ $product->product_name }}</a>
+                                            <h6 class="product_title"> <a href="{{url('/singleproduct/'.$product->id.'/'.$product->product_name)}}">{{ $product->product_name }}</a>
                                             </h6>
                                             <div class="product_price">
                                                 <span class="price"> TK {{ $product->discount_price }}</span>

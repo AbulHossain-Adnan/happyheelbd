@@ -6,7 +6,7 @@
     <div id="carouselExampleControls" class="carousel slide carousel-fade light_arrow" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item background_bg active"
-                data-img-src="{{ asset('templateassets') }}/assets/images/women/banner_eid.png" loading="lazy">
+                data-img-src="{{ asset('templateassets') }}/assets/images/women/eidBanner.jpg" loading="lazy">
                 <div class="banner_slide_content banner_content_inner">
                     <div class="container">
                         <div class="row">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item background_bg" data-img-src="{{ asset('templateassets') }}/assets/images/women/eidBanner.jpg" loading="lazy">
+            <div class="carousel-item background_bg" data-img-src="{{ asset('templateassets') }}/assets/images/women/romadan2.jpg" loading="lazy">
                 <div class="banner_slide_content banner_content_inner">
                     <div class="container">
                         <div class="row">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item background_bg" data-img-src="{{ asset('templateassets') }}/assets/images/women/romadan1.png" loading="lazy">
+            <div class="carousel-item background_bg" data-img-src="{{ asset('templateassets') }}/assets/images/women/romadan8.jpg" loading="lazy">
                 <div class="banner_slide_content banner_content_inner">
                     <div class="container">
                         <div class="row">
@@ -86,140 +86,168 @@
 
      <div class="section small_pt small_pb">
 	<div class="container">
-    	<div class="row">
-			<div class="col-md-12">
-            	<div class="heading_tab_header">
-                    <div class="heading_s2">
-                        <h2>EID COLLECTIONS <i class="fa-solid fa-fire"></i></h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-            	<div class="product_slider carousel_slider owl-carousel owl-theme nav_style1" data-loop="false" data-dots="false" data-nav="true" data-margin="20" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
-                	  @foreach ($eid_collections as $item)
-                    <div class="item">
-                        <div class="product">
-                            <div class="">
-                                <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
-                                    <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
-                                </a>
-                                <div class="product_action_box">
-                                
+                <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading_tab_header">
+                                <div class="heading_s2">
+                                    <h2>EID COLLECTIONS <i class="fa-solid fa-fire"></i></h2>
                                 </div>
                             </div>
-                             <div class="product_info">
-                                    <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">{{$item->product_name}}</a></h6>
-
-                                    <div class="product_price">
-                                        <span class="pr_flash">New</span>
-
-                                          @if($item->discount_price == null)
-                                          <li class="product_mark product_discount " style="background:blue;">new</li>
-                                            @else
-
-                                                @php
-                                                $amout=$item->selling_price-$item->discount_price;
-                                                @endphp
-                                        <span class="price">{{@$item->discount_price}} TK</span>
-                                        <del>
-                                            {{@$item->selling_price}} TK
-                                        </del>
-                                        <div class="on_sale">
-                                            <span>{{ round($amout/$item->selling_price*100) }}%</span>
-                                        </div>
-                                                @endif
-
-                                    </div>
-                                    <div class="rating_wrap">
-                                        <div class="rating">
-                                            <div class="product_rate" style="width:98%"></div>
-                                        </div>
-                                        <span class="rating_num"></span>
-                                    </div>
-                                    <div class="pr_desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit
-                                            massa enim. Nullam id varius nunc id varius nunc.</p>
-                                    </div>
-                                </div>
                         </div>
                     </div>
-                   @endforeach
+                        <div class="releted_product_slider carousel_slider owl-carousel owl-theme" data-margin="20"
+                            data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
+
+                            @foreach ($eid_collections as $item)
+
+                                <div class="item">
+                                    <div class="product">
+                                        <div class="">
+                                            <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
+                                                <img src="{{ asset('product_images/' . @$item->attributes[0]['product_image']) }}"
+                                                    alt="product_img1">
+                                            </a>
+                                            <div class="product_action_box">
+                                                <ul class="list_none pr_action_btn">
+                                              
+                                                    <li>
+                                                        <a href="{{ url('/product-quick-view/' . $item->id) }}"
+                                                            class="popup-ajax"><i class="icon-magnifier-add"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a id="{{ $item->id }}" onclick="addwish(this.id)"><i
+                                                                class="icon-heart"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product_info">
+                                            <h6 class="product_title"><a
+                                                    href="{{ url('/singleproduct/' . $item->id) }}">{{ $item->product_name }}</a>
+                                            </h6>
+                                            <div class="product_price">
+                                                <span class="price"> TK {{ $item->discount_price }}</span>
+                                                <del>TK {{ $item->selling_price }}</del>
+                                                <div class="on_sale">
+                                                    @php
+                                                        $amout = $item->selling_price - $item->discount_price;
+                                                    @endphp
+                                                    <span>{{ round(($amout / $item->selling_price) * 100) }}%</span>
+                                                </div>
+                                            </div>
+                                            <div class="rating_wrap">
+                                                <div class="rating">
+                                                    <div class="product_rate" style="width:90%"></div>
+                                                </div>
+                                                <span class="rating_num"></span>
+                                            </div>
+                                            <div class="pr_desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+                                                    blandit massa enim. Nullam id varius nunc id varius nunc.</p>
+                                            </div>
+                                            <div class="pr_switch_wrap">
+                                                <div class="product_color_switch">
+                                                    <span class="active" data-color="#87554B"></span>
+                                                    <span data-color="#333333"></span>
+                                                    <span data-color="#DA323F"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
-		</div>
-    </div>
-</div> 
+        </div> 
 
 
 
 
     <div class="section small_pt small_pb">
 	<div class="container">
-    	<div class="row">
-			<div class="col-md-12">
-            	<div class="heading_tab_header">
-                    <div class="heading_s2">
-                        <h2>BEST SELLER <i class="fa-solid fa-fire"></i></h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-            	<div class="product_slider carousel_slider owl-carousel owl-theme nav_style1" data-loop="false" data-dots="false" data-nav="true" data-margin="20" data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
-                	  @foreach ($best_serllers as $item)
-                    <div class="item">
-                        <div class="product">
-                            <div class="">
-                                <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
-                                    <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
-                                </a>
-                                <div class="product_action_box">
-                                
+
+  <div class="row">
+                    <div class="col-12">
+                        <div class="row">
+                        <div class="col-md-12">
+                            <div class="heading_tab_header">
+                                <div class="heading_s2">
+                                    <h2>BEST SELLER <i class="fa-solid fa-fire"></i></h2>
                                 </div>
                             </div>
-                             <div class="product_info">
-                                    <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">{{$item->product_name}}</a></h6>
-
-                                    <div class="product_price">
-                                        <span class="pr_flash">Sell</span>
-
-                                          @if($item->discount_price == null)
-                                          <li class="product_mark product_discount " style="background:blue;">new</li>
-                                            @else
-
-                                                @php
-                                                $amout=$item->selling_price-$item->discount_price;
-                                                @endphp
-                                        <span class="price">{{@$item->discount_price}} TK</span>
-                                        <del>
-                                            {{@$item->selling_price}} TK
-                                        </del>
-                                        <div class="on_sale">
-                                            <span>{{ round($amout/$item->selling_price*100) }}%</span>
-                                        </div>
-                                                @endif
-
-                                    </div>
-                                    <div class="rating_wrap">
-                                        <div class="rating">
-                                            <div class="product_rate" style="width:98%"></div>
-                                        </div>
-                                        <span class="rating_num"></span>
-                                    </div>
-                                    <div class="pr_desc">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus blandit
-                                            massa enim. Nullam id varius nunc id varius nunc.</p>
-                                    </div>
-                                </div>
                         </div>
                     </div>
-                   @endforeach
+                        <div class="releted_product_slider carousel_slider owl-carousel owl-theme" data-margin="20"
+                            data-responsive='{"0":{"items": "1"}, "481":{"items": "2"}, "768":{"items": "3"}, "1199":{"items": "4"}}'>
+
+                            @foreach ($best_serllers as $item)
+
+                                <div class="item">
+                                    <div class="product">
+                                        <div class="">
+                                            <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
+                                                <img src="{{ asset('product_images/' . @$item->attributes[0]['product_image']) }}"
+                                                    alt="product_img1">
+                                            </a>
+                                            <div class="product_action_box">
+                                                <ul class="list_none pr_action_btn">
+                                              
+                                                    <li>
+                                                        <a href="{{ url('/product-quick-view/' . $item->id) }}"
+                                                            class="popup-ajax"><i class="icon-magnifier-add"></i></a>
+                                                    </li>
+                                                    <li>
+                                                        <a id="{{ $item->id }}" onclick="addwish(this.id)"><i
+                                                                class="icon-heart"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product_info">
+                                            <h6 class="product_title"><a
+                                                    href="{{ url('/singleproduct/' . $item->id) }}">{{ $item->product_name }}</a>
+                                            </h6>
+                                            <div class="product_price">
+                                                <span class="price"> TK {{ $item->discount_price }}</span>
+                                                <del>TK {{ $item->selling_price }}</del>
+                                                <div class="on_sale">
+                                                    @php
+                                                        $amout = $item->selling_price - $item->discount_price;
+                                                    @endphp
+                                                    <span>{{ round(($amout / $item->selling_price) * 100) }}%</span>
+                                                </div>
+                                            </div>
+                                            <div class="rating_wrap">
+                                                <div class="rating">
+                                                    <div class="product_rate" style="width:90%"></div>
+                                                </div>
+                                                <span class="rating_num"></span>
+                                            </div>
+                                            <div class="pr_desc">
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+                                                    blandit massa enim. Nullam id varius nunc id varius nunc.</p>
+                                            </div>
+                                            <div class="pr_switch_wrap">
+                                                <div class="product_color_switch">
+                                                    <span class="active" data-color="#87554B"></span>
+                                                    <span data-color="#333333"></span>
+                                                    <span data-color="#DA323F"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
-            </div>
-		</div>
+
+
+
     </div>
 </div> 
 
@@ -233,7 +261,7 @@
                     <div class="sale-banner mb-3 mb-md-4">
 
                         <a class="hover_effect1" href="#">
-                            <img src="{{ asset('templateassets/assets/images/women/romadan1.png') }}" loading="lazy" alt="shop_banner_img11">
+                            <img src="{{ asset('templateassets/assets/images/women/romadan2.jpg') }}" loading="lazy" alt="shop_banner_img11">
                         </a>
                     </div>
                 </div>
@@ -471,7 +499,7 @@
                     <div class="sale-banner mb-3 mb-md-4">
 
                         <a class="hover_effect1" href="#">
-                            <img src="{{ asset('templateassets/assets/images/women/2.jpg') }}" alt="shop_banner_img11">
+                            <img src="{{ asset('templateassets/assets/images/women/romadan1.png') }}" alt="shop_banner_img11">
                         </a>
                     </div>
                 </div>

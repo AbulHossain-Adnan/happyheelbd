@@ -67,18 +67,13 @@
 
                     <div class="col-md-4 col-6">
                         <div class="product">
-                            <div class="product_img">
-                                <a href="shop-product-detail.html">
+                            <div class="">
+                                <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
                                     <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}">
                                 </a>
                                 <div class="product_action_box">
                                     <ul class="list_none pr_action_btn">
-                                        <li class="add-to-cart">
-                                             <a type="button" type="button" id="{{ $item->id }} " data-bs-toggle="modal"
-                                                    data-bs-target="#cartmodal" onclick="productview(this.id)">
-                                                    <i class="icon-basket-loaded"></i>
-                                                </a>
-                                        </li>
+                                      
                                         
                                         <li>
                                            <a href="{{url('/product-quick-view/'.$item->id)}}"
@@ -91,7 +86,7 @@
                                 </div>
                             </div>
                             <div class="product_info">
-                                <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id)}}">{{ $item->product_name }}</a></h6>
+                                <h6 class="product_title"> <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}"></h6>
                                 <div class="product_price">
                                      <span class="pr_flash">New</span>
                                     <span class="price">{{@$item->discount_price}} TK</span>
@@ -245,94 +240,87 @@ $.ajaxSetup({
 </script>
 
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script type="text/javascript">
+<!-- displayed selected size  -->
+ <script>
+        var selectedColor = $('input[name="color"]:checked').val();
+        $("#color_display").html("Color:" + " " + selectedColor);
 
-    $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-</script>
-    
+        // when size value will be changed
+        $(document).ready(function() {
+            // Add a change event listener to the radio button inputs
+            $('input[name="color"]').change(function() {
+                console.log('chenge')
+                // Retrieve the value of the selected input
+                var selectedColor = $('input[name="color"]:checked').val();
+                $("#color_display").html("Color:" + " " + selectedColor);
+            });
+        });
+    </script>
 
- {{-- <script>
-    @if(Session::has('message'))
-                var type="{{Session::get('alert-type','success')}}"
-                switch(type){
-                    case 'info':
-                         toastr.info("{{ Session::get('message') }}");
-                         break;
-                    case 'success':
-                        toastr.success("{{ Session::get('message') }}");
-                        break;
-                    case 'warning':
-                       toastr.warning("{{ Session::get('message') }}");
-                        break;
-                    case 'error':
-                        toastr.error("{{ Session::get('message') }}");
-                        break;
+
+
+ <script type="text/javascript">
+        function addtocart() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
-              @endif
-  </script> --}}
+            });
+            var id = $('#product_id').val();
+            var attribute_id = $('#attribute_id').val();
+            var size = $('input[name="size"]:checked').val();
+            var quantity = $('#quantity').val();
+            $.ajax({
+                type: 'POST',
+                datatype: 'json',
+                data: {
+                    product_id: id,
+                    attribute_id: attribute_id,
+                    size: size,
+                    quantity: quantity
+                },
+                url: "/addtocart",
+                success: function(data) {
+                    console.log(data)
+                    minicart();
 
+                    $("#cartmodal").modal('hide')
 
-
-<script type="text/javascript">
-    function addtocart(){
-       $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-       var id=$('#product_id').val();
-       var color=$('#color').val();
-       var size=$('#size').val();
-       var quantity=$('#quantity2').val();
-
-
-       $.ajax({
-        type:'POST',
-        datatype:'json',
-        data:{product_id:id,color:color,size:size,quantity:quantity},
-        url:"/addtocart",
-        success:function(data){
-            console.log(data)
-            minicart();
-           
-            $("#cartmodal").modal('hide')
-
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                    toast.addEventListener('mouseenter', Swal.stopTimer)
-                    toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
                     })
-                    if ($.isEmptyObject(data.error)){
-        Toast.fire({
-        icon: 'success',
-        title: data.success
-        })
-        $('#applycouponfield').hide();
-        }
-        else{
-        Toast.fire({
-        icon: 'error',
-        title: data.error
-        })
+                    if ($.isEmptyObject(data.error)) {
+                        Toast.fire({
+                            icon: 'success',
+                            title: data.success
+                        })
+                        $('#applycouponfield').hide();
+                    } else {
+                        Toast.fire({
+                            icon: 'error',
+                            title: data.error
+                        })
+                    }
+
+                }
+            })
         }
 
+
+           //  get attribute_id when clicked image    
+        function selectAttribute(id){
+             var dataId = $('#attribute_id').val(id);
+            console.log(dataId);
         }
-       })
-    }
-
-
+    // end 
 
 
 function addwish(id){
@@ -374,7 +362,6 @@ function addwish(id){
 
 
 }
-
 function addnewsletter(){
  
      $.ajaxSetup({
