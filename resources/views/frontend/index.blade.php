@@ -369,7 +369,7 @@
 
                         <div class="container bg-light">
                         <div class="col-md-12 text-center mt-2">
-                            <a href="{{url('category/shop/products/1')}}" type="button" class="btn btn-outline-danger">view all</a>
+                            <a href="{{url('category/shop/products/1/block heel')}}" type="button" class="btn btn-outline-danger">view all</a>
                         </div>
                     </div>
 
@@ -477,7 +477,7 @@
 
                         <div class="container bg-light">
                     <div class="col-md-12 text-center">
-                        <a href="{{url('category/shop/products/2')}}" type="button" class="btn btn-outline-danger">view all</a>
+                        <a href="{{url('category/shop/products/2/pencil heels')}}" type="button" class="btn btn-outline-danger">view all</a>
                     </div>
     </div>
 
@@ -617,7 +617,7 @@
 
                         <div class="container bg-light">
                         <div class="col-md-12 text-center mt-2">
-                            <a href="{{url('category/shop/products/4')}}" type="button" class="btn btn-outline-danger">view all</a>
+                            <a href="{{url('category/shop/products/4/transparent heels')}}" type="button" class="btn btn-outline-danger">view all</a>
                         </div>
                     </div>
 
@@ -723,7 +723,7 @@
 
                         <div class="container bg-light">
                         <div class="col-md-12 text-center mt-2">
-                            <a href="{{url('category/shop/products/5')}}" type="button" class="btn btn-outline-danger">view all</a>
+                            <a href="{{url('category/shop/products/5/balance heels')}}" type="button" class="btn btn-outline-danger">view all</a>
                         </div>
                     </div>
 
@@ -829,7 +829,7 @@
 
                         <div class="container bg-light">
                          <div class="col-md-12 text-center">
-                        <a href="{{url('category/shop/products/3')}}" type="button" class="btn btn-outline-danger">view all</a>
+                        <a href="{{url('category/shop/products/3/flat sandles')}}" type="button" class="btn btn-outline-danger">view all</a>
                     </div>
             </div>
 
