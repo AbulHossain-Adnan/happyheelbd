@@ -23,7 +23,7 @@ class FrontendController extends Controller
         $best_serllers = Product::where('status', 1)->where('best_rated', 1)->with('attributes')
         ->orderBy('id', 'desc') //best reated use as best seller
         ->select('id', 'product_name', 'product_code', 'product_quantity',
-         'product_details','product_size','selling_price','discount_price')->paginate(4);
+         'product_details','product_size','selling_price','discount_price')->get();
 
 
          $block_heels = Product::where('status', 1)->where('brand_id', 1)->with('attributes')
