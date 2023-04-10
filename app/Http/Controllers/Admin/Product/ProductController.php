@@ -131,6 +131,7 @@ class ProductController extends Controller
     }
     public function update(Request $request,$id)
     {
+        
         $product = Product::with('attributes')->findOrFail($id);
         if($request->product_image) {
 
@@ -146,8 +147,13 @@ class ProductController extends Controller
                             'product_id'=>$id,
                             'product_color'=>$request->product_color[$i],
                         ];
-                        if($request->file('product_image')) {
+                        if(count($product_images) > 1) {
                             $file = $request->product_image[$i];
+                            $product_image = hexdec(uniqid()) . '.' . $file->extension();
+                            Image::make($file->getRealPath())->resize(540, 600)->save('product_images/' . $product_image);
+                            $datasave['product_image'] = $product_image;
+                        }else{
+                            $file = $request->product_image[1];
                             $product_image = hexdec(uniqid()) . '.' . $file->extension();
                             Image::make($file->getRealPath())->resize(540, 600)->save('product_images/' . $product_image);
                             $datasave['product_image'] = $product_image;
@@ -187,51 +193,20 @@ class ProductController extends Controller
              unlink('product_images/' . $file->product_image);
              $file->delete();
         }
-
-
-
-        // $image_one = $product_id->image_one;
-        // $image_two = $product_id->image_two;
-        // $image_three = $product_id->image_three;
-
-        // if ($image_one) {
-        //     unlink('product_images/' . $product_id->image_one);
-        // }
-        // if ($image_two) {
-        //     unlink('product_images/' . $product_id->image_two);
-        // }
-        // if ($image_three) {
-        //     unlink('product_images/' . $product_id->image_three);
-        // }
         $product->delete();
         return Response()->json(['success' => 'sfds']);
 
     }
     public function show($id)
     {
-
-        // $product = DB::table('products')
-        //     ->join('categories', 'products.category_id', 'categories.id')
-        //     ->join('brands', 'products.brand_id', 'brands.id')
-        //     ->select('products.*', 'categories.category_name', 'brands.brand_name')
-        //     ->where('products.id', $id)->first();
-
-
-$product = Product::with(['category','subCategory','attributes'])->where('id',$id)->first();
-
-
-    
-        return view('admin/product/show', compact('product'));
+     $product = Product::with(['category','subCategory','attributes'])->where('id',$id)->first();
+    return view('admin/product/show', compact('product'));
 
     }
     public function getsubcat($id)
     {
-        // $cat = Sub_category::find($id)->where('category_id',$id)->get();
-        $cat = DB::table('sub_categories')->where('category_id', $id)->get();
-
-        return json_encode($cat);
-        // return response()->json($cat);
-
+    $cat = DB::table('sub_categories')->where('category_id', $id)->get();
+    return json_encode($cat);
     }
 
     public function statusupdate($id)
@@ -260,7 +235,6 @@ $product = Product::with(['category','subCategory','attributes'])->where('id',$i
             }
             return $data;
         }
-
         return view('frontend/index', compact('products'));
     }
 

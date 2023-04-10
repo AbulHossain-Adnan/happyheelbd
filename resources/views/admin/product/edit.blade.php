@@ -150,10 +150,6 @@
                   <label class="form-control-label">Old Image<span class="tx-danger">*</span></label>
 									<img src="{{asset('product_images/'.$item->product_image)}}" width="60">
 								</div>
-
-                {{-- <div class="form-group col-md-2 mt-4">
-								<button type="button" onclick="addMore()" class="btn btn-success btn-sm float-right">addMore+</button>
-								</div> --}}
 			      </div>
          
              @endforeach
