@@ -131,6 +131,7 @@ class ProductController extends Controller
     }
     public function update(Request $request,$id)
     {
+        
         $product = Product::with('attributes')->findOrFail($id);
         if($request->product_image) {
 
@@ -146,8 +147,13 @@ class ProductController extends Controller
                             'product_id'=>$id,
                             'product_color'=>$request->product_color[$i],
                         ];
-                        if($request->file('product_image')) {
+                        if(count($product_images) > 1) {
                             $file = $request->product_image[$i];
+                            $product_image = hexdec(uniqid()) . '.' . $file->extension();
+                            Image::make($file->getRealPath())->resize(540, 600)->save('product_images/' . $product_image);
+                            $datasave['product_image'] = $product_image;
+                        }else{
+                            $file = $request->product_image[1];
                             $product_image = hexdec(uniqid()) . '.' . $file->extension();
                             Image::make($file->getRealPath())->resize(540, 600)->save('product_images/' . $product_image);
                             $datasave['product_image'] = $product_image;

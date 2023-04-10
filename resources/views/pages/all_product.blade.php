@@ -66,7 +66,7 @@
                     <div class="col-lg-3 col-md-4 col-6 grid_item">
                         <div class="product">
                             <div class="">
-                                <a href="{{url('/singleproduct/'.$item->id)}}">
+                                 <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
                                         <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
                                    </a>
                                 <div class="product_action_box">
@@ -82,7 +82,7 @@
                                 </div>
                             </div>
                               <div class="product_info">
-                                    <h6 class="product_title"><a href="{{url('/singleproduct/'.$item->id)}}">{{$item->product_name}}</a></h6>
+                                    <h6 class="product_title"> <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">{{$item->product_name}}</a></h6>
                                     <div class="product_price">
                                         <span class="price">{{@$item->discount_price}} TK</span>
                                         <del>
