@@ -15,6 +15,7 @@ use App\Models\Sub_category;
 use App\Models\ProductAttribute;
 
 
+
 use App\Http\Requests\Admin\ProductRequest;
 use DataTables;
 use Image;
@@ -50,7 +51,7 @@ class ProductController extends Controller
                 })
                 ->addColumn('image_one', function ($data) {
 
-                    $image_name = $data->attributes[0]['product_image'];
+                    $image_name = @$data->attributes[0]['product_image'];
                     $url = "product_images/$image_name";
                     return '<img src="' . $url . '" border="0" 
                     width="60" class="img-rounded" align="center" />';
@@ -69,6 +70,9 @@ class ProductController extends Controller
     }
     public function store(ProductRequest $request)
     {
+        try {
+            DB::beginTransaction();
+
         $product = Product::create($request->all());
         $product_colors = $request->product_color;
 
@@ -104,20 +108,55 @@ class ProductController extends Controller
             $image_make->save('product_images/' . $image_name2);
             $product->image_two = $image_name2;
         }
+           
         $product->save();
-        return redirect()->route('products.index')->with('message', 'product created successfully');
+        
+        DB::commit();
+         return redirect()->route('products.index')->with('message', 'product created successfully');
+        } catch (\Exception $e) {
+            DB::rollback();
+            // something went wrong
+        }
+
     }
     public function edit($id)
     {
+        $product = Product::with('attributes')->findOrFail($id);
+
         return view('admin/product/edit', [
-            'product' => Product::with('files')->findOrFail($id),
+            'product' => Product::with('attributes')->findOrFail($id),
             'categories' => Category::all(),
             'brands' => Brand::all(),
         ]);
     }
-    public function update(ProductRequest $request,$id)
+    public function update(Request $request,$id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::with('attributes')->findOrFail($id);
+        if($request->product_image) {
+
+        if($product->attributes ) {
+        foreach($product->attributes as $item) {
+            unlink('product_images/' . $item->product_image);
+            $item->delete();
+        }
+        }
+            $product_images = $request->product_image;
+                for($i=0; $i < count($product_images); $i++) {
+                        $datasave=[ 
+                            'product_id'=>$id,
+                            'product_color'=>$request->product_color[$i],
+                        ];
+                        if($request->file('product_image')) {
+                            $file = $request->product_image[$i];
+                            $product_image = hexdec(uniqid()) . '.' . $file->extension();
+                            Image::make($file->getRealPath())->resize(540, 600)->save(public_path('product_images/' . $product_image));
+                            $datasave['product_image'] = $product_image;
+                        }
+                    DB::table('product_attributes')->insert($datasave);
+                }
+
+        } 
+
         $image_one = $request->image_one;
         $image_two = $request->image_two;
 
@@ -136,29 +175,6 @@ class ProductController extends Controller
         }
         $product = $product->update($request->all());
 
-
-        // $product_attributes = ProductAttribute::where('product_id',$id)->get();
-        // if($product_attributes) {
-        //     foreach($product_attributes as $item) {
-        //     unlink('product_images/' . $item->product_image);
-        //     $item->delete();
-        //     $product_colors = $request->product_color;
-        //         for($i=0; $i < count($product_colors); $i++) {
-        //                 $datasave=[ 
-        //                     'product_id'=>$id,
-        //                     'product_color'=>$request->product_color[$i],
-        //                 ];
-        //                 if($request->file('product_image')) {
-        //                     $file = $request->product_image[$i];
-        //                     $product_image = hexdec(uniqid()) . '.' . $file->extension();
-        //                     Image::make($file->getRealPath())->resize(540, 600)->save(public_path('product_images/' . $product_image));
-        //                     $datasave['product_image'] = $product_image;
-        //                 }
-        //             DB::table('product_attributes')->insert($datasave);
-        //         }
-
-        //     }
-        // }
     return redirect()->route('products.index')->with('message', 'product updated successfully');
       
     }
