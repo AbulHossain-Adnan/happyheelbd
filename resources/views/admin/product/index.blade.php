@@ -21,10 +21,7 @@
                 <th class="wd-10p">image</th>
                 <th class="wd-15p">Product code</th>
                 <th class="wd-15p">Product name</th>
-               <!--  <th class="wd-15p">Category</th>
-                <th class="wd-10p">Brand</th> -->
                 <th class="wd-25p">Quantity</th>
-                <!-- <th class="wd-25p">status</th> -->
                 <th class="wd-25p">Action</th>
               </tr>
             </thead>
@@ -35,8 +32,6 @@
           </table>
         </div><!-- table-wrapper -->
       </div><!-- card -->
-      
-     
 <!-- start datatable script  -->
 <script type="text/javascript">
 
