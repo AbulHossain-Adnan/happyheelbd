@@ -149,7 +149,7 @@ class ProductController extends Controller
                         if($request->file('product_image')) {
                             $file = $request->product_image[$i];
                             $product_image = hexdec(uniqid()) . '.' . $file->extension();
-                            Image::make($file->getRealPath())->resize(540, 600)->save(public_path('product_images/' . $product_image));
+                            Image::make($file->getRealPath())->resize(540, 600)->save('product_images/' . $product_image);
                             $datasave['product_image'] = $product_image;
                         }
                     DB::table('product_attributes')->insert($datasave);
