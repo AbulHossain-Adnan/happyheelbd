@@ -125,7 +125,7 @@
                                         </div>
                                         <div class="product_info">
                                             <h6 class="product_title"><a
-                                                    href="{{ url('/singleproduct/' . $item->id) }}">{{ $item->product_name }}</a>
+                                                    href="{{ url('/singleproduct/'.$item->id.'/'.$item->product_name) }}">{{ $item->product_name }}</a>
                                             </h6>
                                             <div class="product_price">
                                                 <span class="price"> TK {{ $item->discount_price }}</span>
@@ -209,7 +209,7 @@
                                         </div>
                                         <div class="product_info">
                                             <h6 class="product_title"><a
-                                                    href="{{ url('/singleproduct/' . $item->id) }}">{{ $item->product_name }}</a>
+                                                    href="{{ url('/singleproduct/'.$item->id.'/'.$item->product_name) }}">{{ $item->product_name }}</a>
                                             </h6>
                                             <div class="product_price">
                                                 <span class="price"> TK {{ $item->discount_price }}</span>
