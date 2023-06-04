@@ -55,16 +55,16 @@
                             	<td colspan="6" class="px-0">
                                 	<div class="row g-0 align-items-center">
 
-                                    	<div class="col-lg-4 col-md-6 mb-3 mb-md-0">
+                                    	<div class="col-lg-5 col-md-6 mb-3 mt-3 mb-md-0">
                                             <div class="coupon field_form input-group">
                                                 <input type="text" value="" id="coupon_name" name="coupon_name" class="form-control form-control-sm" placeholder="Enter Coupon Code..">
-                                                	<!-- <button onclick="applycoupon()" class="btn btn-fill-out btn-sm" type="submit">Apply Coupon</button> -->
+                                                	<button onclick="applycoupon()" class="btn btn-fill-out btn-sm" type="submit">Apply Coupon</button>
                                                 </div>
                                             </div>
                                     	</div>
-                                        {{-- <div class="col-lg-8 col-md-6  text-start  text-md-end">
-                                            <button class="btn btn-line-fill btn-sm" type="submit">Update Cart</button>
-                                        </div> --}}
+                                        <div class="col-lg-8 col-md-6  text-start  text-md-end">
+                                            {{-- <button class="btn btn-line-fill btn-sm" type="submit">Update Cart</button> --}}
+                                        </div> 
                                     </div>
                                 </td>
                             </tr>
@@ -348,7 +348,7 @@
 												</div>
 												
 												<div>
-														<div class="order_total_title">Grand Total:${data.grand_total}$</div>
+														<div class="order_total_title">Grand Total:${data.grand_total} tk</div>
 														
 												</div>
 									</th>
