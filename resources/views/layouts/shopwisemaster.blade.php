@@ -53,12 +53,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
     <script src="https://kit.fontawesome.com/8f1447907f.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js"></script>
 </head>
 
 <body>
 
-    <!-- Messenger Chat Plugin Code -->
+   <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
 
     <!-- Your Chat Plugin code -->
@@ -67,7 +66,7 @@
 
     <script>
       var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "117250924658896");
+      chatbox.setAttribute("page_id", "105420268628035");
       chatbox.setAttribute("attribution", "biz_inbox");
     </script>
 
