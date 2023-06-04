@@ -41,7 +41,7 @@
                     <span>Name:  {{$orders->name}}</span> <br>
                     <span>Email:  {{$orders->email}}</span> <br>
                     <span>Phone:  {{$orders->pnumber}}</span> <br>
-                    <span>Address: {{$orders->Shipping->district}},  {{$orders->Shipping->area}},  {{$orders->Shipping->division}} </span> <br>
+                    <span>Address: {{$orders->Shipping->address}}, {{$orders->Shipping->area}},  {{$orders->Shipping->division}} </span> <br>
             </div>
             </div>
         </div>

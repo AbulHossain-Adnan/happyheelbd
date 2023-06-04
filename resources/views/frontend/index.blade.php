@@ -6,7 +6,7 @@
     <div id="carouselExampleControls" class="carousel slide carousel-fade light_arrow" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item background_bg active"
-                data-img-data-original="{{ asset('templateassets') }}/assets/images/women/eidBanner.jpg" loading="lazy">
+                data-img-src="{{ asset('templateassets') }}/assets/images/women/bnn1.jpg" loading="lazy">
                 <div class="banner_slide_content banner_content_inner">
                     <div class="container">
                         <div class="row">
@@ -26,7 +26,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item background_bg" data-img-data-original="{{ asset('templateassets') }}/assets/images/women/romadan2.jpg" loading="lazy">
+            <div class="carousel-item background_bg" data-img-src="{{ asset('templateassets') }}/assets/images/women/bnn2.jpg" loading="lazy">
                 <div class="banner_slide_content banner_content_inner">
                     <div class="container">
                         <div class="row">
@@ -46,7 +46,7 @@
                     </div>
                 </div>
             </div>
-            <div class="carousel-item background_bg" data-img-data-original="{{ asset('templateassets') }}/assets/images/women/romadan8.jpg" loading="lazy">
+            <div class="carousel-item background_bg" data-img-src="{{ asset('templateassets') }}/assets/images/women/bnn1.jpg" loading="lazy">
                 <div class="banner_slide_content banner_content_inner">
                     <div class="container">
                         <div class="row">
@@ -106,7 +106,7 @@
                                     <div class="product">
                                         <div class="">
                                             <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
-                                                <img data-original="{{ asset('product_images/' . @$item->attributes[0]['product_image']) }}"
+                                                <img src="{{ asset('product_images/' . @$item->attributes[0]['product_image']) }}"
                                                     alt="product_img1">
                                             </a>
                                             <div class="product_action_box">
@@ -125,7 +125,7 @@
                                         </div>
                                         <div class="product_info">
                                             <h6 class="product_title"><a
-                                                    href="{{ url('/singleproduct/'.$item->id.'/'.$item->product_name) }}">{{ $item->product_name }}</a>
+                                                    href="{{ url('/singleproduct/' . $item->id) }}">{{ $item->product_name }}</a>
                                             </h6>
                                             <div class="product_price">
                                                 <span class="price"> TK {{ $item->discount_price }}</span>
@@ -190,7 +190,7 @@
                                     <div class="product">
                                         <div class="">
                                             <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
-                                                <img data-original="{{ asset('product_images/' . @$item->attributes[0]['product_image']) }}"
+                                                <img src="{{ asset('product_images/' . @$item->attributes[0]['product_image']) }}"
                                                     alt="product_img1">
                                             </a>
                                             <div class="product_action_box">
@@ -209,7 +209,7 @@
                                         </div>
                                         <div class="product_info">
                                             <h6 class="product_title"><a
-                                                    href="{{ url('/singleproduct/'.$item->id.'/'.$item->product_name) }}">{{ $item->product_name }}</a>
+                                                    href="{{ url('/singleproduct/' . $item->id) }}">{{ $item->product_name }}</a>
                                             </h6>
                                             <div class="product_price">
                                                 <span class="price"> TK {{ $item->discount_price }}</span>
@@ -261,7 +261,7 @@
                     <div class="sale-banner mb-3 mb-md-4">
 
                         <a class="hover_effect1" href="#">
-                            <img data-original="{{ asset('templateassets/assets/images/women/romadan2.jpg') }}" loading="lazy" alt="shop_banner_img11">
+                            <img src="{{ asset('templateassets/assets/images/women/bnn1.jpg') }}" loading="lazy" alt="shop_banner_img11">
                         </a>
                     </div>
                 </div>
@@ -299,7 +299,7 @@
                                  <span class="pr_flash">New</span>
                                 <div class="">
                                    <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
-                                        <img data-original="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
                                    </a>
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">
@@ -383,7 +383,7 @@
 
 
 
-@if(!$pencil_heels->empty())
+@if(!$pencil_heels->isEmpty())
  <div class="section">
         <div class="container">
             <div class="row">
@@ -407,7 +407,7 @@
                                  <span class="pr_flash">New</span>
                                 <div class="">
                                    <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
-                                        <img data-original="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
                                    </a>
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">
@@ -499,7 +499,7 @@
                     <div class="sale-banner mb-3 mb-md-4">
 
                         <a class="hover_effect1" href="#">
-                            <img data-original="{{ asset('templateassets/assets/images/women/romadan1.png') }}" alt="shop_banner_img11">
+                            <img src="{{ asset('templateassets/assets/images/women/bnn2.jpg') }}" alt="shop_banner_img11">
                         </a>
                     </div>
                 </div>
@@ -547,7 +547,7 @@
                                  <span class="pr_flash">New</span>
                                 <div class="">
                                    <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
-                                        <img data-original="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
                                    </a>
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">
@@ -653,7 +653,7 @@
                                  <span class="pr_flash">New</span>
                                 <div class="">
                                    <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
-                                        <img data-original="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
                                    </a>
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">
@@ -735,7 +735,7 @@
     </div>
     @endif
 
-     @if(!$flat_sandles->empty())
+     @if(!$flat_sandles->isEmpty())
         <div class="section">
         <div class="container">
             <div class="row">
@@ -759,7 +759,7 @@
                                  <span class="pr_flash">New</span>
                                 <div class="">
                                    <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
-                                        <img data-original="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
                                    </a>
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">
@@ -835,7 +835,7 @@
 
                     </div>
                     <div class="auto-load text-center" style="display: none;">
-                    <img style="width:200px;height: 200px;" data-original="{{asset('images/loader7.gif')}}">
+                    <img style="width:200px;height: 200px;" src="{{asset('images/loader7.gif')}}">
                 </div>
         </div>
             </div>
@@ -869,7 +869,7 @@
                                  <span class="pr_flash">New</span>
                                 <div class="">
                                    <a href="{{url('/singleproduct/'.$item->id.'/'.$item->product_name)}}">
-                                        <img data-original="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
+                                        <img src="{{ asset('product_images/'.@$item->attributes[0]['product_image']) }}" alt="product_img1">
                                    </a>
                                     <div class="product_action_box">
                                         <ul class="list_none pr_action_btn">
@@ -969,7 +969,7 @@
                     <div class="item">
                         <div class="categories_box">
                             <a href="{{url('category/shop/products'.'/'.$item->id.'/'.$item->brand_name)}}">
-                                <img data-original="{{ asset('images/'.@$item->brand_photo) }}" alt="cat_img1"/>
+                                <img src="{{ asset('images/'.@$item->brand_photo) }}" alt="cat_img1"/>
                                 <span>{{$item->brand_name}}</span>
                             </a>
                         </div>
@@ -996,15 +996,7 @@
 {{-- </div>                 
 </div>  --}}
 
-<script type="text/javascript">
 
-	$("img").lazyload({
-
-	    effect : "fadeIn"
-
-	});
-
-</script>
    
 
 <script type="text/javascript">
