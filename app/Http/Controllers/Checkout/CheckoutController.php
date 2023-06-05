@@ -33,6 +33,8 @@ class CheckoutController extends Controller
     public function checkoutpage(Request $Request)
     {
 
+        // dd($Request->all())
+
         return view(
             'pages/checkout',
             [
@@ -48,14 +50,13 @@ class CheckoutController extends Controller
 
     public function payment(Request $Request)
     {
-        // dd($Request->all());
         $Request->validate([
             'name'=>'required',
             'pnumber'=>'required|numeric|min:10',
             'division_id'=>'required',
             'district_id'=>'required',
             'area_id'=>'required',
-            'adress'=>'required',
+            'adress'=>'required',   
         ]);
 
         $payAmount = $Request->subtotal + $Request->sheeping;

@@ -34,8 +34,6 @@ class UserController extends Controller
         if ($district_id == 8) {
 
             $data['sheeping'] = 80;
-
-
             $data['total'] = Cart::subtotal() + 80;
         } else {
 
