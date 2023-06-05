@@ -90,7 +90,7 @@
               		{{-- <td>{{$item->price}}</td> --}}
 
               		<td>{{$item->quantity}}</td>
-              		<td>{{$item->subtotal}}</td>
+              		<td>TK {{$item->subtotal}}</td>
     
               </tr>
 
@@ -101,6 +101,10 @@
                      <tr>
                 <td colspan="5" class="total-heading"> Shipping charge:</td>
                 <td colspan="4" class="total-heading"> TK {{$orders->shipping}}</td>
+            </tr>
+               <tr>
+                <td colspan="5" class="total-heading"> Discount:</td>
+                <td colspan="4" class="total-heading"> TK {{$orders->discount}}</td>
             </tr>
              {{-- <tr>
                 <td colspan="5" class="total-heading"> Advance:</td>

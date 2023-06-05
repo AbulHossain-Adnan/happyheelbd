@@ -200,9 +200,13 @@
                                     <th>SubTotal Charge:</th>
                                     <td class="product-subtotal">{{$carts['subtotal']}} taka</td>
                                 </tr>
+                                  <tr>
+                                    <th>Discount Amount:</th>
+                                    <td class="product-subtotal">{{$carts['discount_amount']}} taka</td>
+                                </tr>
                                 <tr >
                                   
-                                    <th>Shipping</th>
+                                    <th>Shipping Charge</th>
                                      <p>ঢাকার ভিতরে শিপিং চার্জ ৮০  টাকা সময় 2-3 দিন এবং ঢাকার বাইরে ডেলিভারি চার্জ ১৫০ টাকা সময় 4-5 দিন</p>
 
                                     <td id="sheeping_charge"></td>
@@ -218,7 +222,7 @@
 
                                 @else
                                 <input type="hidden" value="{{$carts['grand_total']}}" name="subtotal">
-                                <input type="hidden" value="{{$carts['discount_amount']}}" name="discount">
+                                <input type="hidden" value="{{$carts['discount_amount']}}" id="testDiscount" name="discount">
                                  <input type="hidden" id="sheeping" name="sheeping">
                                 @endif
                             </tfoot>
@@ -330,11 +334,18 @@
     url:"/get_area/"+district_id,
     success:function(data){
 
-        $('#sheeping_charge').html(data.sheeping + '  taka');
+        $discount_amount = $('#testDiscount').val();
 
-         $('#total').html(data.total + '  taka');
 
-        $('#sheeping').val(data.sheeping);
+
+        if($discount_amount != 0) {
+            $total_amount = data.total - $discount_amount;
+            $('#total').html($total_amount + '  taka');
+        }else{
+            $('#total').html(data.total + '  taka');
+        }
+            $('#sheeping_charge').html(data.sheeping + '  taka');
+            $('#sheeping').val(data.sheeping);
 
 
      $('#area_id').html('<option value="">Select Area</option>');
